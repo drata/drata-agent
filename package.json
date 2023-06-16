@@ -1,0 +1,216 @@
+{
+    "name": "drata-agent",
+    "version": "3.4.1",
+    "description": "The Drata Agent is a light-weight tray-application that runs in the background, reporting important read-only data to Drata about your machine's state for compliance tracking.",
+    "author": "Drata Inc. <drata@drata.com> (https://drata.com)",
+    "private": true,
+    "license": "Apache-2.0",
+    "main": "dist/main.js",
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "build": "webpack --mode=production --env targetEnv=LOCAL",
+        "react:dev": "webpack serve --mode=development",
+        "electron:dev": "nodemon",
+        "start": "concurrently --kill-others --names \"REND,MAIN\" \"yarn react:dev\" \"yarn electron:dev\"",
+        "prebuilder": "rimraf dist"
+    },
+    "build": {
+        "appId": "com.drata.agent",
+        "productName": "Drata Agent",
+        "copyright": "© 2023 Drata Inc. All rights reserved.",
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "drata",
+                "repo": "agent-releases"
+            }
+        ],
+        "protocols": {
+            "name": "auth-drata-agent-protocol",
+            "schemes": [
+                "auth-drata-agent"
+            ]
+        },
+        "files": [
+            "./build/**/*",
+            "./dist/preload.js",
+            "./dist/renderer.js",
+            "./dist/renderer.js.map",
+            "./dist/index.html",
+            "./dist/main.js",
+            "./src/assets/**/*",
+            "!.env",
+            "!scripts/notarize.js",
+            "!.vscode/**/*",
+            "!.github/**/*",
+            "!builder.cli.js",
+            "!nodemon.json",
+            "!.prettierrc",
+            "!.eslintrc.json",
+            "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+            "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+            "!**/node_modules/*.d.ts",
+            "!**/node_modules/.bin",
+            "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+            "!.editorconfig",
+            "!**/._*",
+            "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+            "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+            "!**/{appveyor.yml,.travis.yml,circle.yml}",
+            "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+        ],
+        "dmg": {
+            "sign": false
+        },
+        "pkg": {
+            "installLocation": "/Applications",
+            "allowAnywhere": true,
+            "allowCurrentUserHome": true,
+            "welcome": "build/resources/welcome.txt",
+            "conclusion": "build/resources/conclusion.txt"
+        },
+        "mac": {
+            "extendInfo": {
+                "LSUIElement": "true"
+            },
+            "hardenedRuntime": true,
+            "gatekeeperAssess": false,
+            "entitlements": "build/entitlements.mac.plist",
+            "entitlementsInherit": "build/entitlements.mac.plist",
+            "mergeASARs": true,
+            "extraResources": [
+                {
+                    "from": "lib/macos/bin/${arch}/osqueryi",
+                    "to": "lib/macos/bin/osqueryi"
+                }
+            ],
+            "target": [
+                {
+                    "target": "pkg",
+                    "arch": [
+                        "universal"
+                    ]
+                },
+                {
+                    "target": "dmg",
+                    "arch": [
+                        "universal"
+                    ]
+                },
+                {
+                    "target": "zip",
+                    "arch": [
+                        "universal"
+                    ]
+                }
+            ]
+        },
+        "win": {
+            "extraResources": "lib/windows/bin/osqueryi.exe",
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
+            "icon": "build/icon.png"
+        },
+        "linux": {
+            "extraResources": "lib/linux/bin/osqueryi",
+            "target": [
+                {
+                    "target": "deb",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
+            "icon": "./build/icon.icns",
+            "category": "Office"
+        }
+    },
+    "engines": {
+        "node": "^16.16.0"
+    },
+    "devDependencies": {
+        "@drata/component-library": "^0.4.112",
+        "@electron/notarize": "^1.2.3",
+        "@formatjs/intl": "^1.13.4",
+        "@openfonts/montserrat_all": "^1.44.2",
+        "@reduxjs/toolkit": "^1.6.1",
+        "@sentry/electron": "^4.2.0",
+        "@types/auto-launch": "^5.0.2",
+        "@types/cli-spinner": "^0.2.1",
+        "@types/color-convert": "^2.0.0",
+        "@types/inquirer": "^7.3.3",
+        "@types/lodash": "^4.14.170",
+        "@types/node": "^16.11.26",
+        "@types/node-schedule": "^1.3.2",
+        "@types/qs": "^6.9.6",
+        "@types/react": "^17.0.1",
+        "@types/react-dom": "^17.0.0",
+        "@types/react-router-dom": "^5.1.8",
+        "@types/styled-components": "^5.1.11",
+        "@typescript-eslint/eslint-plugin": "^4.29.1",
+        "@typescript-eslint/parser": "^4.29.1",
+        "auto-launch": "^5.0.5",
+        "axios": "^0.21.3",
+        "chalk": "^4.1.1",
+        "cli-spinner": "^0.2.10",
+        "color-convert": "^2.0.1",
+        "concurrently": "^6.0.0",
+        "css-loader": "^6.7.2",
+        "electron": "24.1.1",
+        "electron-builder": "^23.6.0",
+        "electron-devtools-installer": "^3.2.0",
+        "electron-log": "^4.3.5",
+        "electron-updater": "^6.0.3",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "fast-safe-stringify": "^2.1.1",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^5.0.0",
+        "inquirer": "^8.1.1",
+        "lodash": "^4.17.21",
+        "menubar": "^9.2.3",
+        "moment": "^2.29.4",
+        "node-schedule": "^2.0.0",
+        "nodemon": "^2.0.20",
+        "qs": "6.11.0",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-feather": "^2.0.9",
+        "react-intl": "^5.20.4",
+        "react-is": "^18.2.0",
+        "react-redux": "^7.2.4",
+        "react-router-dom": "^5.2.0",
+        "reactstrap": "^8.9.0",
+        "redux": "^4.1.0",
+        "redux-devtools-extension": "^2.13.9",
+        "redux-thunk": "^2.3.0",
+        "sass": "^1.32.8",
+        "sass-loader": "^11.0.1",
+        "style-loader": "^3.3.1",
+        "styled-components": "5.3.3",
+        "terser-webpack-plugin": "^5.3.7",
+        "ts-loader": "^9.4.2",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.4.3",
+        "url-loader": "^4.1.1",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^4.5.0",
+        "webpack-dev-server": "^4.11.1"
+    },
+    "dependencies": {},
+    "resolutions": {
+        "minimatch": "^5.1.1",
+        "json5": "^2.2.3",
+        "jszip": "^3.10.1",
+        "http-cache-semantics": "^4.1.1"
+    }
+}

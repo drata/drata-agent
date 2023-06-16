@@ -1,0 +1,6 @@
+The Drata Agent has been successfully installed!
+
+Please open the application and then enter the Account Key and your Email into the form to register your computer.
+
+Thank you for installing the Drata Agent!
+© 2023 Drata Inc. <drata@drata.com> (https://drata.com)
