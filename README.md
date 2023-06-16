@@ -44,7 +44,7 @@ node_modules/.bin/electron-builder --mac -c.mac.identity=null
 
 ## Install and register agent from local build
 
-1. Switch/checkout this repository
+1. Switch or checkout this repository
 1. Build desired package
 1. Execute dmg disk image (dist folder) and copy Drata Agent to `Applications`
 1. Run Drata Agent from `Applications`
