@@ -51,3 +51,9 @@ node_modules/.bin/electron-builder --mac -c.mac.identity=null
 1. Click Agent -> Settings Icon -> you can view which version of the agent is running, it should say `[LOCAL] Agent Version`
 1. Log into Drata -> MyDrata -> Install the Drata Agent -> click Register Drata Agent. This will send a magic-link.
 1. From the magic-link email, copy the token portion of the magic-link URL and paste it into your local Agent -> Click Register.
+
+## Drata Support
+
+Drata currently tests on and supports Ubuntu 20 & 22, Windows 10 & 11, and MacOS 12 & 13. 
+
+Please see Drata help for the most up-to-date support information.
