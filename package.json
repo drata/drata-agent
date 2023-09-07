@@ -162,7 +162,7 @@
         "color-convert": "^2.0.1",
         "concurrently": "^6.0.0",
         "css-loader": "^6.7.2",
-        "electron": "24.1.1",
+        "electron": "25.0.0",
         "electron-builder": "^23.6.0",
         "electron-devtools-installer": "^3.2.0",
         "electron-log": "^4.3.5",
