@@ -90,6 +90,7 @@ export class MainBridge {
             this.logger.info({
                 execPath: process.execPath,
                 features: process.features,
+                nodeVer: process.version,
                 winSize: this.sender?.getSize(),
                 contentSize: this.sender?.getContentSize(),
                 ...this.prepareDataForDiagnostics(
@@ -100,6 +101,11 @@ export class MainBridge {
                 processPriority: os.getPriority(),
                 uptime: os.uptime(),
                 jobs: SchedulerService.instance.getScheduledJobsInfo(),
+                nodeConfig: {
+                    execArgv: process.execArgv,
+                    argv: process.argv,
+                    config: process.config,
+                },
             });
         } catch (err) {
             this.logger.error(err, 'Error dumping diagnostics');

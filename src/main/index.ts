@@ -1,3 +1,4 @@
+import * as dns from 'dns';
 import { app, powerMonitor } from 'electron';
 import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import { get, isNil } from 'lodash';
@@ -62,13 +63,22 @@ class DrataAgent {
 
     async init(): Promise<DrataAgent | undefined> {
         try {
-            await app.whenReady();
+            await app.whenReady().then(() => {
+                dns.setDefaultResultOrder('ipv4first');
+            });
 
             this.installDevTools();
 
             Intl.init();
 
-            await AutoLauncherHelper.enable();
+            try {
+                await AutoLauncherHelper.enable();
+            } catch (error: any) {
+                this.logger.warn(
+                    'Could not modify automatic startup settings.',
+                    error?.message,
+                );
+            }
 
             const hasAccessToken = !!this.dataStore.get('accessToken');
             const region = this.dataStore

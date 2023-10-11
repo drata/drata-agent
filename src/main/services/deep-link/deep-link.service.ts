@@ -90,8 +90,6 @@ export class DeepLinkService extends ServiceBase {
                     );
 
                     const parsed = this.resolveProtocol(protocol);
-                    this.logger.info(`Protocol parsed as ${parsed}`);
-
                     this.storeCapturedProtocol(parsed);
                     this.emit(parsed);
                 }
