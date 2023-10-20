@@ -8,6 +8,7 @@ The Drata Agent is a lightweight application that lives in your computer's toolb
 -   [Automatic Upgrades Channel Repository](https://github.com/drata/agent-releases)
 -   [Electron](https://www.electronjs.org/)
 -   [Electron Builder](https://www.electron.build/)
+-   [osquery](https://www.osquery.io/)
 
 # Run or Build Drata Agent on Mac
 
