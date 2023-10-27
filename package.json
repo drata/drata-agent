@@ -163,7 +163,7 @@
         "@typescript-eslint/eslint-plugin": "^4.29.1",
         "@typescript-eslint/parser": "^4.29.1",
         "auto-launch": "^5.0.5",
-        "axios": "^0.21.3",
+        "axios": "^1.6.0",
         "chalk": "^4.1.1",
         "cli-spinner": "^0.2.10",
         "color-convert": "^2.0.1",
