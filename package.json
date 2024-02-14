@@ -17,7 +17,7 @@
     "build": {
         "appId": "com.drata.agent",
         "productName": "Drata Agent",
-        "copyright": "© 2023 Drata Inc. All rights reserved.",
+        "copyright": "© 2024 Drata Inc. All rights reserved.",
         "artifactName": "Drata-Agent-${os}.${ext}",
         "publish": [
             {
