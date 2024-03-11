@@ -15,6 +15,7 @@ import {
     dismissCurrentAction,
 } from '../../../renderer/redux/actions/messages.actions';
 import { selectCurrentMessage } from '../../../renderer/redux/selectors/messages.selectors';
+import { MessageType } from '../../../entities/message-listener-type.enum';
 
 const Wrapper = styled.div`
     position: fixed;
@@ -61,7 +62,7 @@ const Description = styled.p`
     margin: 0 !important;
 `;
 
-function MessageModal() {
+function MessageModal(props: { onError: () => void }) {
     const dispatch = useDispatch();
     const bridge = useBridge();
     const dismissButton = useRef<HTMLButtonElement | null>(null);
@@ -77,7 +78,13 @@ function MessageModal() {
         dismissButton.current?.focus();
     }, [dismissButton]);
 
-    const closeMessage = () => dispatch(dismissCurrentAction());
+    const closeMessage = () => {
+        // DD Browser SDK requires interaction or page reload to start session
+        if (message?.type === MessageType.ERROR) {
+            props.onError();
+        }
+        dispatch(dismissCurrentAction());
+    };
 
     if (isNil(message)) {
         return null;

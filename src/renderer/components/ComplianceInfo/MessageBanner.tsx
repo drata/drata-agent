@@ -80,7 +80,7 @@ function MessageBanner({ allPassed, complianceChecksCount }: Props) {
                     </StyledH2>
                     <p>
                         {_t({
-                            id: 'Please click the "Sync Now" button below',
+                            id: 'Please click the "Sync now" button below',
                         })}
                     </p>
                 </>

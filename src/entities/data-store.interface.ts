@@ -6,11 +6,13 @@ import { DebugInfo } from '../types/debug-info.type';
 import { ProtocolArgs } from '../types/protocol-args.type';
 
 export interface DataStore {
+    uuid?: string;
     appVersion?: string;
     accessToken?: string;
     user?: MeResponseDto;
     syncState?: SyncState;
     lastCheckedAt?: string;
+    lastSyncAttemptedAt?: string;
     complianceData?: AgentV2ResponseDto;
     winAvServicesMatchList?: string[];
     capturedProtocol?: ProtocolArgs;

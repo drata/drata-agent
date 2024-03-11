@@ -1,36 +1,40 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import crypto from 'crypto';
+import { app } from 'electron';
 import { Region } from 'enums/region.enum';
+import { isNil } from 'lodash';
 import { DataStoreHelper } from './data-store.helper';
 import { resolveBaseUrl } from './environment.helpers';
 
 export class AxiosHelper {
     static instance: AxiosHelper = new AxiosHelper();
-
     private readonly dataStore = DataStoreHelper.instance;
-
     private readonly axiosInstance = axios.create();
 
     private constructor() {
-        // insert authorization header before requests
+        // prepare headers for requests
         this.axiosInstance.interceptors.request.use(
             async config => {
                 const region = this.dataStore
                     .get('region')
                     ?.replace(/\/$/, '') as Region;
 
-                return {
-                    ...config,
-                    baseURL: resolveBaseUrl(region),
-                    headers: {
-                        common: {
-                            Authorization: `Bearer ${this.dataStore.get(
-                                'accessToken',
-                            )}`,
-                            'Content-Type': 'application/json',
-                            'User-Agent': 'Drata-Agent/1.0',
-                        },
-                    },
-                };
+                const uuid = this.dataStore.get('uuid');
+                if (isNil(uuid)) {
+                    this.dataStore.set('uuid', crypto.randomUUID());
+                }
+
+                config.baseURL = resolveBaseUrl(region);
+                config.headers.Authorization = `Bearer ${this.dataStore.get(
+                    'accessToken',
+                )}`;
+                config.headers['Content-Type'] = 'application/json';
+                config.headers['Correlation-Id'] = uuid;
+                config.headers[
+                    'User-Agent'
+                ] = `Drata-Agent/${app.getVersion()} (${process.platform})`;
+
+                return config;
             },
             error => Promise.reject(error),
         );
@@ -38,7 +42,7 @@ export class AxiosHelper {
 
     get<T = any, R = AxiosResponse<T>>(
         url: string,
-        config?: AxiosRequestConfig,
+        config?: AxiosRequestConfig<any>,
     ): Promise<R> {
         return this.axiosInstance.get(url, config);
     }
@@ -46,7 +50,7 @@ export class AxiosHelper {
     post<T = any, R = AxiosResponse<T>>(
         url: string,
         data?: any,
-        config?: AxiosRequestConfig,
+        config?: AxiosRequestConfig<any>,
     ): Promise<R> {
         return this.axiosInstance.post(url, data, config);
     }

@@ -12,8 +12,16 @@ import { MessageModal } from './MessageModal/MessageModal';
 
 import { useBridge } from '../hooks/use-bridge.hook';
 import { setDataStoreAction } from '../../renderer/redux/actions/data-store.actions';
-import { selectHasAccessToken } from '../../renderer/redux/selectors/data-store.selectors';
+import {
+    selectAppVersion,
+    selectHasAccessToken,
+    selectUser,
+} from '../../renderer/redux/selectors/data-store.selectors';
 import { AppRoute } from './app-route.enum';
+
+import { RumInitConfiguration, datadogRum } from '@datadog/browser-rum';
+import { config } from '../../config';
+import { isEmpty } from 'lodash';
 
 const AppWrapper = styled.div<{ isAuthenticated: boolean }>`
     height: 100%;
@@ -23,12 +31,38 @@ const AppWrapper = styled.div<{ isAuthenticated: boolean }>`
 `;
 
 const App = () => {
+    const MAX_ERRORS = 10;
     const dispatch = useDispatch();
     const bridge = useBridge();
     const hasAccessToken = useSelector(selectHasAccessToken);
     const [isAppReady, setIsAppReady] = useState(
         Boolean(window.sessionStorage.getItem('APP_READY')),
     );
+    const version = useSelector(selectAppVersion);
+    const user = useSelector(selectUser);
+    const [errors, setErrors] = React.useState<any[]>([]);
+
+    const onError = () => {
+        try {
+            if (!isEmpty(errors)) {
+                // we only want logs errors when interaction occurs
+                datadogRum.startView('error');
+                // log all known errors for message and clear
+                errors.forEach((e: any) => {
+                    // prepare for prettier error reporting
+                    const err = new Error(e.message);
+                    err.stack = e.stack;
+                    datadogRum.addError(err, { context: e.context });
+                });
+            }
+        } catch (e) {
+            console.error(e);
+        } finally {
+            if (!isEmpty(errors)) {
+                setErrors([]);
+            }
+        }
+    };
 
     useEffect(() => {
         return bridge.onMessage('appReady', () => {
@@ -40,22 +74,53 @@ const App = () => {
     }, [bridge, isAppReady]);
 
     useEffect(() => {
+        return bridge.onMessage('addError', err => {
+            try {
+                if (!isEmpty(err)) {
+                    setErrors(state => {
+                        if (state.length >= MAX_ERRORS) {
+                            state.shift();
+                        }
+                        return [...state, err];
+                    });
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        });
+    }, [bridge]);
+
+    useEffect(() => {
+        let isInitialized = !isEmpty(datadogRum.getInitConfiguration());
+        if (isAppReady && version && !isInitialized) {
+            datadogRum.init({
+                ...config.datadog,
+                version,
+            } as RumInitConfiguration);
+
+            isInitialized = true;
+        }
+
+        if (
+            user?.email &&
+            user?.entryId &&
+            isInitialized &&
+            isEmpty(datadogRum.getUser())
+        ) {
+            // set user if available, will reload on registration
+            datadogRum.setUser({
+                id: user.entryId,
+                email: user.email,
+            });
+        }
+    }, [user?.email, user?.entryId, isAppReady, version]);
+
+    useEffect(() => {
         if (isAppReady) {
             bridge
                 .invoke('getDataStore')
                 .then(data => dispatch(setDataStoreAction(data)))
                 .catch(error => {
-                    /**
-                     * #####       ####
-                     *   #    ###  #   #  ###
-                     *   #   #   # #   # #   #
-                     *   #   #   # #   # #   #
-                     *   #    ###  ####   ###
-                     *
-                     * ToDo: display a safe error once we have a component for that
-                     */
-
-                    // It's ok to have this console.error here since the users don't have access to the console
                     console.error(error);
                 });
         }
@@ -77,7 +142,7 @@ const App = () => {
                 {hasAccessToken && <Footer />}
             </Router>
 
-            <MessageModal />
+            <MessageModal onError={onError} />
         </AppWrapper>
     );
 };

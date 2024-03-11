@@ -109,7 +109,7 @@ function Footer() {
                         spinning: syncState === SyncState.RUNNING,
                     })}
                 />
-                {_t({ id: 'Sync Now' })}
+                {_t({ id: 'Sync now' })}
             </StyledButton>
             <TimeStamp>
                 {showSuccessMessage
