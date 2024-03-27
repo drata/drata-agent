@@ -1,9 +1,16 @@
+import { ScreenLockSetting } from './screen-lock-setting-interface';
+
 export type QueryResult = {
     drataAgentVersion: string;
     platform: 'MACOS' | 'WINDOWS' | 'LINUX';
     rawQueryResults: {
         osVersion: any;
         hwSerial: any;
+        boardSerial?: any;
+        boardModel?: any;
+        computerName?: any;
+        hostName?: any;
+        localHostName?: any;
         hwModel: any;
         appList: any;
         winAvStatus?: string;
@@ -27,5 +34,6 @@ export type QueryResult = {
         screenLockStatus?: any;
         graphics?: any;
         locationServices?: any;
+        screenLockSettings?: ScreenLockSetting;
     };
 };

@@ -16,6 +16,7 @@ import { selectComplianceChecks } from '../../redux/selectors/data-store.selecto
 import { _t } from '../../helpers/intl.helpers';
 import { ComplianceCheckResponseDto } from '../../../main/services/api/dtos/compliance-check-response.dto';
 import { ComplianceCheckType } from '../../../enums/compliance-check-type.enum';
+import { ComplianceCheckStatus } from '../../../enums/compliance-check-status.enum';
 
 const BodyWrapper = styled.main`
     overflow-y: auto;
@@ -24,7 +25,9 @@ const BodyWrapper = styled.main`
 `;
 
 function ComplianceInfo() {
-    const complianceChecks = useSelector(selectComplianceChecks);
+    const complianceChecks = useSelector(selectComplianceChecks)?.filter(
+        c => c.status !== ComplianceCheckStatus.EXCLUDED,
+    );
 
     const { passed, failed, allPassed, allFailed } = useMemo(() => {
         const passed: ComplianceCheckResponseDto[] = [];

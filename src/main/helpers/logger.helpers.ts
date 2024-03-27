@@ -1,11 +1,9 @@
-import * as Sentry from '@sentry/electron/main';
 import electronLog from 'electron-log';
 import safeStringify from 'fast-safe-stringify';
 import { get, isArray, isEmpty, isNil } from 'lodash';
 import { EOL } from 'os';
-import { config } from '../../config';
+import { MainBridge } from '../../bridge/main-bridge';
 import { BUILD } from '../../constants/environment';
-import { MeResponseDto } from '../../main/services/api/dtos/me-response.dto';
 import { HTTPLogContext } from '../../types/http-log-context';
 import { LogContext } from '../../types/log-context.type';
 import { DataStoreHelper } from './data-store.helper';
@@ -90,7 +88,7 @@ export class Logger {
             );
         }
 
-        this.logToSentry(_error, context, httpContext);
+        this.reportError(_error, context, httpContext);
     }
 
     private prependContext(message?: string) {
@@ -99,68 +97,26 @@ export class Logger {
         }`;
     }
 
-    private logToSentry(
+    private reportError(
         error: any,
         context?: LogContext,
         httpContext?: HTTPLogContext,
     ) {
-        if (Logger.isSentryReady && error instanceof Error) {
-            const contextToAdd: {
-                contexts: {
-                    context: Record<string, LogContext>;
-                };
-            } = {
-                contexts: {
-                    context: {},
-                },
-            };
-
-            if (!isNil(context)) {
-                contextToAdd.contexts.context.Context = safeStringify(context);
-            }
-
-            const debugInfo = this.dataStore.get('debugInfo');
-
-            if (!isNil(debugInfo)) {
-                contextToAdd.contexts.context = {
-                    ...contextToAdd.contexts.context,
-                    ...debugInfo,
-                };
-            }
-
-            if (!isNil(httpContext)) {
-                contextToAdd.contexts.context.HTTP = httpContext;
-            }
-
-            Sentry.captureException(
-                error,
-                isEmpty(contextToAdd.contexts.context)
-                    ? undefined
-                    : contextToAdd,
-            );
+        if (!(error instanceof Error)) {
+            return;
         }
-    }
 
-    static isSentryReady = false;
+        const contextToAdd: Record<string, LogContext | undefined> = {};
+        contextToAdd.error = safeStringify(context);
+        contextToAdd.debug = this.dataStore.get('debugInfo');
+        contextToAdd.HTTP = httpContext;
 
-    static initSentry() {
-        Sentry.init({
-            dsn: config.sentry.dsn,
-            environment: config.sentry.env,
+        // Send error through DD RUM SDK in renderer process
+        MainBridge.instance?.sendMessage('addError', {
+            // retain stack and context
+            message: error.message,
+            stack: error.stack,
+            context: isEmpty(contextToAdd) ? undefined : contextToAdd,
         });
-
-        const user = DataStoreHelper.instance.get('user');
-
-        if (!isNil(user)) {
-            Logger.setUserOnSentry(user);
-        }
-
-        Logger.isSentryReady = true;
-
-        return Sentry;
-    }
-
-    static setUserOnSentry(user: MeResponseDto) {
-        Sentry.setUser({ email: user.email });
     }
 }

@@ -1,7 +1,9 @@
 import { get as _get } from 'lodash';
 import { TargetEnv } from '../enums/target-env.enum';
 
-const COMMON = {
+type AgentConfig = typeof DEV | typeof QA | typeof PROD | typeof LOCAL;
+
+const DEFAULT = {
     ui: {
         appWidth: 400,
         appHeight: {
@@ -9,9 +11,31 @@ const COMMON = {
             unregistered: 393,
         },
     },
-    minHoursSinceLastSync: 24,
+    hoursSyncCheck: 2, // auto only
+    hoursUpdateCheck: 1,
+    minHoursSinceLastSync: 24, // auto only, last success
+    minMinutesBetweenSyncs: 15, // auto only, last atttempt (based on 1 hour sync check interval)
     secondsDelaySyncOnStart: 900,
     secondsDelayUpdateCheckOnStart: 300,
+    datadog: {
+        // Only track errors / issues / manual events
+        // DD RUM SDK works within renderer process, will push user error events up as needed
+        // https://docs.datadoghq.com/real_user_monitoring/guide/monitor-electron-applications-using-browser-sdk/
+        applicationId: '27cfcb76-e3e9-4a78-87bb-76c865267f4c',
+        clientToken: 'pubeb5e7e5d161da9039404a813fe95f503',
+        site: 'datadoghq.com',
+        service: 'drata-agent',
+        sessionSampleRate: 100,
+        sessionReplaySampleRate: 0,
+        allowFallbackToLocalStorage: true,
+        trackUserInteractions: false,
+        trackViewsManually: true,
+        trackResources: true,
+        trackLongTasks: true,
+        compressIntakeRequests: true,
+        silentMultipleInit: true,
+        defaultPrivacyLevel: 'mask-user-input',
+    },
 }; // keep second delays < 1 hour and at least 5 minutes apart to prevent conflicts (run update first)
 
 const LOCAL = {
@@ -23,9 +47,9 @@ const LOCAL = {
         drataAdditionalFramework: 'https://drata.com',
         help: 'https://help.drata.com/',
     },
-    sentry: {
-        env: 'LOCAL',
-        dsn: '',
+    datadog: {
+        ...DEFAULT.datadog,
+        env: 'local',
     },
 };
 
@@ -38,9 +62,9 @@ const DEV = {
         drataAdditionalFramework: 'https://drata.com',
         help: 'https://help.drata.com/',
     },
-    sentry: {
-        env: 'DEV',
-        dsn: '',
+    datadog: {
+        ...DEFAULT.datadog,
+        env: 'dev',
     },
 };
 
@@ -53,9 +77,9 @@ const QA = {
         drataAdditionalFramework: 'https://drata.com',
         help: 'https://help.drata.com/',
     },
-    sentry: {
-        env: 'QA',
-        dsn: '',
+    datadog: {
+        ...DEFAULT.datadog,
+        env: 'qa',
     },
 };
 
@@ -68,14 +92,14 @@ const PROD = {
         drataAdditionalFramework: 'https://drata.com',
         help: 'https://help.drata.com/',
     },
-    sentry: {
-        env: 'PROD',
-        dsn: '',
+    datadog: {
+        ...DEFAULT.datadog,
+        env: 'prod',
     },
 };
 
 // default config option
-let _config = LOCAL;
+let _config: AgentConfig = LOCAL;
 
 switch (process.env.TARGET_ENV) {
     case TargetEnv.DEV:
@@ -93,8 +117,8 @@ switch (process.env.TARGET_ENV) {
 }
 
 export const config = {
+    ...DEFAULT,
     ..._config,
-    ...COMMON,
 };
 
 export const get = (selector: string) => _get(config, selector);

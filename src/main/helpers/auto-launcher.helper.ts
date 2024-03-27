@@ -20,7 +20,7 @@ export class AutoLauncherHelper {
 
         const autoLauncher = new AutoLaunch(options);
 
-        let isEnabled = await autoLauncher.isEnabled();
+        const isEnabled = await autoLauncher.isEnabled();
 
         if (isEnabled) {
             await autoLauncher.disable();
