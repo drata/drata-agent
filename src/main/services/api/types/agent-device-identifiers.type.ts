@@ -1,4 +1,7 @@
 export type AgentDeviceIdentifiers = {
-    hwSerial: { hardware_serial: string | null };
-    macAddress: { mac: string | null };
+    hwSerial: {
+        hardware_serial: string | undefined;
+        board_serial: string | undefined;
+    };
+    macAddress: { mac: string | undefined };
 };

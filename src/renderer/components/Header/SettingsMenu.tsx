@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
     UncontrolledDropdown,
@@ -22,6 +22,7 @@ import {
     UserCheck,
     Activity,
     Minimize,
+    ArrowUpCircle,
 } from 'react-feather';
 
 import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
@@ -35,6 +36,9 @@ import { rgba } from '../../../renderer/helpers/color.helpers';
 import { config } from '../../../config';
 import { TargetEnv } from '../../../enums/target-env.enum';
 import { LocalRegisterForm } from '../LandingPage/LocalRegisterForm';
+import { MessageType } from '../../../entities/message-listener-type.enum';
+import { Message } from '../../../entities/message.interface';
+import { addMessageAction } from '../../../renderer/redux/actions/messages.actions';
 
 import './setings-menu.scss';
 
@@ -85,6 +89,7 @@ const StyledModalHeader = styled(ModalHeader)`
 
 function SettingsMenu() {
     const bridge = useBridge();
+    const dispatch = useDispatch();
     const hasAccessToken = useSelector(selectHasAccessToken);
     const version = useSelector(selectAppVersion);
     const user = useSelector(selectUser);
@@ -97,6 +102,10 @@ function SettingsMenu() {
 
     const toggleExtraMenu: React.EventHandler<any> = evt => {
         setExtraMenu(evt.altKey ?? false);
+    };
+
+    const openModal = (m: Message) => {
+        dispatch(addMessageAction(m));
     };
 
     return (
@@ -156,6 +165,20 @@ function SettingsMenu() {
 
                     <StyledDropdownItem
                         onClick={() =>
+                            openModal({
+                                type: MessageType.ERROR,
+                                message: {
+                                    id: 'This will send recent diagnostics to Drata.',
+                                },
+                            })
+                        }
+                    >
+                        <ArrowUpCircle size={14} className="mr-50" />
+                        <span>{_t({ id: 'Send diagnostics' })}</span>
+                    </StyledDropdownItem>
+
+                    <StyledDropdownItem
+                        onClick={() =>
                             bridge.invoke('openLink', config.url.help)
                         }
                     >
@@ -180,7 +203,7 @@ function SettingsMenu() {
                             onClick={() => bridge.invoke('allowResize')}
                         >
                             <Minimize size={14} className="mr-50" />
-                            <span>{_t({ id: 'Enable Resize' })}</span>
+                            <span>{_t({ id: 'Enable resize' })}</span>
                         </StyledDropdownItem>
                     )}
 
@@ -189,7 +212,7 @@ function SettingsMenu() {
                             onClick={() => bridge.invoke('dumpDiagnostics')}
                         >
                             <Activity size={14} className="mr-50" />
-                            <span>{_t({ id: 'Save Diagnostics' })}</span>
+                            <span>{_t({ id: 'Save diagnostics' })}</span>
                         </StyledDropdownItem>
                     )}
 

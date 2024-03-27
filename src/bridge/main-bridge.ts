@@ -12,6 +12,7 @@ import { Region } from '../enums/region.enum';
 import { DataStoreHelper } from '../main/helpers/data-store.helper';
 import { Logger } from '../main/helpers/logger.helpers';
 import { SchedulerService } from '../main/services/scheduler/scheduler.service';
+
 export class MainBridge {
     static instance: MainBridge;
     private sender: BrowserWindow;

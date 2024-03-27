@@ -4,6 +4,7 @@ import { Message } from './message.interface';
 export interface BridgeChannel {
     // main to renderer
     appReady: boolean;
+    addError: any;
     toast: Message;
     dataStoreUpdate: RendererDataStore;
     // renderer to main

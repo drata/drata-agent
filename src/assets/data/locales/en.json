@@ -18,7 +18,7 @@
     "Agent Version {version}": "Agent Version {version}",
     "Quit Agent": "Quit Agent",
     "Help": "Help",
-    "Sync Now": "Sync Now",
+    "Sync now": "Sync now",
     "Last synced: {syncedAt}": "Last synced: {syncedAt}",
     "Configure your computer": "Configure your computer",
     "Incomplete": "Incomplete",
@@ -55,7 +55,7 @@
     "Syncing your data!": "Syncing your data!",
     "Please wait": "Please wait",
     "Waiting for the first Sync": "Waiting for the first Sync",
-    "Please click the \"Sync Now\" button bellow": "Please click the \"Sync Now\" button bellow",
+    "Please click the \"Sync now\" button below": "Please click the \"Sync now\" button below",
     "Sync Successful": "Sync Successful",
     "Fetching initialization data.": "Fetching initialization data.",
     "Initialization data successfully fetched.": "Initialization data successfully fetched.",
@@ -76,5 +76,8 @@
     "Hide Agent": "Hide Agent",
     "Register": "Register",
     "Save Diagnostics": "Save Diagnostics",
-    "Dev Tools": "Dev Tools"
+    "Enable Resize": "Enable Resize",
+    "Drata Agent update required. Please quit the application to install.": "Drata Agent update required. Please quit the application to install.",
+    "Send Diagnostics": "Send Diagnostics",
+    "Click Okay to send errors to Drata.": "Click Okay to send errors to Drata."
 }

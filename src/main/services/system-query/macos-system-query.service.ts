@@ -1,6 +1,7 @@
 import { app } from 'electron';
 import { flatten, isNil } from 'lodash';
 import path from 'path';
+import { parseIntOrUndefined } from '../../helpers/string.helpers';
 import { AgentDeviceIdentifiers } from '../api/types/agent-device-identifiers.type';
 import { QueryResult } from './entities/query-result.type';
 import { ISystemQueryService } from './entities/system-query.interface';
@@ -55,6 +56,18 @@ export class MacOsSystemQueryService
                     query: 'SELECT hardware_model FROM system_info',
                     transform: (res: any[]) => res[0],
                 }),
+
+                ...(await this.runQuery({
+                    description: "What's the system information?",
+                    query: 'SELECT board_serial, board_model, computer_name, hostname, local_hostname FROM system_info',
+                    transform: (res: any[]) => ({
+                        boardSerial: res[0]?.board_serial,
+                        boardModel: res[0]?.board_model,
+                        computerName: res[0]?.computer_name,
+                        hostName: res[0]?.hostname,
+                        localHostName: res[0]?.local_hostname,
+                    }),
+                })),
 
                 hddEncryptionStatus: await this.runQuery({
                     description:
@@ -155,6 +168,36 @@ export class MacOsSystemQueryService
                     query: "SELECT round((blocks * blocks_size * 10e-10), 2) AS hddSize FROM mounts WHERE path='/'",
                     transform: res => res[0],
                 }),
+                screenLockSettings: {
+                    screenSaverIdleWait: await this.runQuery({
+                        description: 'Start Screen Saver when inactive (max)',
+                        query: "SELECT MAX(CAST(value AS INT)) AS value FROM preferences WHERE domain='com.apple.screensaver' AND key='idleTime' AND value IS NOT NULL AND host = 'current'",
+                        transform: res => parseIntOrUndefined(res?.[0]?.value),
+                    }),
+                    // Setting displayIdleWaitAC and displayIdleWaitDC
+                    ...(await this.runQuery({
+                        description: 'Power settings',
+                        command: 'pmset -g custom',
+                        transform: res => {
+                            try {
+                                return this.parseSettings(res);
+                            } catch (e) {
+                                this.logger.error(e, 'Error parsing settings.');
+                                return {};
+                            }
+                        },
+                    })),
+                    ...(await this.runQuery({
+                        description: 'Lock after screen saver/display enabled',
+                        query: 'SELECT enabled, grace_period FROM screenlock',
+                        transform: res => ({
+                            lockDelay: parseIntOrUndefined(
+                                res?.[0]?.grace_period,
+                            ),
+                            screenLockEnabled: res?.[0]?.enabled === '1',
+                        }),
+                    })),
+                },
             },
         };
     }
@@ -192,11 +235,40 @@ export class MacOsSystemQueryService
         return [maxScreenSaverTimeItem, res[1][0]];
     }
 
+    private parseSettings(result: string): {
+        displayIdleWaitAC?: number;
+        displayIdleWaitDC?: number;
+    } {
+        let state: 'AC' | 'DC' | undefined;
+        const settings: string[] = result.split('\n');
+        const retVal: {
+            displayIdleWaitAC?: number;
+            displayIdleWaitDC?: number;
+        } = {};
+
+        for (const setting of settings) {
+            const elt = setting.trim();
+            if (elt.startsWith('Battery')) {
+                state = 'DC';
+            } else if (elt.startsWith('AC')) {
+                state = 'AC';
+            } else if (elt.startsWith('displaysleep')) {
+                const value = elt.match(/-?\d{1,10}$/); // backtracking compliant, max 8,589,934,592
+                if (state === 'AC') {
+                    retVal.displayIdleWaitAC = parseIntOrUndefined(value?.[0]);
+                } else if (state === 'DC') {
+                    retVal.displayIdleWaitDC = parseIntOrUndefined(value?.[0]);
+                }
+            }
+        }
+        return retVal;
+    }
+
     async getAgentDeviceIdentifiers(): Promise<AgentDeviceIdentifiers> {
         return {
             hwSerial: await this.runQuery({
                 description: "What's the workstations serial number?",
-                query: 'SELECT hardware_serial FROM system_info',
+                query: 'SELECT hardware_serial, board_serial FROM system_info',
                 transform: (res: any[]) => res[0],
             }),
             macAddress: await this.runQuery({

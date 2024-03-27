@@ -18,7 +18,11 @@ import { MainWindow } from './app/main-window/main-window';
 import { AutoLauncherHelper } from './helpers/auto-launcher.helper';
 import { AutoUpdateHelper } from './helpers/auto-update.helper';
 import { DataStoreHelper } from './helpers/data-store.helper';
-import { hoursSinceDate } from './helpers/date.helper';
+import {
+    currentLocalTime,
+    hoursSinceDate,
+    minutesSinceDate,
+} from './helpers/date.helper';
 import { IntlHelper as Intl } from './helpers/intl.helper';
 import { Logger } from './helpers/logger.helpers';
 import { ApiService } from './services/api/api.service';
@@ -57,7 +61,7 @@ class DrataAgent {
     constructor(
         private readonly deepLinkService: DeepLinkService,
         private readonly apiService: ApiService,
-        private readonly schedulerService: SchedulerService,
+        private readonly scheduler: SchedulerService,
         private readonly systemQueryService: SystemQueryService,
     ) {}
 
@@ -83,14 +87,14 @@ class DrataAgent {
             const hasAccessToken = !!this.dataStore.get('accessToken');
             const region = this.dataStore
                 .get('region')
-                ?.replace(/\/$/, '') as Region; // REMOVE SOON: Fix for bad DataStore in Agent prior saves for region - remove after next release
+                ?.replace(/\/$/, '') as Region;
 
             this.dataStore.set('region', region);
 
             // Verify if the region was registered before, if not then set the NA region
             if (hasAccessToken && isNil(region)) {
                 this.dataStore.set('region', Region.NA);
-                this.dataStore.set('capturedProtocol', undefined); // REMOVE SOON: Fix for bad DataStore in Agent prior saves for region - remove after next release
+                this.dataStore.set('capturedProtocol', undefined);
             }
 
             this.mb = await MainWindow.init({ isRegistered: hasAccessToken });
@@ -118,37 +122,6 @@ class DrataAgent {
                 ProtocolSchema.AUTH_DRATA_AGENT,
                 this.handleAuth(),
             );
-
-            this.autoUpdate = new AutoUpdateHelper(this.mb);
-
-            // schedule app auto-update
-            this.schedulerService.scheduleJob(
-                SchedulerService.schedule.EVERY_2_HOURS,
-                'check-for-updates',
-                this.autoUpdate.checkForUpdates.bind(this.autoUpdate),
-            );
-
-            // schedule system info report
-            this.schedulerService.scheduleJob(
-                SchedulerService.schedule.randomizeMinute(
-                    SchedulerService.schedule.EVERY_HOUR,
-                ),
-                'sync',
-                this.handleSync.bind(this),
-            );
-
-            /**
-             * Program a sync when the workstation resumes from sleep
-             * This is different than running it on this init function
-             * since this only runs on app start, and on resume the app
-             * has already started.
-             */
-            powerMonitor.on('resume', () => {
-                setTimeout(
-                    this.handleSync.bind(this),
-                    config.secondsDelaySyncOnStart * 1000,
-                );
-            });
 
             this.dataStore.set('appVersion', app.getVersion());
 
@@ -184,15 +157,33 @@ class DrataAgent {
                 await this.mb.showWindow();
             }
 
-            // run auto-update on launch with delay
+            // prepare graceful shutdown of scheduler on application events
+            // we stop jobs on suspend to prevent them from waking the device
+            // this will not stop jobs already running
+            app.on('before-quit', this.scheduler.stopAllJobs.bind(this));
+            powerMonitor.on('suspend', this.scheduler.stopAllJobs.bind(this));
+            powerMonitor.on('resume', this.scheduler.startAllJobs.bind(this));
+
+            // run and schedule app auto update
+            this.autoUpdate = new AutoUpdateHelper(this.mb, this.bridge);
             setTimeout(
-                this.autoUpdate.checkForUpdates.bind(this.autoUpdate),
+                this.scheduler.scheduleAndRunJob.bind(this, {
+                    hours: config.hoursUpdateCheck,
+                    id: 'check-for-updates',
+                    action: this.autoUpdate.checkForUpdates.bind(
+                        this.autoUpdate,
+                    ),
+                }),
                 config.secondsDelayUpdateCheckOnStart * 1000,
             );
 
-            // run system info report right after launch with delay
+            // run and schedule sync
             setTimeout(async () => {
-                await this.handleSync();
+                this.scheduler.scheduleAndRunJob({
+                    hours: config.hoursSyncCheck,
+                    id: 'sync',
+                    action: this.handleSync.bind(this),
+                });
             }, config.secondsDelaySyncOnStart * 1000);
 
             return this;
@@ -229,11 +220,11 @@ class DrataAgent {
         try {
             if (manualRun === true || this.shouldRunSync) {
                 const hasAccessToken = this.dataStore.get('accessToken');
-
                 if (!hasAccessToken) {
                     return;
                 }
 
+                // check data available for sync e.g. first run
                 if (!this.dataStore.isInitDataReady) {
                     this.logger.info('Fetching initialization data.');
                     await this.apiService.initialData();
@@ -242,6 +233,7 @@ class DrataAgent {
                     );
                 }
 
+                this.dataStore.set('lastSyncAttemptedAt', currentLocalTime());
                 this.dataStore.set('syncState', SyncState.RUNNING);
 
                 this.logger.info('System query started.');
@@ -274,27 +266,42 @@ class DrataAgent {
     }
 
     private get shouldRunSync(): boolean {
-        const lastCheckedAtTimeStamp = this.dataStore.get('lastCheckedAt');
+        // don't sync while already in progress
+        if (this.dataStore.get('syncState') === SyncState.RUNNING) {
+            this.logger.info('Sync aborted. Sync in progress.');
+            return false;
+        }
 
+        // limit sync based on last attempted request (regardless if it was successful)
+        const lastAttemptTimeStamp = this.dataStore.get('lastSyncAttemptedAt');
+        if (!isNil(lastAttemptTimeStamp)) {
+            const lastAttemptedAt = new Date(lastAttemptTimeStamp);
+            if (
+                minutesSinceDate(lastAttemptedAt) <
+                config.minMinutesBetweenSyncs
+            ) {
+                this.logger.info(
+                    `Sync aborted. Last attempted at ${lastAttemptedAt.toLocaleString()}.`,
+                );
+                return false;
+            }
+        }
+
+        // limit runs based on last known successful sync
+        const lastCheckedAtTimeStamp = this.dataStore.get('lastCheckedAt');
         if (isNil(lastCheckedAtTimeStamp)) {
             return true;
         }
 
         const lastCheckedAt = new Date(lastCheckedAtTimeStamp);
-
-        const hoursSinceLastSync = hoursSinceDate(lastCheckedAt);
-
-        const shoudRun = hoursSinceLastSync > config.minHoursSinceLastSync;
-
-        if (!shoudRun) {
+        if (hoursSinceDate(lastCheckedAt) < config.minHoursSinceLastSync) {
             this.logger.info(
-                `Sync aborted. Last ran ${hoursSinceLastSync} ${
-                    hoursSinceLastSync === 1 ? 'hour' : 'hours'
-                } ago (${new Date(lastCheckedAtTimeStamp).toLocaleString()})`,
+                `Sync aborted. Last success at ${lastCheckedAt.toLocaleString()}.`,
             );
+            return false;
         }
 
-        return shoudRun;
+        return true;
     }
 
     private handleAuth() {
@@ -315,9 +322,7 @@ class DrataAgent {
                 // Save region to data store from protocol
                 this.dataStore.set('region', region);
 
-                const user = await this.apiService.loginWithMagicLink(token);
-
-                Logger.setUserOnSentry(user);
+                await this.apiService.loginWithMagicLink(token);
 
                 const queryResults =
                     await this.systemQueryService.getAgentDeviceIdentifiers();
@@ -490,9 +495,6 @@ class DrataAgent {
 }
 
 (async function () {
-    // Init Sentry ASAP
-    const Sentry = Logger.initSentry();
-
     try {
         // Init app and store a reference on global
         // to prevent it from being garbage collected
@@ -503,7 +505,8 @@ class DrataAgent {
             SchedulerService.instance,
             SystemQueryFactory.getService(),
         ).init();
-    } catch (error) {
-        Sentry.captureException(error);
+    } catch (error: any) {
+        // try to log the error back where possible
+        new Logger('main').error(error);
     }
 })();

@@ -1,176 +1,87 @@
-import { app, powerMonitor } from 'electron';
-import { isNil, random } from 'lodash';
-import nodeSchedule, { Job } from 'node-schedule';
-import { JobSpec } from '../../../types/job-spec.type';
+import {
+    AsyncTask,
+    JobStatus,
+    SimpleIntervalJob,
+    ToadScheduler,
+} from 'toad-scheduler';
 import { ServiceBase } from '../service-base.service';
 
-/**
- * The intention of this type is to fail any parameter passed to
- * scheduleJob that doesn't come from AbstractSchedulerService.schedule
- * It can be easily circumvented by casting any string to Schedule ('' as Schedule)
- */
-type Schedule = '* * * * * *';
-
 export class SchedulerService extends ServiceBase {
+    private static readonly scheduler: ToadScheduler = new ToadScheduler();
     static readonly instance: SchedulerService = new SchedulerService();
-
-    private jobsSpecs: JobSpec[] = [];
 
     private constructor() {
         super();
-
-        app.on('before-quit', this.onBeforeQuting.bind(this));
-        powerMonitor.on('suspend', this.onSuspend.bind(this));
-        powerMonitor.on('resume', this.onResume.bind(this));
     }
 
-    scheduleJob(schedule: Schedule, title: string, action: () => void): Job {
-        const job = nodeSchedule.scheduleJob(title, schedule, action);
+    scheduleAndRunJob({
+        hours,
+        id,
+        action,
+    }: {
+        hours: number;
+        id: string;
+        action: () => Promise<unknown>;
+    }): void {
+        // may be called on delay need to handle any here
+        try {
+            if (SchedulerService.scheduler.existsById(id)) {
+                const job = SchedulerService.scheduler.getById(id);
+                if (job.getStatus() === JobStatus.RUNNING) {
+                    this.logger.info(`Job ${id} already running.`); // prevent restarting
+                } else {
+                    this.logger.info(`Job ${id} already created. Starting...`);
+                    job.start();
+                }
+            } else {
+                // actual id for the job is required to register for later use with getAllJobs/getById
+                SchedulerService.scheduler.addSimpleIntervalJob(
+                    new SimpleIntervalJob(
+                        { hours, runImmediately: true },
+                        new AsyncTask(id, action, error => {
+                            this.logger.error(
+                                error,
+                                `Failed to run job "${error.message}"`,
+                            );
+                        }),
+                        {
+                            id: id,
+                            preventOverrun: true,
+                        },
+                    ),
+                );
 
-        if (isNil(job)) {
-            throw new Error('Unable to schedule action.');
+                this.logger.info(
+                    `Scheduled ${id} to run every ${hours} hour(s).`,
+                );
+            }
+        } catch (error) {
+            this.logger.error(
+                `Error scheduling job ${id}. Stopping all scheduled tasks...`,
+            );
+            this.stopAllJobs();
         }
-
-        job.on('error', error => {
-            this.logger.error(error, `Failed to run job "${title}"`);
-        });
-
-        this.jobsSpecs.push({
-            schedule,
-            title,
-            action,
-            job,
-        });
-
-        this.logger.info(`Scheduled "${title}" (${schedule})`);
-
-        return job;
     }
 
     getScheduledJobsInfo(): any[] {
-        return this.jobsSpecs.map(({ title, schedule }) => ({
-            title,
-            schedule,
+        return SchedulerService.scheduler.getAllJobs().map(j => ({
+            title: j.id,
+            status: j.getStatus(),
         }));
     }
 
-    private cancelJobSpec(spec: JobSpec) {
-        // ensure no events will be fired before destroyed
-        spec.job?.removeAllListeners();
-        // actually cancel Job
-        spec.job?.cancel();
-        // ensure it will be garbage collected
-        delete spec.job;
+    startAllJobs(): void {
+        for (const job of SchedulerService.scheduler.getAllJobs()) {
+            // prevent restarting jobs
+            if (job.getStatus() === JobStatus.STOPPED) {
+                job.start();
+                this.logger.info(`Started job ${job.id}.`);
+            }
+        }
     }
 
-    private onBeforeQuting(): void {
-        this.jobsSpecs.forEach(this.cancelJobSpec);
-
-        this.logger.info(
-            `Canceled ${this.jobsSpecs.length} ${
-                this.jobsSpecs.length === 1 ? 'job' : 'jobs'
-            } to quit the app.`,
-        );
+    stopAllJobs(): void {
+        SchedulerService.scheduler.stop();
+        this.logger.info('Stopped all jobs.');
     }
-
-    private onSuspend(): void {
-        this.jobsSpecs.forEach(this.cancelJobSpec);
-
-        this.logger.info(
-            `Canceled ${this.jobsSpecs.length} ${
-                this.jobsSpecs.length === 1 ? 'job' : 'jobs'
-            } to suspend the system.`,
-        );
-    }
-
-    private onResume(): void {
-        this.jobsSpecs.forEach(this.cancelJobSpec);
-
-        const clonedJobSpecs = this.jobsSpecs.slice();
-        this.jobsSpecs = [];
-
-        /**
-         * Re cheduling Jobs will re-populate this.jobsSpecs
-         */
-        clonedJobSpecs.forEach(spec => {
-            this.scheduleJob(
-                spec.schedule as Schedule,
-                spec.title,
-                spec.action,
-            );
-        });
-
-        this.logger.info(
-            `Rescheduled ${this.jobsSpecs.length} ${
-                this.jobsSpecs.length === 1 ? 'job' : 'jobs'
-            } after resuming the system.`,
-        );
-    }
-
-    /**
-     *   Crontab schedule schema
-     *   *    *    *    *    *    *
-     *   ┬    ┬    ┬    ┬    ┬    ┬
-     *   │    │    │    │    │    │
-     *   │    │    │    │    │    └─── day of week (0 - 7) (0 or 7 is Sun)
-     *   │    │    │    │    └──────── month (1 - 12)
-     *   │    │    │    └───────────── day of month (1 - 31)
-     *   │    │    └────────────────── hour (0 - 23)
-     *   │    └─────────────────────── minute (0 - 59)
-     *   └──────────────────────────── second (0 - 59, OPTIONAL)
-     */
-
-    static schedule = {
-        EVERY_10_SECONDS: '*/10 * * * * *' as Schedule,
-        EVERY_30_SECONDS: '*/30 * * * * *' as Schedule,
-        EVERY_5_MINUTES: '*/5 * * * *' as Schedule,
-        EVERY_HOUR: '0 */1 * * *' as Schedule,
-        EVERY_2_HOURS: '0 */2 * * *' as Schedule,
-        EVERY_6_HOURS: '0 */6 * * *' as Schedule,
-        seconds(schedule: number): Schedule {
-            if (schedule < 1 && schedule > 60) {
-                throw new RangeError(
-                    `Invalid value ${schedule}. "schedule" param has to be an integer between 1 and 60.`,
-                );
-            }
-            return `*/${parseInt(
-                schedule.toString(),
-            )} * * * * *` as unknown as Schedule;
-        },
-        minutes(schedule: number): Schedule {
-            if (schedule < 1 && schedule > 60) {
-                throw new RangeError(
-                    `Invalid value ${schedule}. "schedule" param has to be an integer between 1 and 60.`,
-                );
-            }
-            return `*/${parseInt(
-                schedule.toString(),
-            )} * * * *` as unknown as Schedule;
-        },
-        hours(schedule: number): Schedule {
-            if (schedule < 1 && schedule > 24) {
-                throw new RangeError(
-                    `Invalid value ${schedule}. "schedule" param has to be an integer between 1 and 24.`,
-                );
-            }
-            return `0 */${parseInt(
-                schedule.toString(),
-            )} * * *` as unknown as Schedule;
-        },
-        randomizeMinute(schedule: Schedule): Schedule {
-            if (schedule.split(' ').length > 5) {
-                throw new Error(
-                    'Schedule not supported. Only schedules without seconds are allowed.',
-                );
-            }
-
-            const [, hour, dayMonth, month, dayWeek] = schedule.split(' ');
-
-            const randomMinute = random(0, 59);
-
-            return [randomMinute, hour, dayMonth, month, dayWeek].join(
-                ' ',
-            ) as Schedule;
-        },
-    };
 }
