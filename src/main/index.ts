@@ -84,6 +84,8 @@ class DrataAgent {
                 );
             }
 
+            this.resolveRunningSyncState(); // shouldn't be running on launch
+
             const hasAccessToken = !!this.dataStore.get('accessToken');
             const region = this.dataStore
                 .get('region')
@@ -162,7 +164,12 @@ class DrataAgent {
             // this will not stop jobs already running
             app.on('before-quit', this.scheduler.stopAllJobs.bind(this));
             powerMonitor.on('suspend', this.scheduler.stopAllJobs.bind(this));
-            powerMonitor.on('resume', this.scheduler.startAllJobs.bind(this));
+            powerMonitor.on('resume', () => {
+                this.resolveRunningSyncState(); // allow new sync on resume
+                setTimeout(() => {
+                    this.scheduler.startAllJobs();
+                }, Math.max(config.secondsDelaySyncOnStart, config.secondsDelayUpdateCheckOnStart));
+            });
 
             // run and schedule app auto update
             this.autoUpdate = new AutoUpdateHelper(this.mb, this.bridge);
@@ -189,6 +196,13 @@ class DrataAgent {
             return this;
         } catch (error) {
             this.logger.error(error);
+        }
+    }
+
+    private resolveRunningSyncState() {
+        if (this.dataStore.get('syncState') === SyncState.RUNNING) {
+            this.dataStore.set('syncState', SyncState.UNKNOWN);
+            this.logger.warn('Reset sync to unknown.');
         }
     }
 
@@ -239,6 +253,7 @@ class DrataAgent {
                 this.logger.info('System query started.');
                 const queryResults =
                     await this.systemQueryService.getSystemInfo();
+                queryResults.manualRun = manualRun;
                 this.logger.info('System query successfully completed.');
 
                 this.logger.info('Sending query results.');
@@ -268,7 +283,7 @@ class DrataAgent {
     private get shouldRunSync(): boolean {
         // don't sync while already in progress
         if (this.dataStore.get('syncState') === SyncState.RUNNING) {
-            this.logger.info('Sync aborted. Sync in progress.');
+            this.logger.info('Sync aborted due to sync already in progress.');
             return false;
         }
 

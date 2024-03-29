@@ -75,9 +75,9 @@
     "We are making Drata even better than before.": "We are making Drata even better than before.",
     "Hide Agent": "Hide Agent",
     "Register": "Register",
-    "Save Diagnostics": "Save Diagnostics",
-    "Enable Resize": "Enable Resize",
+    "Save diagnostics": "Save diagnostics",
+    "Enable resize": "Enable resize",
     "Drata Agent update required. Please quit the application to install.": "Drata Agent update required. Please quit the application to install.",
-    "Send Diagnostics": "Send Diagnostics",
+    "Send diagnostics": "Send diagnostics",
     "Click Okay to send errors to Drata.": "Click Okay to send errors to Drata."
 }

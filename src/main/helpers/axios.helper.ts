@@ -10,6 +10,7 @@ export class AxiosHelper {
     static instance: AxiosHelper = new AxiosHelper();
     private readonly dataStore = DataStoreHelper.instance;
     private readonly axiosInstance = axios.create();
+    private readonly REQUEST_TIMEOUT = 5 * 60 * 1000;
 
     private constructor() {
         // prepare headers for requests
@@ -23,7 +24,7 @@ export class AxiosHelper {
                 if (isNil(uuid)) {
                     this.dataStore.set('uuid', crypto.randomUUID());
                 }
-
+                config.timeout = this.REQUEST_TIMEOUT;
                 config.baseURL = resolveBaseUrl(region);
                 config.headers.Authorization = `Bearer ${this.dataStore.get(
                     'accessToken',
