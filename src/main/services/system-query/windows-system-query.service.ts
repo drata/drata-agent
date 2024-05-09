@@ -213,7 +213,7 @@ export class WindowsSystemQueryService
                     description:
                         'Is the hard drive encryption enabled on the workstation?',
                     command:
-                        "powershell -command (New-Object -ComObject Shell.Application).NameSpace((Get-ChildItem Env:SystemDrive).Value).Self.ExtendedProperty('System.Volume.BitLockerProtection')",
+                        "powershell -noprofile -command (New-Object -ComObject Shell.Application).NameSpace((Get-ChildItem Env:SystemDrive).Value).Self.ExtendedProperty('System.Volume.BitLockerProtection')",
                     transform: async (res: any[]) =>
                         parseIntOrUndefined(res[0]),
                 }),
