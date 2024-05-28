@@ -3,6 +3,7 @@ import { ScreenLockSetting } from './screen-lock-setting-interface';
 export type QueryResult = {
     drataAgentVersion: string;
     platform: 'MACOS' | 'WINDOWS' | 'LINUX';
+    manualRun?: boolean;
     rawQueryResults: {
         osVersion: any;
         hwSerial: any;

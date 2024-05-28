@@ -19,10 +19,9 @@ export class AutoLauncherHelper {
         }
 
         const autoLauncher = new AutoLaunch(options);
-
         const isEnabled = await autoLauncher.isEnabled();
 
-        if (isEnabled) {
+        if (isEnabled && !PLATFORM.MACOS) {
             await autoLauncher.disable();
             await autoLauncher.enable();
         } else {
