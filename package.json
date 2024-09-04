@@ -181,7 +181,7 @@
         "electron-builder": "^24.9.1",
         "electron-devtools-installer": "^3.2.0",
         "electron-log": "^4.3.5",
-        "electron-updater": "^6.1.7",
+        "electron-updater": "^6.3.0",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-jsx-a11y": "^6.4.1",
