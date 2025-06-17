@@ -1,0 +1,254 @@
+{
+  "Agent Version {version}" : {
+    "defaultMessage" : "Versión del agente {version}"
+  },
+  "Automatic Updates Enabled" : {
+    "defaultMessage" : "Actualizaciones automáticas activadas"
+  },
+  "Cancel" : {
+    "defaultMessage" : "Cancelar"
+  },
+  "Change Language" : {
+    "defaultMessage" : "Cambiar idioma"
+  },
+  "Check your Email" : {
+    "defaultMessage" : "Compruebe su correo electrónico"
+  },
+  "Completed" : {
+    "defaultMessage" : "Completado"
+  },
+  "Configure your computer" : {
+    "defaultMessage" : "Configure su computadora"
+  },
+  "Device compliance complete." : {
+    "defaultMessage" : "Cumplimiento del dispositivo completado."
+  },
+  "Disconnect Device" : {
+    "defaultMessage" : "Desconectar dispositivo"
+  },
+  "Download Logs" : {
+    "defaultMessage" : "Descargar registros"
+  },
+  "Download and install a password manager on your computer. This is the application you will use to generate, store, and share all passwords, MFA codes, as well as secure notes." : {
+    "defaultMessage" : "Descargue e instale un administrador de contraseñas en su computadora. Esta es la aplicación que utilizará para generar, almacenar y compartir todas las contraseñas, los códigos MFA y las notas seguras."
+  },
+  "Drata Agent" : {
+    "defaultMessage" : "Agente de Drata"
+  },
+  "Drata Agent successfully registered" : {
+    "defaultMessage" : "El Agente de Drata se registró correctamente"
+  },
+  "Drata Shield Logo" : {
+    "defaultMessage" : "Logotipo de Drata Shield"
+  },
+  "Enter your registration key" : {
+    "defaultMessage" : "Ingrese su clave de registro"
+  },
+  "Go to My Drata" : {
+    "defaultMessage" : "Ir a Mi Drata"
+  },
+  "Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button." : {
+    "defaultMessage" : "Vaya a Mi Drata, abra la sección \"Instalar Agente de Drata\" y haga clic en el botón \"Registrar Agente de Drata\"."
+  },
+  "Hard-Disk Encrypted" : {
+    "defaultMessage" : "Disco duro cifrado"
+  },
+  "Help" : {
+    "defaultMessage" : "Ayuda"
+  },
+  "Help article:" : {
+    "defaultMessage" : "Artículo de ayuda:"
+  },
+  "How to download and install a password manager" : {
+    "defaultMessage" : "Cómo descargar e instalar un administrador de contraseñas"
+  },
+  "How to download and install anti-virus software" : {
+    "defaultMessage" : "Cómo descargar e instalar software antivirus"
+  },
+  "How to enable screen saver lock timing" : {
+    "defaultMessage" : "Cómo activar el tiempo de bloqueo del protector de pantalla"
+  },
+  "How to encrypt your hard drive" : {
+    "defaultMessage" : "Cómo cifrar su disco duro"
+  },
+  "How to turn on auto-updates" : {
+    "defaultMessage" : "Cómo activar las actualizaciones automáticas"
+  },
+  "If you've already received an email, please follow the instructions to register the agent." : {
+    "defaultMessage" : "Si ya recibió un correo electrónico, siga las instrucciones para registrar al agente."
+  },
+  "Incomplete" : {
+    "defaultMessage" : "Incompleto"
+  },
+  "Install Anti-Virus/Malware Software" : {
+    "defaultMessage" : "Instalar software antivirus/malware"
+  },
+  "Install the Company's Approved Password Manager" : {
+    "defaultMessage" : "Instalar el Administrador de contraseñas aprobado por la empresa"
+  },
+  "Language Settings" : {
+    "defaultMessage" : "Configuración de idioma"
+  },
+  "Last synced: {syncedAt}" : {
+    "defaultMessage" : "Última sincronización: {syncedAt}"
+  },
+  "Missing region while handling authentication." : {
+    "defaultMessage" : "Falta una región al gestionar la autenticación."
+  },
+  "Missing token while handling authentication." : {
+    "defaultMessage" : "Falta un token al gestionar la autenticación."
+  },
+  "My Drata" : {
+    "defaultMessage" : "Mi Drata"
+  },
+  "Navigate back" : {
+    "defaultMessage" : "Navegar hacia atrás"
+  },
+  "No action needed at this time" : {
+    "defaultMessage" : "No es necesario tomar ninguna medida en este momento"
+  },
+  "Okay" : {
+    "defaultMessage" : "De acuerdo"
+  },
+  "Once your computer goes to sleep or the screen saver begins, your computer will lock within 60 seconds." : {
+    "defaultMessage" : "Una vez que su computadora entre en modo de reposo o se active el protector de pantalla, se bloqueará en 60 segundos."
+  },
+  "Otherwise, go to the \"Install the Drata Agent\" section of your My Drata page, and click on the \"Register Drata Agent\" button." : {
+    "defaultMessage" : "De lo contrario, diríjase a la sección \"Instalar el Agente Drata\" de su página Mi Drata y haga clic en el botón \"Registrar Agente de Drata\"."
+  },
+  "Override Icon Color" : {
+    "defaultMessage" : "Anular el color del ícono"
+  },
+  "Please click the \"Sync now\" button below" : {
+    "defaultMessage" : "Haga clic en el botón \"Sincronizar ahora\" que aparece a continuación"
+  },
+  "Please try again in a few minutes." : {
+    "defaultMessage" : "Por favor, vuelva a intentarlo en unos minutos."
+  },
+  "Please wait" : {
+    "defaultMessage" : "Por favor, espere"
+  },
+  "Preparing Logs..." : {
+    "defaultMessage" : "Preparando registros..."
+  },
+  "Quit" : {
+    "defaultMessage" : "Salir"
+  },
+  "Quit Agent" : {
+    "defaultMessage" : "Cerrar agente"
+  },
+  "Region" : {
+    "defaultMessage" : "Región"
+  },
+  "Register" : {
+    "defaultMessage" : "Registrar"
+  },
+  "Register Device" : {
+    "defaultMessage" : "Registrar dispositivo"
+  },
+  "Register Your Account" : {
+    "defaultMessage" : "Registre su cuenta"
+  },
+  "Register your Workstation" : {
+    "defaultMessage" : "Registre su estación de trabajo"
+  },
+  "Registration Key" : {
+    "defaultMessage" : "Clave de registro"
+  },
+  "Revert Icon to System Theme" : {
+    "defaultMessage" : "Revertir ícono al tema del sistema"
+  },
+  "Save" : {
+    "defaultMessage" : "Guardar"
+  },
+  "Screen Saver Lock" : {
+    "defaultMessage" : "Bloqueo de protector de pantalla"
+  },
+  "Show Drata Agent" : {
+    "defaultMessage" : "Mostrar agente de Drata"
+  },
+  "Sync Successful" : {
+    "defaultMessage" : "Sincronización exitosa"
+  },
+  "Sync now" : {
+    "defaultMessage" : "Sincronice ahora"
+  },
+  "Syncing your data!" : {
+    "defaultMessage" : "¡Sincronizando sus datos!"
+  },
+  "Take me to My Drata" : {
+    "defaultMessage" : "Lléveme a mi Drata"
+  },
+  "Tasks completed" : {
+    "defaultMessage" : "Tareas completadas"
+  },
+  "The Drata Agent is not authorized." : {
+    "defaultMessage" : "El Agente de Drata no está autorizado."
+  },
+  "The authorization has expired." : {
+    "defaultMessage" : "La autorización ha expirado."
+  },
+  "The following tasks are completed and compliant" : {
+    "defaultMessage" : "Se completan y cumplen las siguientes tareas"
+  },
+  "The following tasks are not compliant and need attention" : {
+    "defaultMessage" : "Las siguientes tareas no cumplen y necesitan atención"
+  },
+  "Unable to login at this time. Please contact your system administrator." : {
+    "defaultMessage" : "No se puede iniciar sesión en este momento. Póngase en contacto con el administrador del sistema."
+  },
+  "Unable to update your system information at this moment. Please contact your system administrator." : {
+    "defaultMessage" : "No se puede actualizar la información de su sistema en este momento. Póngase en contacto con el administrador del sistema."
+  },
+  "Use this form to update your personal language settings for the Drata Agent." : {
+    "defaultMessage" : "Use este formulario para actualizar su configuración de idioma personal para el agente de Drata."
+  },
+  "Waiting for the first Sync" : {
+    "defaultMessage" : "Esperando la primera sincronización"
+  },
+  "Way to go! The Drata Agent has been installed." : {
+    "defaultMessage" : "¡Bien hecho! El Agente de Drata ha sido instalado."
+  },
+  "We are completing your account configuration." : {
+    "defaultMessage" : "Estamos completando la configuración de su cuenta."
+  },
+  "We are making Drata even better than before." : {
+    "defaultMessage" : "Estamos mejorando Drata aún más que antes."
+  },
+  "You are using an approved password manager" : {
+    "defaultMessage" : "Está utilizando un administrador de contraseñas aprobado"
+  },
+  "You are using anti-virus software." : {
+    "defaultMessage" : "Está utilizando software antivirus."
+  },
+  "You need to register the Drata Agent." : {
+    "defaultMessage" : "Necesita registrar el Agente de Drata."
+  },
+  "You'll need to configure your security settings to require your login password within a specific timeframe after your computer goes to sleep or the screen saver begins. Review the help article and check with your IT and compliance teams for specific guidelines." : {
+    "defaultMessage" : "Deberá configurar sus ajustes de seguridad para que se requiera su contraseña de inicio de sesión dentro de un plazo específico después de que su computadora entre en modo de reposo o se active el protector de pantalla. Revise el artículo de ayuda y consulte con sus equipos de TI y cumplimiento para obtener pautas específicas."
+  },
+  "You'll need to download and install anti-virus software." : {
+    "defaultMessage" : "Deberá descargar e instalar software antivirus."
+  },
+  "You'll need to encrypt your computers hard drive." : {
+    "defaultMessage" : "Deberá cifrar el disco duro de su computadora."
+  },
+  "You'll need to turn on auto-updates." : {
+    "defaultMessage" : "Deberá activar las actualizaciones automáticas."
+  },
+  "You've already registered the Drata Agent." : {
+    "defaultMessage" : "Ya registró al Agente de Drata."
+  },
+  "You've already registered the Drata Agent. Disconnect the device first." : {
+    "defaultMessage" : "Ya registró al agente de Drata. Primero desconecte el dispositivo."
+  },
+  "Your computer will automatically update." : {
+    "defaultMessage" : "Su computadora se actualizará automáticamente."
+  },
+  "Your computer's hard drive is encrypted." : {
+    "defaultMessage" : "El disco duro de su computadora está cifrado."
+  },
+  "{passed} out of {total} tasks completed." : {
+    "defaultMessage" : "{passed} de {total} tareas completadas."
+  }
+}

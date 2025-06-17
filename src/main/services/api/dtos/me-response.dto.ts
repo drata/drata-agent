@@ -11,4 +11,5 @@ export interface MeResponseDto {
     createdAt: string;
     updatedAt: string;
     signature: string;
+    language: string;
 }

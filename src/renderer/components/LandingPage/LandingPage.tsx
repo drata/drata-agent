@@ -1,55 +1,58 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
+import { Button, Theme } from '@drata/component-library';
 import { Mail, Monitor } from 'react-feather';
-import { Button } from '@drata/component-library';
 
-import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
-import { _t } from '../../../renderer/helpers/intl.helpers';
 import { config } from '../../../config';
-
-import drataSlicedLogoPath from '../../../assets/svg/drata-sliced-logo-blue.svg';
+import { _t } from '../../../renderer/helpers/intl.helpers';
+import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
 
 const LandingPageWrapper = styled.main`
     overflow-y: auto;
-    background-image: url(${drataSlicedLogoPath});
     background-position: bottom right;
     background-repeat: no-repeat;
-    padding: 1.5rem 4.5rem 1.5rem 1.5rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 2rem;
 `;
 
-const StyledH2 = styled.h2`
+const StyledH2 = styled.h2<{ theme: Theme }>`
     font-size: 1.4rem;
     line-height: 1.5;
     color: ${({ theme }) => theme.baseColors.spaceCadet};
+    margin-bottom: 1rem;
 `;
 
-const StyledH3 = styled.h3`
+const StyledH3 = styled.h3<{ theme: Theme }>`
     font-size: 0.9rem;
     color: ${({ theme }) => theme.baseColors.spaceCadet};
+    margin-bottom: 0.5rem;
 `;
 
-const StyledParagraph = styled.h3<{ width: number }>`
+const StyledParagraph = styled.h3<{ width: number; theme: Theme }>`
     font-size: 0.7rem;
     line-height: 1.5;
     font-weight: 300;
     color: ${({ theme }) => theme.baseColors.spaceCadet};
-    width: ${({ width }) => `${width}px`};
+    max-width: ${({ width }) => `${width}px`};
+    margin: 0;
 `;
 
 const StepContainer = styled.div`
     display: flex;
+    gap: 1rem;
+    align-items: flex-start;
 
     & > div {
-        margin-left: 0.75rem;
+        flex: 1;
     }
 `;
 
-const IconContainer = styled.span`
+const IconContainer = styled.span<{ theme: Theme }>`
     flex: 0 0 1.5rem;
     height: 1.5rem;
     border: 1px solid ${({ theme }) => theme.baseColors.spaceCadet};
@@ -57,9 +60,10 @@ const IconContainer = styled.span`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 0.25rem;
 `;
 
-const StayledMail = styled(Mail)`
+const StayledMail = styled(Mail)<{ theme: Theme }>`
     color: ${({ theme }) => theme.baseColors.spaceCadet};
 `;
 

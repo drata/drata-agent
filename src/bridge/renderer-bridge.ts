@@ -8,11 +8,15 @@ function onMessage<BCh extends keyof BridgeChannel>(
     channel: BCh,
     handler: (data: BridgeChannel[BCh]) => void,
 ): CancelListenerFn {
-    ipcRenderer.on(channel.toString(), (evt, arg): void => {
+    const wrappedHandler = (
+        _: Electron.IpcRendererEvent,
+        arg: BridgeChannel[BCh],
+    ): void => {
         handler(arg);
-    });
+    };
 
-    return () => ipcRenderer.removeListener(channel.toString(), handler);
+    ipcRenderer.on(channel.toString(), wrappedHandler);
+    return () => ipcRenderer.removeListener(channel.toString(), wrappedHandler);
 }
 
 /**

@@ -1,6 +1,6 @@
 import cp from 'child_process';
 import { app } from 'electron';
-import { filter, flatten, isEmpty } from 'lodash';
+import { filter, flatten, isEmpty, last } from 'lodash';
 import path from 'path';
 import { parseIntOrUndefined } from '../../helpers/string.helpers';
 import { AgentDeviceIdentifiers } from '../api/types/agent-device-identifiers.type';
@@ -140,35 +140,6 @@ export class WindowsSystemQueryService
                     transform: res => ({ commandResults: res }),
                 }),
 
-                adminUsers: await this.runQuery({
-                    description: 'List of users with administrative privileges',
-                    query: "SELECT u.username FROM users u JOIN user_groups ug ON ug.UID = u.UID JOIN groups g ON g.GID = ug.GID WHERE g.GROUPNAME = 'Administrators'",
-                }),
-
-                processor: await this.runQuery({
-                    description: 'Processor Information',
-                    query: 'SELECT cpu_type, cpu_brand FROM system_info',
-                    transform: res => res[0],
-                }),
-
-                memory: await this.runQuery({
-                    description: 'Physical Memory (RAM)',
-                    query: 'SELECT physical_memory FROM system_info',
-                    transform: res => res[0],
-                }),
-
-                hddSize: await this.runQuery({
-                    description: 'Hard Disk Storage Capacity in GB',
-                    query: 'SELECT round((disk_size * 10e-10), 2) AS hddSize FROM disk_info',
-                    transform: res => res[0],
-                }),
-
-                graphics: await this.runQuery({
-                    description: 'Physical Memory (RAM)',
-                    query: 'SELECT manufacturer, model, series FROM video_info',
-                    transform: res => res[0],
-                }),
-
                 winAvStatus: await this.runQuery({
                     description:
                         'Microsoft Defender Anti-Virus Security Center Status',
@@ -209,14 +180,26 @@ export class WindowsSystemQueryService
                     },
                 }),
 
-                hddEncryptionStatus: await this.runQuery({
-                    description:
-                        'Is the hard drive encryption enabled on the workstation?',
-                    command:
-                        "powershell -command (New-Object -ComObject Shell.Application).NameSpace((Get-ChildItem Env:SystemDrive).Value).Self.ExtendedProperty('System.Volume.BitLockerProtection')",
-                    transform: async (res: any[]) =>
-                        parseIntOrUndefined(res[0]),
-                }),
+                // some profiles are used to setup required modules
+                hddEncryptionStatus: await this.raceSequentialQueries(
+                    [
+                        {
+                            description:
+                                'Is the hard drive encryption enabled on the workstation?',
+                            command:
+                                "powershell -NoProfile -command (New-Object -ComObject Shell.Application).NameSpace((Get-ChildItem Env:SystemDrive).Value).Self.ExtendedProperty('System.Volume.BitLockerProtection')",
+                        },
+                        {
+                            description:
+                                'Is the hard drive encryption enabled on the workstation (with profile)?',
+                            command:
+                                "powershell -command (New-Object -ComObject Shell.Application).NameSpace((Get-ChildItem Env:SystemDrive).Value).Self.ExtendedProperty('System.Volume.BitLockerProtection')",
+                        },
+                    ],
+                    // last line of output is -command execution
+                    result => parseIntOrUndefined(last(result)),
+                ),
+
                 screenLockSettings: {
                     ...(await this.runQuery({
                         // https://learn.microsoft.com/en-us/windows/win32/api/ntsecapi/ne-ntsecapi-security_logon_type

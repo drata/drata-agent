@@ -1,12 +1,12 @@
 import React, { ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 
-import { Button, buttonReset } from '@drata/component-library';
-import { Collapse } from 'reactstrap';
+import { Button, buttonReset, Theme } from '@drata/component-library';
 import { isNil } from 'lodash';
 import { ChevronDown, ChevronUp } from 'react-feather';
+import { Collapse } from 'reactstrap';
 
-const HeaderButton = styled(Button)<{ $highlighting: boolean }>`
+const HeaderButton = styled(Button)<{ $highlighting: boolean; theme: Theme }>`
     ${buttonReset}
     width: 100%;
     border-radius: 0;

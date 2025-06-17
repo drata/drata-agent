@@ -1,0 +1,254 @@
+{
+  "Agent Version {version}" : {
+    "defaultMessage" : "Agentversie {version}"
+  },
+  "Automatic Updates Enabled" : {
+    "defaultMessage" : "Automatische updates ingeschakeld"
+  },
+  "Cancel" : {
+    "defaultMessage" : "Annuleren"
+  },
+  "Change Language" : {
+    "defaultMessage" : "Taal wijzigen"
+  },
+  "Check your Email" : {
+    "defaultMessage" : "Controleer uw e-mail"
+  },
+  "Completed" : {
+    "defaultMessage" : "Voltooid"
+  },
+  "Configure your computer" : {
+    "defaultMessage" : "Configureer uw computer"
+  },
+  "Device compliance complete." : {
+    "defaultMessage" : "De conformiteit van het apparaat is voltooid."
+  },
+  "Disconnect Device" : {
+    "defaultMessage" : "Ontkoppel apparaat"
+  },
+  "Download Logs" : {
+    "defaultMessage" : "Logboeken downloaden"
+  },
+  "Download and install a password manager on your computer. This is the application you will use to generate, store, and share all passwords, MFA codes, as well as secure notes." : {
+    "defaultMessage" : "Download en installeer een wachtwoordmanager op uw computer. Dit is de applicatie die u zult gebruiken om alle wachtwoorden, MFA-codes en beveiligde notities te genereren, op te slaan en te delen."
+  },
+  "Drata Agent" : {
+    "defaultMessage" : "Drata Agent"
+  },
+  "Drata Agent successfully registered" : {
+    "defaultMessage" : "Drata Agent is geregistreerd."
+  },
+  "Drata Shield Logo" : {
+    "defaultMessage" : "Drata Shield-logo"
+  },
+  "Enter your registration key" : {
+    "defaultMessage" : "Voer uw registratiesleutel in"
+  },
+  "Go to My Drata" : {
+    "defaultMessage" : "Ga naar Mijn Drata"
+  },
+  "Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button." : {
+    "defaultMessage" : "Ga naar Mijn Drata, open 'Drata Agent installeren' en klik op de knop 'Drata Agent registreren'."
+  },
+  "Hard-Disk Encrypted" : {
+    "defaultMessage" : "Harde schijf versleuteld"
+  },
+  "Help" : {
+    "defaultMessage" : "Help"
+  },
+  "Help article:" : {
+    "defaultMessage" : "Hulpartikel:"
+  },
+  "How to download and install a password manager" : {
+    "defaultMessage" : "Hoe downloadt en installeert u een wachtwoordmanager?"
+  },
+  "How to download and install anti-virus software" : {
+    "defaultMessage" : "Anti-virussoftware downloaden en installeren"
+  },
+  "How to enable screen saver lock timing" : {
+    "defaultMessage" : "Tijdsinstelling voor het vergrendelen van de schermbeveiliging inschakelen"
+  },
+  "How to encrypt your hard drive" : {
+    "defaultMessage" : "Hoe u uw harde schijf kunt versleutelen"
+  },
+  "How to turn on auto-updates" : {
+    "defaultMessage" : "Hoe automatische updates in te schakelen"
+  },
+  "If you've already received an email, please follow the instructions to register the agent." : {
+    "defaultMessage" : "Als u al een e-mail hebt ontvangen, volg alstublieft de instructies om de agent te registreren."
+  },
+  "Incomplete" : {
+    "defaultMessage" : "Onvolledig"
+  },
+  "Install Anti-Virus/Malware Software" : {
+    "defaultMessage" : "Antivirus-/malwaresoftware installeren"
+  },
+  "Install the Company's Approved Password Manager" : {
+    "defaultMessage" : "Installeer de goedgekeurde wachtwoordmanager van het bedrijf"
+  },
+  "Language Settings" : {
+    "defaultMessage" : "Taalinstellingen"
+  },
+  "Last synced: {syncedAt}" : {
+    "defaultMessage" : "Laatst gesynchroniseerd: {syncedAt}"
+  },
+  "Missing region while handling authentication." : {
+    "defaultMessage" : "Ontbrekende regio bij het afhandelen van de authenticatie."
+  },
+  "Missing token while handling authentication." : {
+    "defaultMessage" : "Er ontbreekt een token tijdens het afhandelen van de authenticatie."
+  },
+  "My Drata" : {
+    "defaultMessage" : "Mijn Drata"
+  },
+  "Navigate back" : {
+    "defaultMessage" : "Terug"
+  },
+  "No action needed at this time" : {
+    "defaultMessage" : "Op dit moment is er geen actie vereist"
+  },
+  "Okay" : {
+    "defaultMessage" : "Oké"
+  },
+  "Once your computer goes to sleep or the screen saver begins, your computer will lock within 60 seconds." : {
+    "defaultMessage" : "Zodra uw computer in de slaapstand gaat of de schermbeveiliging begint, wordt uw computer binnen 60 seconden vergrendeld."
+  },
+  "Otherwise, go to the \"Install the Drata Agent\" section of your My Drata page, and click on the \"Register Drata Agent\" button." : {
+    "defaultMessage" : "Anders gaat u naar 'De Drata Agent installeren' van uw Mijn Drata-pagina en klikt u op de knop 'Drata Agent registreren'."
+  },
+  "Override Icon Color" : {
+    "defaultMessage" : "Pictogramkleur overschrijven"
+  },
+  "Please click the \"Sync now\" button below" : {
+    "defaultMessage" : "Klik op de knop 'Nu synchroniseren' hieronder."
+  },
+  "Please try again in a few minutes." : {
+    "defaultMessage" : "Probeer het over een paar minuten opnieuw."
+  },
+  "Please wait" : {
+    "defaultMessage" : "Een ogenblik geduld."
+  },
+  "Preparing Logs..." : {
+    "defaultMessage" : "Logboeken voorbereiden..."
+  },
+  "Quit" : {
+    "defaultMessage" : "Stoppen"
+  },
+  "Quit Agent" : {
+    "defaultMessage" : "Agent afsluiten"
+  },
+  "Region" : {
+    "defaultMessage" : "Regio"
+  },
+  "Register" : {
+    "defaultMessage" : "Registreren"
+  },
+  "Register Device" : {
+    "defaultMessage" : "Apparaat registreren"
+  },
+  "Register Your Account" : {
+    "defaultMessage" : "Registreer uw account"
+  },
+  "Register your Workstation" : {
+    "defaultMessage" : "Registreer uw werkstation"
+  },
+  "Registration Key" : {
+    "defaultMessage" : "Registratiesleutel"
+  },
+  "Revert Icon to System Theme" : {
+    "defaultMessage" : "Icoon terugzetten naar het systeemthema"
+  },
+  "Save" : {
+    "defaultMessage" : "Opslaan"
+  },
+  "Screen Saver Lock" : {
+    "defaultMessage" : "Vergrendeling voor schermbeveiliging"
+  },
+  "Show Drata Agent" : {
+    "defaultMessage" : "Drata Agent weergeven"
+  },
+  "Sync Successful" : {
+    "defaultMessage" : "Synchronisatie geslaagd"
+  },
+  "Sync now" : {
+    "defaultMessage" : "Synchroniseer nu"
+  },
+  "Syncing your data!" : {
+    "defaultMessage" : "Uw gegevens worden gesynchroniseerd!"
+  },
+  "Take me to My Drata" : {
+    "defaultMessage" : "Brengt u mij naar Mijn Drata"
+  },
+  "Tasks completed" : {
+    "defaultMessage" : "Voltooide taken"
+  },
+  "The Drata Agent is not authorized." : {
+    "defaultMessage" : "De Drata Agent is niet geautoriseerd."
+  },
+  "The authorization has expired." : {
+    "defaultMessage" : "Uw autorisatie is verlopen."
+  },
+  "The following tasks are completed and compliant" : {
+    "defaultMessage" : "De volgende taken zijn voltooid en voldoen aan de voorschriften"
+  },
+  "The following tasks are not compliant and need attention" : {
+    "defaultMessage" : "De volgende taken zijn niet conform en vereisen uw aandacht."
+  },
+  "Unable to login at this time. Please contact your system administrator." : {
+    "defaultMessage" : "Inloggen momenteel niet mogelijk. Neem contact op met uw systeembeheerder."
+  },
+  "Unable to update your system information at this moment. Please contact your system administrator." : {
+    "defaultMessage" : "Systeeminformatie bijwerken momenteel niet mogelijk. Neem contact op met uw systeembeheerder."
+  },
+  "Use this form to update your personal language settings for the Drata Agent." : {
+    "defaultMessage" : "Gebruik dit formulier om uw persoonlijke taalinstellingen voor de Drata Agent bij te werken."
+  },
+  "Waiting for the first Sync" : {
+    "defaultMessage" : "Wachten op de eerste synchronisatie."
+  },
+  "Way to go! The Drata Agent has been installed." : {
+    "defaultMessage" : "Goed gedaan! De Drata Agent is geïnstalleerd."
+  },
+  "We are completing your account configuration." : {
+    "defaultMessage" : "Wij voltooien de configuratie van uw account."
+  },
+  "We are making Drata even better than before." : {
+    "defaultMessage" : "We maken Drata zelfs nog beter dan voorheen."
+  },
+  "You are using an approved password manager" : {
+    "defaultMessage" : "U gebruikt een goedgekeurde wachtwoordmanager"
+  },
+  "You are using anti-virus software." : {
+    "defaultMessage" : "U gebruikt anti-virussoftware."
+  },
+  "You need to register the Drata Agent." : {
+    "defaultMessage" : "U moet de Drata Agent registreren."
+  },
+  "You'll need to configure your security settings to require your login password within a specific timeframe after your computer goes to sleep or the screen saver begins. Review the help article and check with your IT and compliance teams for specific guidelines." : {
+    "defaultMessage" : "U moet uw beveiligingsinstellingen zo configureren dat uw inlogwachtwoord binnen een specifieke tijd vereist is nadat uw computer in de slaapstand is gegaan of de schermbeveiliging is gestart. Bekijk het helpartikel en raadpleeg uw IT- en compliance-teams voor specifieke richtlijnen."
+  },
+  "You'll need to download and install anti-virus software." : {
+    "defaultMessage" : "U moet anti-virussoftware downloaden en installeren."
+  },
+  "You'll need to encrypt your computers hard drive." : {
+    "defaultMessage" : "U moet de harde schijf van uw computer versleutelen."
+  },
+  "You'll need to turn on auto-updates." : {
+    "defaultMessage" : "U moet automatische updates inschakelen."
+  },
+  "You've already registered the Drata Agent." : {
+    "defaultMessage" : "U hebt de Drata Agent al geregistreerd."
+  },
+  "You've already registered the Drata Agent. Disconnect the device first." : {
+    "defaultMessage" : "U hebt de Drata Agent al geregistreerd. Koppel eerst het apparaat los."
+  },
+  "Your computer will automatically update." : {
+    "defaultMessage" : "Uw computer wordt automatisch bijgewerkt."
+  },
+  "Your computer's hard drive is encrypted." : {
+    "defaultMessage" : "De harde schijf van uw computer is versleuteld."
+  },
+  "{passed} out of {total} tasks completed." : {
+    "defaultMessage" : "{passed} van de {total} taken voltooid."
+  }
+}

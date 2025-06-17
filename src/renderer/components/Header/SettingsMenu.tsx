@@ -1,59 +1,59 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
 
-import {
-    UncontrolledDropdown,
-    DropdownMenu,
-    DropdownToggle,
-    DropdownItem,
-    Modal,
-    ModalHeader,
-    Button,
-} from 'reactstrap';
-import { User, theme } from '@drata/component-library';
+import { Theme, User, theme } from '@drata/component-library';
 import {
     AtSign,
     ChevronDown,
+    Download,
+    Globe,
     HelpCircle,
+    Loader,
     Power,
-    EyeOff,
     Settings,
     UserCheck,
-    Activity,
-    Minimize,
-    ArrowUpCircle,
 } from 'react-feather';
+import {
+    Button,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle,
+    Modal,
+    ModalHeader,
+} from 'reactstrap';
 
+import { config } from '../../../config';
+import { MessageType } from '../../../entities/message-listener-type.enum';
+import { TargetEnv } from '../../../enums/target-env.enum';
+import { rgba } from '../../../renderer/helpers/color.helpers';
+import { _t } from '../../../renderer/helpers/intl.helpers';
 import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
+import { addMessageAction } from '../../../renderer/redux/actions/messages.actions';
 import {
     selectAppVersion,
     selectHasAccessToken,
     selectUser,
 } from '../../../renderer/redux/selectors/data-store.selectors';
-import { _t } from '../../../renderer/helpers/intl.helpers';
-import { rgba } from '../../../renderer/helpers/color.helpers';
-import { config } from '../../../config';
-import { TargetEnv } from '../../../enums/target-env.enum';
+import { LanguageForm } from '../LandingPage/LanguageForm';
 import { LocalRegisterForm } from '../LandingPage/LocalRegisterForm';
-import { MessageType } from '../../../entities/message-listener-type.enum';
-import { Message } from '../../../entities/message.interface';
-import { addMessageAction } from '../../../renderer/redux/actions/messages.actions';
 
 import './setings-menu.scss';
 
 const targetEnv = TargetEnv[process.env.TARGET_ENV as TargetEnv];
 const ENV = targetEnv === TargetEnv.PROD ? '' : `[${targetEnv}] `;
 
-// NOTE: overwrite vuexy list item line-height of .5
-const StyledDropdownToggle = styled(DropdownToggle)`
+const StyledDropdownToggle = styled(DropdownToggle)<{ theme: Theme }>`
     min-width: 3rem;
     height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 15rem;
-    transition: background-color 300ms linear, color 300ms linear;
+    transition:
+        background-color 300ms linear,
+        color 300ms linear;
     cursor: pointer;
     color: ${({ theme }) => theme.baseColors.white};
     padding: 2px !important;
@@ -68,7 +68,7 @@ const StyledDropdownToggle = styled(DropdownToggle)`
     }
 `;
 
-const UserContainer = styled(User)`
+const UserContainer = styled(User)<{ theme: Theme }>`
     color: ${({ theme }) => theme.textColors.dark.medium};
     width: auto;
 
@@ -87,45 +87,96 @@ const StyledModalHeader = styled(ModalHeader)`
     }
 `;
 
+const SpinningLoader = styled(Loader)`
+    animation: spin 1s linear infinite;
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+`;
+
+type ModalType = 'register' | 'language' | null;
+
 function SettingsMenu() {
     const bridge = useBridge();
     const dispatch = useDispatch();
     const hasAccessToken = useSelector(selectHasAccessToken);
     const version = useSelector(selectAppVersion);
     const user = useSelector(selectUser);
-    const [modal, setModal] = useState(false);
-    const [extraMenu, setExtraMenu] = useState(false);
+    const [activeModal, setActiveModal] = useState<ModalType>(null);
+    const [isDownloadingLogs, setIsDownloadingLogs] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-    const toggleModal: React.EventHandler<any> = () => {
-        setModal(!modal);
+    const openRegisterModal: React.EventHandler<any> = () => {
+        setActiveModal('register');
     };
 
-    const toggleExtraMenu: React.EventHandler<any> = evt => {
-        setExtraMenu(evt.altKey ?? false);
+    const openLanguageModal: React.EventHandler<any> = () => {
+        setActiveModal('language');
     };
 
-    const openModal = (m: Message) => {
-        dispatch(addMessageAction(m));
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const closeModal = () => {
+        setActiveModal(null);
+    };
+
+    const clearRegistration = async () => {
+        try {
+            await bridge.invoke('clearRegistration');
+        } catch (error) {
+            dispatch(
+                addMessageAction({
+                    type: MessageType.ERROR,
+                    message: { id: 'Failed to clear registration' },
+                    secondaryMessage: {
+                        id: 'Please try again or contact support if the problem persists.',
+                    },
+                }),
+            );
+        }
+    };
+
+    const handleDownloadLogs = async () => {
+        setIsDownloadingLogs(true);
+        try {
+            await bridge.invoke('downloadLog');
+        } catch (error) {
+            dispatch(
+                addMessageAction({
+                    type: MessageType.ERROR,
+                    message: { id: 'Failed to download logs' },
+                    secondaryMessage: {
+                        id: 'Please try again or contact support if the problem persists.',
+                    },
+                }),
+            );
+        } finally {
+            setIsDownloadingLogs(false);
+        }
     };
 
     return (
         <ul className="nav navbar-nav float-right">
-            <UncontrolledDropdown
-                onClick={e => {
-                    toggleExtraMenu(e);
-                }}
+            <Dropdown
                 tag="li"
                 className="nav-item"
+                isOpen={isDropdownOpen}
+                toggle={toggleDropdown}
             >
                 <StyledDropdownToggle
                     tag="a"
                     className="nav-link text-height-1"
                     tabIndex={0}
                 >
-                    {!hasAccessToken && (
-                        <Settings size={20} color={theme.baseColors.white} />
-                    )}
-                    {!!user && (
+                    {user ? (
                         <>
                             <UserContainer
                                 direction="rtl"
@@ -139,6 +190,8 @@ function SettingsMenu() {
                                 color={theme.baseColors.white}
                             />
                         </>
+                    ) : (
+                        <Settings size={20} color={theme.baseColors.white} />
                     )}
                 </StyledDropdownToggle>
                 <DropdownMenu right className="drt-header-user-dropdown">
@@ -150,6 +203,11 @@ function SettingsMenu() {
                     </StyledDropdownItem>
 
                     <DropdownItem divider />
+
+                    <StyledDropdownItem onClick={openLanguageModal}>
+                        <Globe size={14} className="mr-50" />
+                        <span>{_t({ id: 'Change Language' })}</span>
+                    </StyledDropdownItem>
 
                     <StyledDropdownItem
                         onClick={() =>
@@ -164,17 +222,20 @@ function SettingsMenu() {
                     </StyledDropdownItem>
 
                     <StyledDropdownItem
-                        onClick={() =>
-                            openModal({
-                                type: MessageType.ERROR,
-                                message: {
-                                    id: 'This will send recent diagnostics to Drata.',
-                                },
-                            })
-                        }
+                        onClick={handleDownloadLogs}
+                        disabled={isDownloadingLogs}
+                        toggle={false}
                     >
-                        <ArrowUpCircle size={14} className="mr-50" />
-                        <span>{_t({ id: 'Send diagnostics' })}</span>
+                        {isDownloadingLogs ? (
+                            <SpinningLoader size={14} className="mr-50" />
+                        ) : (
+                            <Download size={14} className="mr-50" />
+                        )}
+                        <span>
+                            {isDownloadingLogs
+                                ? _t({ id: 'Preparing Logs...' })
+                                : _t({ id: 'Download Logs' })}
+                        </span>
                     </StyledDropdownItem>
 
                     <StyledDropdownItem
@@ -186,42 +247,24 @@ function SettingsMenu() {
                         <span>{_t({ id: 'Help' })}</span>
                     </StyledDropdownItem>
 
-                    {extraMenu && (
-                        <>
-                            <DropdownItem divider />
-                            <StyledDropdownItem
-                                onClick={() => bridge.invoke('hideApp')}
-                            >
-                                <EyeOff size={14} className="mr-50" />
-                                <span>{_t({ id: 'Hide Agent' })}</span>
-                            </StyledDropdownItem>
-                        </>
-                    )}
-
-                    {extraMenu && (
-                        <StyledDropdownItem
-                            onClick={() => bridge.invoke('allowResize')}
-                        >
-                            <Minimize size={14} className="mr-50" />
-                            <span>{_t({ id: 'Enable resize' })}</span>
-                        </StyledDropdownItem>
-                    )}
-
-                    {extraMenu && (
-                        <StyledDropdownItem
-                            onClick={() => bridge.invoke('dumpDiagnostics')}
-                        >
-                            <Activity size={14} className="mr-50" />
-                            <span>{_t({ id: 'Save diagnostics' })}</span>
-                        </StyledDropdownItem>
-                    )}
-
-                    {extraMenu && !hasAccessToken && (
-                        <StyledDropdownItem onClick={toggleModal}>
-                            <AtSign size={14} className="mr-50" />
-                            <span>{_t({ id: 'Register' })}</span>
-                        </StyledDropdownItem>
-                    )}
+                    <StyledDropdownItem
+                        onClick={
+                            hasAccessToken
+                                ? clearRegistration
+                                : openRegisterModal
+                        }
+                    >
+                        <AtSign size={14} className="mr-50" />
+                        <span>
+                            {hasAccessToken
+                                ? _t({
+                                      id: 'Disconnect Device',
+                                  })
+                                : _t({
+                                      id: 'Register',
+                                  })}
+                        </span>
+                    </StyledDropdownItem>
 
                     <DropdownItem divider />
 
@@ -232,13 +275,22 @@ function SettingsMenu() {
                         <span>{_t({ id: 'Quit Agent' })}</span>
                     </StyledDropdownItem>
                 </DropdownMenu>
-            </UncontrolledDropdown>
-            <Modal isOpen={modal} toggle={toggleModal}>
-                <StyledModalHeader toggle={toggleModal}>
-                    Register Agent
+            </Dropdown>
+
+            <Modal isOpen={activeModal === 'register'} toggle={closeModal}>
+                <StyledModalHeader toggle={closeModal}>
+                    {_t({ id: 'Register Device' })}
                 </StyledModalHeader>
                 <LocalRegisterForm />
-                <Button onClick={toggleModal}>Cancel</Button>
+                <Button onClick={closeModal}>{_t({ id: 'Cancel' })}</Button>
+            </Modal>
+
+            <Modal isOpen={activeModal === 'language'} toggle={closeModal}>
+                <StyledModalHeader toggle={closeModal}>
+                    {_t({ id: 'Change Language' })}
+                </StyledModalHeader>
+                <LanguageForm onClose={closeModal} />
+                <Button onClick={closeModal}>{_t({ id: 'Cancel' })}</Button>
             </Modal>
         </ul>
     );

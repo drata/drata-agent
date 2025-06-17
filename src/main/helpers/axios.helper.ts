@@ -7,7 +7,7 @@ import { DataStoreHelper } from './data-store.helper';
 import { resolveBaseUrl } from './environment.helpers';
 
 export class AxiosHelper {
-    static instance: AxiosHelper = new AxiosHelper();
+    static readonly instance: AxiosHelper = new AxiosHelper();
     private readonly dataStore = DataStoreHelper.instance;
     private readonly axiosInstance = axios.create();
     private readonly REQUEST_TIMEOUT = 5 * 60 * 1000;
@@ -37,7 +37,7 @@ export class AxiosHelper {
 
                 return config;
             },
-            error => Promise.reject(error),
+            error => Promise.reject(new Error(error)),
         );
     }
 

@@ -30,3 +30,7 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: #ccc;
 }
+
+.btn-close {
+    display: none;
+}

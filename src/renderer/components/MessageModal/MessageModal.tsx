@@ -3,21 +3,21 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { Button } from '@drata/component-library';
+import { Button, Theme } from '@drata/component-library';
 import { MessageIcon } from './MessageIcon';
 
-import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
-import { cardBase } from '../../../renderer/helpers/style.helpers';
+import { MessageType } from '../../../entities/message-listener-type.enum';
 import { rgba } from '../../../renderer/helpers/color.helpers';
 import { _t } from '../../../renderer/helpers/intl.helpers';
+import { cardBase } from '../../../renderer/helpers/style.helpers';
+import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
 import {
     addMessageAction,
     dismissCurrentAction,
 } from '../../../renderer/redux/actions/messages.actions';
 import { selectCurrentMessage } from '../../../renderer/redux/selectors/messages.selectors';
-import { MessageType } from '../../../entities/message-listener-type.enum';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ theme: Theme }>`
     position: fixed;
     top: 4rem;
     bottom: 0;
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
     z-index: 3;
 `;
 
-const Card = styled.div`
+const Card = styled.div<{ theme: Theme }>`
     ${cardBase}
     background-color: ${({ theme }) => rgba(theme.baseColors.white, 0.95)};
     width: 100%;

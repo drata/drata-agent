@@ -1,6 +1,7 @@
+import { Theme } from '@drata/component-library';
 import { css } from 'styled-components';
 
-const cardBase = css`
+const cardBase = css<{ theme: Theme }>`
     background-color: ${({ theme }) => theme.baseColors.white};
     box-shadow: ${({ theme }) => theme.boxShadows.dp1};
     border-radius: 0.5rem;

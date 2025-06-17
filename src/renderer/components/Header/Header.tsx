@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { DrataIconLight } from '@drata/component-library';
+import { DrataIconLight, Theme } from '@drata/component-library';
 import { HeaderBadge } from './HeaderBadge';
 import { SettingsMenu } from './SettingsMenu';
 
 import { _t } from '../../../renderer/helpers/intl.helpers';
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.header<{ theme: Theme }>`
     background-color: ${({ theme }) => theme.baseColors.spaceCadet};
     display: flex;
     align-items: center;
@@ -38,7 +38,6 @@ function Header() {
         <StyledHeader>
             <StyledH1 aria-label={_t({ id: 'Drata Agent' })}>
                 <span aria-hidden>
-                    <StyledDrataLogo />
                     <StyledHeaderBadge />
                 </span>
             </StyledH1>

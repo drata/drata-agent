@@ -1,24 +1,24 @@
-import React, { useMemo } from 'react';
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import { forEach } from 'lodash';
+import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 
-import { theme } from '@drata/component-library';
+import { Theme, theme } from '@drata/component-library';
+import { AlertCircle, CheckCircle } from 'react-feather';
 import { Accordion } from '../Accordion/Accordion';
 import { AccordionItem } from '../Accordion/AccordionItem';
 import { ComplianceInfoHeader } from './ComplianceInfoHeader';
-import { CounterBadge } from './CounterBadge';
 import { ComplianceListItem } from './ComplianceListItem';
-import { AlertCircle, CheckCircle } from 'react-feather';
+import { CounterBadge } from './CounterBadge';
 import { MessageBanner } from './MessageBanner';
 
-import { selectComplianceChecks } from '../../redux/selectors/data-store.selectors';
-import { _t } from '../../helpers/intl.helpers';
-import { ComplianceCheckResponseDto } from '../../../main/services/api/dtos/compliance-check-response.dto';
-import { ComplianceCheckType } from '../../../enums/compliance-check-type.enum';
 import { ComplianceCheckStatus } from '../../../enums/compliance-check-status.enum';
+import { ComplianceCheckType } from '../../../enums/compliance-check-type.enum';
+import { ComplianceCheckResponseDto } from '../../../main/services/api/dtos/compliance-check-response.dto';
+import { _t } from '../../helpers/intl.helpers';
+import { selectComplianceChecks } from '../../redux/selectors/data-store.selectors';
 
-const BodyWrapper = styled.main`
+const BodyWrapper = styled.main<{ theme: Theme }>`
     overflow-y: auto;
     background-color: ${({ theme }) => theme.baseColors.cultured};
     padding: 0.5rem;

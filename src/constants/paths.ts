@@ -31,4 +31,22 @@ export const TRAY_ICON_OTHERS = path.join(
     'tray_icon.png',
 );
 
-export const TRAY_ICON = PLATFORM.MACOS ? TRAY_ICON_MAC : TRAY_ICON_OTHERS;
+export const TRAY_ICON_OTHERS_LIGHT = path.join(
+    ASSETS,
+    'tray-icons',
+    'tray_icon.png',
+);
+
+export const TRAY_ICON_OTHERS_DARK = path.join(
+    ASSETS,
+    'tray-icons',
+    'tray_icon_dark.png',
+);
+
+export const TRAY_ICON_LIGHT = PLATFORM.MACOS
+    ? TRAY_ICON_MAC
+    : TRAY_ICON_OTHERS_LIGHT;
+
+export const TRAY_ICON_DARK = PLATFORM.MACOS
+    ? TRAY_ICON_MAC
+    : TRAY_ICON_OTHERS_DARK;

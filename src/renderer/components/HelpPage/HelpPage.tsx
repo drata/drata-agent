@@ -1,21 +1,21 @@
-import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import { find, isNil } from 'lodash';
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { Button, buttonReset } from '@drata/component-library';
+import { Button, buttonReset, Theme } from '@drata/component-library';
 import { ArrowLeft, ExternalLink } from 'react-feather';
 
-import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
+import { config } from '../../../config';
+import { getComplianceCheckListItems } from '../../../constants/compliance';
 import { _t } from '../../../renderer/helpers/intl.helpers';
 import {
     cardBase,
     linkHighlight,
 } from '../../../renderer/helpers/style.helpers';
-import { COMPLIANCE_CHECK_LIST_ITEMS } from '../../../constants/compliance';
-import { config } from '../../../config';
+import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
 
-const Wrapper = styled.main`
+const Wrapper = styled.main<{ theme: Theme }>`
     background-color: ${({ theme }) => theme.baseColors.cultured};
     padding: 0.5rem;
     display: flex;
@@ -34,13 +34,13 @@ const BackButton = styled(Button)`
     border-radius: 2rem;
 `;
 
-const StyledH2 = styled.h2`
+const StyledH2 = styled.h2<{ theme: Theme }>`
     font-size: 1rem;
     color: ${({ theme }) => theme.baseColors.spaceCadet};
     margin-top: 0.2rem;
 `;
 
-const HelpInfo = styled.div`
+const HelpInfo = styled.div<{ theme: Theme }>`
     ${cardBase}
     padding: 1rem;
     display: flex;
@@ -66,14 +66,14 @@ const HelpArticle = styled.span`
     }
 `;
 
-const HelpButton = styled(Button)`
+const HelpButton = styled(Button)<{ theme: Theme }>`
     ${buttonReset}
     color: ${({ theme }) => theme.baseColors.saphireBlue};
 
     ${linkHighlight}
 `;
 
-const GoToDrataButton = styled(Button)`
+const GoToDrataButton = styled(Button)<{ theme: Theme }>`
     ${buttonReset}
     color: ${({ theme }) => theme.baseColors.saphireBlue};
     align-self: flex-end;
@@ -88,11 +88,11 @@ const GoToDrataButton = styled(Button)`
 `;
 
 function HelpPage() {
+    const { complianceType } = useParams();
+    const navigate = useNavigate();
     const bridge = useBridge();
-    const history = useHistory();
-    const { complianceType } = useParams<{ complianceType?: string }>();
 
-    const info = find(COMPLIANCE_CHECK_LIST_ITEMS, {
+    const info = find(getComplianceCheckListItems(), {
         type: complianceType,
     });
 
@@ -107,7 +107,7 @@ function HelpPage() {
                     <Header>
                         <BackButton
                             color="flat-dark"
-                            onClick={history.goBack}
+                            onClick={() => navigate(-1)}
                             aria-label={_t({ id: 'Navigate back' })}
                         >
                             <ArrowLeft />

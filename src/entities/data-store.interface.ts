@@ -18,4 +18,6 @@ export interface DataStore {
     capturedProtocol?: ProtocolArgs;
     debugInfo?: DebugInfo;
     region?: Region;
+    locale?: string;
+    darkIcon?: boolean;
 }

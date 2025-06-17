@@ -1,0 +1,526 @@
+{
+  "Agent Version {version}": [
+    {
+      "type": 0,
+      "value": "Agentversie "
+    },
+    {
+      "type": 1,
+      "value": "version"
+    }
+  ],
+  "Automatic Updates Enabled": [
+    {
+      "type": 0,
+      "value": "Automatische updates ingeschakeld"
+    }
+  ],
+  "Cancel": [
+    {
+      "type": 0,
+      "value": "Annuleren"
+    }
+  ],
+  "Change Language": [
+    {
+      "type": 0,
+      "value": "Taal wijzigen"
+    }
+  ],
+  "Check your Email": [
+    {
+      "type": 0,
+      "value": "Controleer uw e-mail"
+    }
+  ],
+  "Completed": [
+    {
+      "type": 0,
+      "value": "Voltooid"
+    }
+  ],
+  "Configure your computer": [
+    {
+      "type": 0,
+      "value": "Configureer uw computer"
+    }
+  ],
+  "Device compliance complete.": [
+    {
+      "type": 0,
+      "value": "De conformiteit van het apparaat is voltooid."
+    }
+  ],
+  "Disconnect Device": [
+    {
+      "type": 0,
+      "value": "Ontkoppel apparaat"
+    }
+  ],
+  "Download Logs": [
+    {
+      "type": 0,
+      "value": "Logboeken downloaden"
+    }
+  ],
+  "Download and install a password manager on your computer. This is the application you will use to generate, store, and share all passwords, MFA codes, as well as secure notes.": [
+    {
+      "type": 0,
+      "value": "Download en installeer een wachtwoordmanager op uw computer. Dit is de applicatie die u zult gebruiken om alle wachtwoorden, MFA-codes en beveiligde notities te genereren, op te slaan en te delen."
+    }
+  ],
+  "Drata Agent": [
+    {
+      "type": 0,
+      "value": "Drata Agent"
+    }
+  ],
+  "Drata Agent successfully registered": [
+    {
+      "type": 0,
+      "value": "Drata Agent is geregistreerd."
+    }
+  ],
+  "Drata Shield Logo": [
+    {
+      "type": 0,
+      "value": "Drata Shield-logo"
+    }
+  ],
+  "Enter your registration key": [
+    {
+      "type": 0,
+      "value": "Voer uw registratiesleutel in"
+    }
+  ],
+  "Go to My Drata": [
+    {
+      "type": 0,
+      "value": "Ga naar Mijn Drata"
+    }
+  ],
+  "Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button.": [
+    {
+      "type": 0,
+      "value": "Ga naar Mijn Drata, open 'Drata Agent installeren' en klik op de knop 'Drata Agent registreren'."
+    }
+  ],
+  "Hard-Disk Encrypted": [
+    {
+      "type": 0,
+      "value": "Harde schijf versleuteld"
+    }
+  ],
+  "Help": [
+    {
+      "type": 0,
+      "value": "Help"
+    }
+  ],
+  "Help article:": [
+    {
+      "type": 0,
+      "value": "Hulpartikel:"
+    }
+  ],
+  "How to download and install a password manager": [
+    {
+      "type": 0,
+      "value": "Hoe downloadt en installeert u een wachtwoordmanager?"
+    }
+  ],
+  "How to download and install anti-virus software": [
+    {
+      "type": 0,
+      "value": "Anti-virussoftware downloaden en installeren"
+    }
+  ],
+  "How to enable screen saver lock timing": [
+    {
+      "type": 0,
+      "value": "Tijdsinstelling voor het vergrendelen van de schermbeveiliging inschakelen"
+    }
+  ],
+  "How to encrypt your hard drive": [
+    {
+      "type": 0,
+      "value": "Hoe u uw harde schijf kunt versleutelen"
+    }
+  ],
+  "How to turn on auto-updates": [
+    {
+      "type": 0,
+      "value": "Hoe automatische updates in te schakelen"
+    }
+  ],
+  "If you've already received an email, please follow the instructions to register the agent.": [
+    {
+      "type": 0,
+      "value": "Als u al een e-mail hebt ontvangen, volg alstublieft de instructies om de agent te registreren."
+    }
+  ],
+  "Incomplete": [
+    {
+      "type": 0,
+      "value": "Onvolledig"
+    }
+  ],
+  "Install Anti-Virus/Malware Software": [
+    {
+      "type": 0,
+      "value": "Antivirus-/malwaresoftware installeren"
+    }
+  ],
+  "Install the Company's Approved Password Manager": [
+    {
+      "type": 0,
+      "value": "Installeer de goedgekeurde wachtwoordmanager van het bedrijf"
+    }
+  ],
+  "Language Settings": [
+    {
+      "type": 0,
+      "value": "Taalinstellingen"
+    }
+  ],
+  "Last synced: {syncedAt}": [
+    {
+      "type": 0,
+      "value": "Laatst gesynchroniseerd: "
+    },
+    {
+      "type": 1,
+      "value": "syncedAt"
+    }
+  ],
+  "Missing region while handling authentication.": [
+    {
+      "type": 0,
+      "value": "Ontbrekende regio bij het afhandelen van de authenticatie."
+    }
+  ],
+  "Missing token while handling authentication.": [
+    {
+      "type": 0,
+      "value": "Er ontbreekt een token tijdens het afhandelen van de authenticatie."
+    }
+  ],
+  "My Drata": [
+    {
+      "type": 0,
+      "value": "Mijn Drata"
+    }
+  ],
+  "Navigate back": [
+    {
+      "type": 0,
+      "value": "Terug"
+    }
+  ],
+  "No action needed at this time": [
+    {
+      "type": 0,
+      "value": "Op dit moment is er geen actie vereist"
+    }
+  ],
+  "Okay": [
+    {
+      "type": 0,
+      "value": "Oké"
+    }
+  ],
+  "Once your computer goes to sleep or the screen saver begins, your computer will lock within 60 seconds.": [
+    {
+      "type": 0,
+      "value": "Zodra uw computer in de slaapstand gaat of de schermbeveiliging begint, wordt uw computer binnen 60 seconden vergrendeld."
+    }
+  ],
+  "Otherwise, go to the \"Install the Drata Agent\" section of your My Drata page, and click on the \"Register Drata Agent\" button.": [
+    {
+      "type": 0,
+      "value": "Anders gaat u naar 'De Drata Agent installeren' van uw Mijn Drata-pagina en klikt u op de knop 'Drata Agent registreren'."
+    }
+  ],
+  "Override Icon Color": [
+    {
+      "type": 0,
+      "value": "Pictogramkleur overschrijven"
+    }
+  ],
+  "Please click the \"Sync now\" button below": [
+    {
+      "type": 0,
+      "value": "Klik op de knop 'Nu synchroniseren' hieronder."
+    }
+  ],
+  "Please try again in a few minutes.": [
+    {
+      "type": 0,
+      "value": "Probeer het over een paar minuten opnieuw."
+    }
+  ],
+  "Please wait": [
+    {
+      "type": 0,
+      "value": "Een ogenblik geduld."
+    }
+  ],
+  "Preparing Logs...": [
+    {
+      "type": 0,
+      "value": "Logboeken voorbereiden..."
+    }
+  ],
+  "Quit": [
+    {
+      "type": 0,
+      "value": "Stoppen"
+    }
+  ],
+  "Quit Agent": [
+    {
+      "type": 0,
+      "value": "Agent afsluiten"
+    }
+  ],
+  "Region": [
+    {
+      "type": 0,
+      "value": "Regio"
+    }
+  ],
+  "Register": [
+    {
+      "type": 0,
+      "value": "Registreren"
+    }
+  ],
+  "Register Device": [
+    {
+      "type": 0,
+      "value": "Apparaat registreren"
+    }
+  ],
+  "Register Your Account": [
+    {
+      "type": 0,
+      "value": "Registreer uw account"
+    }
+  ],
+  "Register your Workstation": [
+    {
+      "type": 0,
+      "value": "Registreer uw werkstation"
+    }
+  ],
+  "Registration Key": [
+    {
+      "type": 0,
+      "value": "Registratiesleutel"
+    }
+  ],
+  "Revert Icon to System Theme": [
+    {
+      "type": 0,
+      "value": "Icoon terugzetten naar het systeemthema"
+    }
+  ],
+  "Save": [
+    {
+      "type": 0,
+      "value": "Opslaan"
+    }
+  ],
+  "Screen Saver Lock": [
+    {
+      "type": 0,
+      "value": "Vergrendeling voor schermbeveiliging"
+    }
+  ],
+  "Show Drata Agent": [
+    {
+      "type": 0,
+      "value": "Drata Agent weergeven"
+    }
+  ],
+  "Sync Successful": [
+    {
+      "type": 0,
+      "value": "Synchronisatie geslaagd"
+    }
+  ],
+  "Sync now": [
+    {
+      "type": 0,
+      "value": "Synchroniseer nu"
+    }
+  ],
+  "Syncing your data!": [
+    {
+      "type": 0,
+      "value": "Uw gegevens worden gesynchroniseerd!"
+    }
+  ],
+  "Take me to My Drata": [
+    {
+      "type": 0,
+      "value": "Brengt u mij naar Mijn Drata"
+    }
+  ],
+  "Tasks completed": [
+    {
+      "type": 0,
+      "value": "Voltooide taken"
+    }
+  ],
+  "The Drata Agent is not authorized.": [
+    {
+      "type": 0,
+      "value": "De Drata Agent is niet geautoriseerd."
+    }
+  ],
+  "The authorization has expired.": [
+    {
+      "type": 0,
+      "value": "Uw autorisatie is verlopen."
+    }
+  ],
+  "The following tasks are completed and compliant": [
+    {
+      "type": 0,
+      "value": "De volgende taken zijn voltooid en voldoen aan de voorschriften"
+    }
+  ],
+  "The following tasks are not compliant and need attention": [
+    {
+      "type": 0,
+      "value": "De volgende taken zijn niet conform en vereisen uw aandacht."
+    }
+  ],
+  "Unable to login at this time. Please contact your system administrator.": [
+    {
+      "type": 0,
+      "value": "Inloggen momenteel niet mogelijk. Neem contact op met uw systeembeheerder."
+    }
+  ],
+  "Unable to update your system information at this moment. Please contact your system administrator.": [
+    {
+      "type": 0,
+      "value": "Systeeminformatie bijwerken momenteel niet mogelijk. Neem contact op met uw systeembeheerder."
+    }
+  ],
+  "Use this form to update your personal language settings for the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "Gebruik dit formulier om uw persoonlijke taalinstellingen voor de Drata Agent bij te werken."
+    }
+  ],
+  "Waiting for the first Sync": [
+    {
+      "type": 0,
+      "value": "Wachten op de eerste synchronisatie."
+    }
+  ],
+  "Way to go! The Drata Agent has been installed.": [
+    {
+      "type": 0,
+      "value": "Goed gedaan! De Drata Agent is geïnstalleerd."
+    }
+  ],
+  "We are completing your account configuration.": [
+    {
+      "type": 0,
+      "value": "Wij voltooien de configuratie van uw account."
+    }
+  ],
+  "We are making Drata even better than before.": [
+    {
+      "type": 0,
+      "value": "We maken Drata zelfs nog beter dan voorheen."
+    }
+  ],
+  "You are using an approved password manager": [
+    {
+      "type": 0,
+      "value": "U gebruikt een goedgekeurde wachtwoordmanager"
+    }
+  ],
+  "You are using anti-virus software.": [
+    {
+      "type": 0,
+      "value": "U gebruikt anti-virussoftware."
+    }
+  ],
+  "You need to register the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "U moet de Drata Agent registreren."
+    }
+  ],
+  "You'll need to configure your security settings to require your login password within a specific timeframe after your computer goes to sleep or the screen saver begins. Review the help article and check with your IT and compliance teams for specific guidelines.": [
+    {
+      "type": 0,
+      "value": "U moet uw beveiligingsinstellingen zo configureren dat uw inlogwachtwoord binnen een specifieke tijd vereist is nadat uw computer in de slaapstand is gegaan of de schermbeveiliging is gestart. Bekijk het helpartikel en raadpleeg uw IT- en compliance-teams voor specifieke richtlijnen."
+    }
+  ],
+  "You'll need to download and install anti-virus software.": [
+    {
+      "type": 0,
+      "value": "U moet anti-virussoftware downloaden en installeren."
+    }
+  ],
+  "You'll need to encrypt your computers hard drive.": [
+    {
+      "type": 0,
+      "value": "U moet de harde schijf van uw computer versleutelen."
+    }
+  ],
+  "You'll need to turn on auto-updates.": [
+    {
+      "type": 0,
+      "value": "U moet automatische updates inschakelen."
+    }
+  ],
+  "You've already registered the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "U hebt de Drata Agent al geregistreerd."
+    }
+  ],
+  "You've already registered the Drata Agent. Disconnect the device first.": [
+    {
+      "type": 0,
+      "value": "U hebt de Drata Agent al geregistreerd. Koppel eerst het apparaat los."
+    }
+  ],
+  "Your computer will automatically update.": [
+    {
+      "type": 0,
+      "value": "Uw computer wordt automatisch bijgewerkt."
+    }
+  ],
+  "Your computer's hard drive is encrypted.": [
+    {
+      "type": 0,
+      "value": "De harde schijf van uw computer is versleuteld."
+    }
+  ],
+  "{passed} out of {total} tasks completed.": [
+    {
+      "type": 1,
+      "value": "passed"
+    },
+    {
+      "type": 0,
+      "value": " van de "
+    },
+    {
+      "type": 1,
+      "value": "total"
+    },
+    {
+      "type": 0,
+      "value": " taken voltooid."
+    }
+  ]
+}

@@ -110,6 +110,34 @@ export class UbuntuSystemQueryService
                     transform: (res: any[]) => res[0],
                 }),
 
+                // we only check apt configuration, running services, and last update
+                autoUpdateSettings: await this.runQueries([
+                    {
+                        description: 'What are the automatic update settings?',
+                        command:
+                            "apt-config dump | grep -E '^(APT::Periodic|Unattended-Upgrade)::'",
+                    },
+                    {
+                        description: 'Are automatic updates scheduled?',
+                        command:
+                            'systemctl show apt-daily* --property=NextElapseUSecMonotonic,NextElapseUSecRealtime,Unit,Description,UnitFileState,LastTriggerUSec',
+                    },
+                    {
+                        description: 'Have automatic updates had successes?',
+                        command:
+                            'journalctl -u apt-daily.service -u apt-daily-upgrade.service --since -7day -n 10 --no-pager --quiet',
+                    },
+                    {
+                        description: 'Are any upgrades pending?',
+                        command: '/usr/lib/update-notifier/apt-check',
+                    },
+                    {
+                        description: 'When was the last update installed?',
+                        command:
+                            'awk \'/^Start-Date:/ {block=""; inblock=1} inblock {block = block $0 ORS} /^End-Date:/ {if (block ~ /Upgrade:/) last=block; inblock=0} END {print last}\' /var/log/apt/history.log',
+                    },
+                ]),
+
                 screenLockStatus: await this.runQueries([
                     {
                         description: 'Time for screen to lock',
@@ -123,34 +151,12 @@ export class UbuntuSystemQueryService
                     },
                 ]),
 
-                adminUsers: await this.runQuery({
-                    description: 'List of users with administrative privileges',
-                    query: "SELECT u.username FROM users u JOIN user_groups ug ON ug.UID = u.UID JOIN groups g ON g.GID = ug.GID WHERE g.GROUPNAME = 'adm'",
-                }),
-
-                processor: await this.runQuery({
-                    description: 'Processor Information',
-                    query: 'SELECT cpu_type, cpu_brand FROM system_info',
-                    transform: res => res[0],
-                }),
-
-                memory: await this.runQuery({
-                    description: 'Physical Memory (RAM)',
-                    query: 'SELECT physical_memory FROM system_info',
-                    transform: res => res[0],
-                }),
-
-                hddSize: await this.runQuery({
-                    description: 'Hard Disk Storage Capacity in GB',
-                    query: "SELECT round((blocks * blocks_size * 10e-10), 2) AS hddSize FROM mounts WHERE path='/'",
-                    transform: res => res[0],
-                }),
-
                 locationServices: await this.runQuery({
                     description: 'Are location services enabled?',
                     command: 'gsettings get org.gnome.system.location enabled',
                     transform: (res: any) => ({ commandsResults: res }),
                 }),
+
                 screenLockSettings: {
                     ...(await this.runQueries(
                         [

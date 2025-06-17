@@ -1,0 +1,1212 @@
+{
+  "Agent Version {version}": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ȧɠḗḗƞŧ Ṽḗḗřşīǿǿƞ "
+    },
+    {
+      "type": 1,
+      "value": "version"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Automatic Updates Enabled": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ȧŭŭŧǿǿḿȧȧŧīƈ Ŭƥḓȧȧŧḗḗş Ḗƞȧȧƀŀḗḗḓ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Cancel": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƈȧȧƞƈḗḗŀ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Change Language": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƈħȧȧƞɠḗḗ Ŀȧȧƞɠŭŭȧȧɠḗḗ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Check your Email": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƈħḗḗƈķ ẏǿǿŭŭř Ḗḿȧȧīŀ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Completed": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƈǿǿḿƥŀḗḗŧḗḗḓ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Configure your computer": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƈǿǿƞƒīɠŭŭřḗḗ ẏǿǿŭŭř ƈǿǿḿƥŭŭŧḗḗř"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Device compliance complete.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ḓḗḗṽīƈḗḗ ƈǿǿḿƥŀīȧȧƞƈḗḗ ƈǿǿḿƥŀḗḗŧḗḗ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Download and install a password manager on your computer. This is the application you will use to generate, store, and share all passwords, MFA codes, as well as secure notes.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ḓǿǿẇƞŀǿǿȧȧḓ ȧȧƞḓ īƞşŧȧȧŀŀ ȧȧ ƥȧȧşşẇǿǿřḓ ḿȧȧƞȧȧɠḗḗř ǿǿƞ ẏǿǿŭŭř ƈǿǿḿƥŭŭŧḗḗř. Ŧħīş īş ŧħḗḗ ȧȧƥƥŀīƈȧȧŧīǿǿƞ ẏǿǿŭŭ ẇīŀŀ ŭŭşḗḗ ŧǿǿ ɠḗḗƞḗḗřȧȧŧḗḗ, şŧǿǿřḗḗ, ȧȧƞḓ şħȧȧřḗḗ ȧȧŀŀ ƥȧȧşşẇǿǿřḓş, ḾƑȦ ƈǿǿḓḗḗş, ȧȧş ẇḗḗŀŀ ȧȧş şḗḗƈŭŭřḗḗ ƞǿǿŧḗḗş."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Drata Agent": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Drata Agent successfully registered": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ şŭŭƈƈḗḗşşƒŭŭŀŀẏ řḗḗɠīşŧḗḗřḗḗḓ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Drata Shield Logo": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ḓřȧȧŧȧȧ Şħīḗḗŀḓ Ŀǿǿɠǿǿ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Enable resize": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ḗƞȧȧƀŀḗḗ řḗḗşīẑḗḗ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Enter your registration key": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ḗƞŧḗḗř ẏǿǿŭŭř řḗḗɠīşŧřȧȧŧīǿǿƞ ķḗḗẏ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Go to My Drata": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ɠǿǿ ŧǿǿ Ḿẏ Ḓřȧȧŧȧȧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ɠǿǿ ŧǿǿ Ḿẏ Ḓřȧȧŧȧȧ, ǿǿƥḗḗƞ ŧħḗḗ \"Īƞşŧȧȧŀŀ ŧħḗḗ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ\" şḗḗƈŧīǿǿƞ ȧȧƞḓ ƈŀīƈķ ŧħḗḗ \"Řḗḗɠīşŧḗḗř Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ\" ƀŭŭŧŧǿǿƞ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Hard-Disk Encrypted": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħȧȧřḓ-Ḓīşķ Ḗƞƈřẏƥŧḗḗḓ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Help": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħḗḗŀƥ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Help article:": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħḗḗŀƥ ȧȧřŧīƈŀḗḗ:"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Hide Agent": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħīḓḗḗ Ȧɠḗḗƞŧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "How to download and install a password manager": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħǿǿẇ ŧǿǿ ḓǿǿẇƞŀǿǿȧȧḓ ȧȧƞḓ īƞşŧȧȧŀŀ ȧȧ ƥȧȧşşẇǿǿřḓ ḿȧȧƞȧȧɠḗḗř"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "How to download and install anti-virus software": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħǿǿẇ ŧǿǿ ḓǿǿẇƞŀǿǿȧȧḓ ȧȧƞḓ īƞşŧȧȧŀŀ ȧȧƞŧī-ṽīřŭŭş şǿǿƒŧẇȧȧřḗḗ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "How to enable screen saver lock timing": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħǿǿẇ ŧǿǿ ḗḗƞȧȧƀŀḗḗ şƈřḗḗḗḗƞ şȧȧṽḗḗř ŀǿǿƈķ ŧīḿīƞɠ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "How to encrypt your hard drive": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħǿǿẇ ŧǿǿ ḗḗƞƈřẏƥŧ ẏǿǿŭŭř ħȧȧřḓ ḓřīṽḗḗ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "How to turn on auto-updates": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ħǿǿẇ ŧǿǿ ŧŭŭřƞ ǿǿƞ ȧȧŭŭŧǿǿ-ŭŭƥḓȧȧŧḗḗş"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "If you believe this is an error, please contact your system administrator.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Īƒ ẏǿǿŭŭ ƀḗḗŀīḗḗṽḗḗ ŧħīş īş ȧȧƞ ḗḗřřǿǿř, ƥŀḗḗȧȧşḗḗ ƈǿǿƞŧȧȧƈŧ ẏǿǿŭŭř şẏşŧḗḗḿ ȧȧḓḿīƞīşŧřȧȧŧǿǿř."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "If you've already received an email, please follow the instructions to register the agent.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Īƒ ẏǿǿŭŭ'ṽḗḗ ȧȧŀřḗḗȧȧḓẏ řḗḗƈḗḗīṽḗḗḓ ȧȧƞ ḗḗḿȧȧīŀ, ƥŀḗḗȧȧşḗḗ ƒǿǿŀŀǿǿẇ ŧħḗḗ īƞşŧřŭŭƈŧīǿǿƞş ŧǿǿ řḗḗɠīşŧḗḗř ŧħḗḗ ȧȧɠḗḗƞŧ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Incomplete": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Īƞƈǿǿḿƥŀḗḗŧḗḗ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Install Anti-Virus/Malware Software": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Īƞşŧȧȧŀŀ Ȧƞŧī-Ṽīřŭŭş/Ḿȧȧŀẇȧȧřḗḗ Şǿǿƒŧẇȧȧřḗḗ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Install the Company's Approved Password Manager": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Īƞşŧȧȧŀŀ ŧħḗḗ Ƈǿǿḿƥȧȧƞẏ'ş Ȧƥƥřǿǿṽḗḗḓ Ƥȧȧşşẇǿǿřḓ Ḿȧȧƞȧȧɠḗḗř"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Language Settings": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŀȧȧƞɠŭŭȧȧɠḗḗ Şḗḗŧŧīƞɠş"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Last synced: {syncedAt}": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŀȧȧşŧ şẏƞƈḗḗḓ: "
+    },
+    {
+      "type": 1,
+      "value": "syncedAt"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "My Drata": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ḿẏ Ḓřȧȧŧȧȧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Navigate back": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƞȧȧṽīɠȧȧŧḗḗ ƀȧȧƈķ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "No action needed at this time": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƞǿǿ ȧȧƈŧīǿǿƞ ƞḗḗḗḗḓḗḗḓ ȧȧŧ ŧħīş ŧīḿḗḗ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Okay": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ǿķȧȧẏ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Once your computer goes to sleep or the screen saver begins, your computer will lock within 60 seconds.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ǿƞƈḗḗ ẏǿǿŭŭř ƈǿǿḿƥŭŭŧḗḗř ɠǿǿḗḗş ŧǿǿ şŀḗḗḗḗƥ ǿǿř ŧħḗḗ şƈřḗḗḗḗƞ şȧȧṽḗḗř ƀḗḗɠīƞş, ẏǿǿŭŭř ƈǿǿḿƥŭŭŧḗḗř ẇīŀŀ ŀǿǿƈķ ẇīŧħīƞ 60 şḗḗƈǿǿƞḓş."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Open Drata Agent": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ǿƥḗḗƞ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Otherwise, go to the \"Install the Drata Agent\" section of your My Drata page, and click on the \"Register Drata Agent\" button.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ǿŧħḗḗřẇīşḗḗ, ɠǿǿ ŧǿǿ ŧħḗḗ \"Īƞşŧȧȧŀŀ ŧħḗḗ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ\" şḗḗƈŧīǿǿƞ ǿǿƒ ẏǿǿŭŭř Ḿẏ Ḓřȧȧŧȧȧ ƥȧȧɠḗḗ, ȧȧƞḓ ƈŀīƈķ ǿǿƞ ŧħḗḗ \"Řḗḗɠīşŧḗḗř Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ\" ƀŭŭŧŧǿǿƞ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Please click the \"Sync now\" button below": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƥŀḗḗȧȧşḗḗ ƈŀīƈķ ŧħḗḗ \"Şẏƞƈ ƞǿǿẇ\" ƀŭŭŧŧǿǿƞ ƀḗḗŀǿǿẇ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Please try again in a few minutes.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƥŀḗḗȧȧşḗḗ ŧřẏ ȧȧɠȧȧīƞ īƞ ȧȧ ƒḗḗẇ ḿīƞŭŭŧḗḗş."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Please wait": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ƥŀḗḗȧȧşḗḗ ẇȧȧīŧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Quit Agent": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ɋŭŭīŧ Ȧɠḗḗƞŧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Quit Drata": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ɋŭŭīŧ Ḓřȧȧŧȧȧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Region": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Řḗḗɠīǿǿƞ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Register": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Řḗḗɠīşŧḗḗř"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Register Agent": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Řḗḗɠīşŧḗḗř Ȧɠḗḗƞŧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Register Your Account": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Řḗḗɠīşŧḗḗř Ẏǿǿŭŭř Ȧƈƈǿǿŭŭƞŧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Register your Workstation": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Řḗḗɠīşŧḗḗř ẏǿǿŭŭř Ẇǿǿřķşŧȧȧŧīǿǿƞ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Registration Key": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Řḗḗɠīşŧřȧȧŧīǿǿƞ Ķḗḗẏ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Save": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Şȧȧṽḗḗ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Save diagnostics": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Şȧȧṽḗḗ ḓīȧȧɠƞǿǿşŧīƈş"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Screen Saver Lock": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Şƈřḗḗḗḗƞ Şȧȧṽḗḗř Ŀǿǿƈķ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Send diagnostics": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Şḗḗƞḓ ḓīȧȧɠƞǿǿşŧīƈş"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Sync Successful": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Şẏƞƈ Şŭŭƈƈḗḗşşƒŭŭŀ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Sync now": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Şẏƞƈ ƞǿǿẇ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Syncing your data!": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Şẏƞƈīƞɠ ẏǿǿŭŭř ḓȧȧŧȧȧ!"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Take me to My Drata": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŧȧȧķḗḗ ḿḗḗ ŧǿǿ Ḿẏ Ḓřȧȧŧȧȧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Tasks completed": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŧȧȧşķş ƈǿǿḿƥŀḗḗŧḗḗḓ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "The Drata Agent is not authorized.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŧħḗḗ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ īş ƞǿǿŧ ȧȧŭŭŧħǿǿřīẑḗḗḓ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "The authorization has expired.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŧħḗḗ ȧȧŭŭŧħǿǿřīẑȧȧŧīǿǿƞ ħȧȧş ḗḗẋƥīřḗḗḓ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "The following tasks are completed and compliant": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŧħḗḗ ƒǿǿŀŀǿǿẇīƞɠ ŧȧȧşķş ȧȧřḗḗ ƈǿǿḿƥŀḗḗŧḗḗḓ ȧȧƞḓ ƈǿǿḿƥŀīȧȧƞŧ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "The following tasks are not compliant and need attention": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŧħḗḗ ƒǿǿŀŀǿǿẇīƞɠ ŧȧȧşķş ȧȧřḗḗ ƞǿǿŧ ƈǿǿḿƥŀīȧȧƞŧ ȧȧƞḓ ƞḗḗḗḗḓ ȧȧŧŧḗḗƞŧīǿǿƞ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "This will send recent diagnostics to Drata.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŧħīş ẇīŀŀ şḗḗƞḓ řḗḗƈḗḗƞŧ ḓīȧȧɠƞǿǿşŧīƈş ŧǿǿ Ḓřȧȧŧȧȧ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Unable to login at this time. Please contact your system administrator.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŭƞȧȧƀŀḗḗ ŧǿǿ ŀǿǿɠīƞ ȧȧŧ ŧħīş ŧīḿḗḗ. Ƥŀḗḗȧȧşḗḗ ƈǿǿƞŧȧȧƈŧ ẏǿǿŭŭř şẏşŧḗḗḿ ȧȧḓḿīƞīşŧřȧȧŧǿǿř."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Unable to update your system information at this moment. Please contact your system administrator.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŭƞȧȧƀŀḗḗ ŧǿǿ ŭŭƥḓȧȧŧḗḗ ẏǿǿŭŭř şẏşŧḗḗḿ īƞƒǿǿřḿȧȧŧīǿǿƞ ȧȧŧ ŧħīş ḿǿǿḿḗḗƞŧ. Ƥŀḗḗȧȧşḗḗ ƈǿǿƞŧȧȧƈŧ ẏǿǿŭŭř şẏşŧḗḗḿ ȧȧḓḿīƞīşŧřȧȧŧǿǿř."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Use this form to update your personal language settings for the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ŭşḗḗ ŧħīş ƒǿǿřḿ ŧǿǿ ŭŭƥḓȧȧŧḗḗ ẏǿǿŭŭř ƥḗḗřşǿǿƞȧȧŀ ŀȧȧƞɠŭŭȧȧɠḗḗ şḗḗŧŧīƞɠş ƒǿǿř ŧħḗḗ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Waiting for the first Sync": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẇȧȧīŧīƞɠ ƒǿǿř ŧħḗḗ ƒīřşŧ Şẏƞƈ"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Way to go! The Drata Agent has been installed.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẇȧȧẏ ŧǿǿ ɠǿǿ! Ŧħḗḗ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ ħȧȧş ƀḗḗḗḗƞ īƞşŧȧȧŀŀḗḗḓ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "We are completing your account configuration.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẇḗḗ ȧȧřḗḗ ƈǿǿḿƥŀḗḗŧīƞɠ ẏǿǿŭŭř ȧȧƈƈǿǿŭŭƞŧ ƈǿǿƞƒīɠŭŭřȧȧŧīǿǿƞ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "We are making Drata even better than before.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẇḗḗ ȧȧřḗḗ ḿȧȧķīƞɠ Ḓřȧȧŧȧȧ ḗḗṽḗḗƞ ƀḗḗŧŧḗḗř ŧħȧȧƞ ƀḗḗƒǿǿřḗḗ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You are not registered.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ ȧȧřḗḗ ƞǿǿŧ řḗḗɠīşŧḗḗřḗḗḓ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You are using an approved password manager": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ ȧȧřḗḗ ŭŭşīƞɠ ȧȧƞ ȧȧƥƥřǿǿṽḗḗḓ ƥȧȧşşẇǿǿřḓ ḿȧȧƞȧȧɠḗḗř"
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You are using anti-virus software.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ ȧȧřḗḗ ŭŭşīƞɠ ȧȧƞŧī-ṽīřŭŭş şǿǿƒŧẇȧȧřḗḗ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You must first register your workstation before sending data. Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ ḿŭŭşŧ ƒīřşŧ řḗḗɠīşŧḗḗř ẏǿǿŭŭř ẇǿǿřķşŧȧȧŧīǿǿƞ ƀḗḗƒǿǿřḗḗ şḗḗƞḓīƞɠ ḓȧȧŧȧȧ. Ɠǿǿ ŧǿǿ Ḿẏ Ḓřȧȧŧȧȧ, ǿǿƥḗḗƞ ŧħḗḗ \"Īƞşŧȧȧŀŀ ŧħḗḗ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ\" şḗḗƈŧīǿǿƞ ȧȧƞḓ ƈŀīƈķ ŧħḗḗ \"Řḗḗɠīşŧḗḗř Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ\" ƀŭŭŧŧǿǿƞ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You need to register the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ ƞḗḗḗḗḓ ŧǿǿ řḗḗɠīşŧḗḗř ŧħḗḗ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You'll need to configure your security settings to require your login password within a specific timeframe after your computer goes to sleep or the screen saver begins. Review the help article and check with your IT and compliance teams for specific guidelines.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ'ŀŀ ƞḗḗḗḗḓ ŧǿǿ ƈǿǿƞƒīɠŭŭřḗḗ ẏǿǿŭŭř şḗḗƈŭŭřīŧẏ şḗḗŧŧīƞɠş ŧǿǿ řḗḗɋŭŭīřḗḗ ẏǿǿŭŭř ŀǿǿɠīƞ ƥȧȧşşẇǿǿřḓ ẇīŧħīƞ ȧȧ şƥḗḗƈīƒīƈ ŧīḿḗḗƒřȧȧḿḗḗ ȧȧƒŧḗḗř ẏǿǿŭŭř ƈǿǿḿƥŭŭŧḗḗř ɠǿǿḗḗş ŧǿǿ şŀḗḗḗḗƥ ǿǿř ŧħḗḗ şƈřḗḗḗḗƞ şȧȧṽḗḗř ƀḗḗɠīƞş. Řḗḗṽīḗḗẇ ŧħḗḗ ħḗḗŀƥ ȧȧřŧīƈŀḗḗ ȧȧƞḓ ƈħḗḗƈķ ẇīŧħ ẏǿǿŭŭř ĪŦ ȧȧƞḓ ƈǿǿḿƥŀīȧȧƞƈḗḗ ŧḗḗȧȧḿş ƒǿǿř şƥḗḗƈīƒīƈ ɠŭŭīḓḗḗŀīƞḗḗş."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You'll need to download and install anti-virus software.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ'ŀŀ ƞḗḗḗḗḓ ŧǿǿ ḓǿǿẇƞŀǿǿȧȧḓ ȧȧƞḓ īƞşŧȧȧŀŀ ȧȧƞŧī-ṽīřŭŭş şǿǿƒŧẇȧȧřḗḗ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You'll need to encrypt your computers hard drive.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ'ŀŀ ƞḗḗḗḗḓ ŧǿǿ ḗḗƞƈřẏƥŧ ẏǿǿŭŭř ƈǿǿḿƥŭŭŧḗḗřş ħȧȧřḓ ḓřīṽḗḗ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You'll need to turn on auto-updates.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ'ŀŀ ƞḗḗḗḗḓ ŧǿǿ ŧŭŭřƞ ǿǿƞ ȧȧŭŭŧǿǿ-ŭŭƥḓȧȧŧḗḗş."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "You've already registered the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭ'ṽḗḗ ȧȧŀřḗḗȧȧḓẏ řḗḗɠīşŧḗḗřḗḗḓ ŧħḗḗ Ḓřȧȧŧȧȧ Ȧɠḗḗƞŧ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Your company's account is disabled.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭř ƈǿǿḿƥȧȧƞẏ'ş ȧȧƈƈǿǿŭŭƞŧ īş ḓīşȧȧƀŀḗḗḓ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Your computer will automatically update.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭř ƈǿǿḿƥŭŭŧḗḗř ẇīŀŀ ȧȧŭŭŧǿǿḿȧȧŧīƈȧȧŀŀẏ ŭŭƥḓȧȧŧḗḗ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "Your computer's hard drive is encrypted.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 0,
+      "value": "Ẏǿǿŭŭř ƈǿǿḿƥŭŭŧḗḗř'ş ħȧȧřḓ ḓřīṽḗḗ īş ḗḗƞƈřẏƥŧḗḗḓ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ],
+  "{passed} out of {total} tasks completed.": [
+    {
+      "type": 0,
+      "value": "["
+    },
+    {
+      "type": 1,
+      "value": "passed"
+    },
+    {
+      "type": 0,
+      "value": " ǿǿŭŭŧ ǿǿƒ "
+    },
+    {
+      "type": 1,
+      "value": "total"
+    },
+    {
+      "type": 0,
+      "value": " ŧȧȧşķş ƈǿǿḿƥŀḗḗŧḗḗḓ."
+    },
+    {
+      "type": 0,
+      "value": "]"
+    }
+  ]
+}

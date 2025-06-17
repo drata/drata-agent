@@ -1,23 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import classnames from 'classnames';
 import { isNil } from 'lodash';
+import React, { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 import {
     Button,
     getLocalFormatedDatetime,
+    Theme,
     theme,
 } from '@drata/component-library';
 import { RefreshCw } from 'react-feather';
 
+import { SyncState } from '../../../enums/sync-state.enum';
+import { _t } from '../../../renderer/helpers/intl.helpers';
 import { useBridge } from '../../../renderer/hooks/use-bridge.hook';
 import {
-    selectSyncState,
     selectLastCheckedAt,
+    selectSyncState,
 } from '../../../renderer/redux/selectors/data-store.selectors';
-import { _t } from '../../../renderer/helpers/intl.helpers';
-import { SyncState } from '../../../enums/sync-state.enum';
 
 const SUCCESS_MESSAGE_DURATION = 4000; // 4 seconds
 
@@ -31,7 +32,7 @@ const StyledFotter = styled.footer<{
     color: ${({ color }) => color};
 `;
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(Button)<{ theme: Theme }>`
     height: 30px;
     flex-shrink: 0;
     padding: 0 0.75rem;

@@ -1,22 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { ThemeProvider } from 'styled-components';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 
 import { theme } from '@drata/component-library';
 import { App } from './components/App';
 
+import { StateConnector } from './helpers/state-connector';
 import store from './redux/store';
 import { IntlProvider } from './utility/IntlProvider';
-import { StateConnector } from './helpers/state-connector';
 
 import '@drata/component-library/dist/index.css';
-import '@openfonts/montserrat_all';
 import './index.css';
 
 StateConnector.init(store);
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root')!);
+root.render(
     <Provider store={store}>
         <IntlProvider>
             <ThemeProvider theme={theme}>
@@ -24,5 +24,4 @@ ReactDOM.render(
             </ThemeProvider>
         </IntlProvider>
     </Provider>,
-    document.getElementById('root'),
 );

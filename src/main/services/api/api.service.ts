@@ -46,9 +46,26 @@ export class ApiService extends ServiceBase {
             throw new Error('Missing data from get user info request.');
         }
 
-        this.dataStore.set('user', user);
+        // Filter user data to only include fields we want
+        const filteredUser: MeResponseDto = {
+            id: user.id,
+            entryId: user.entryId,
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            jobTitle: user.jobTitle,
+            avatarUrl: user.avatarUrl,
+            roles: user.roles,
+            drataTermsAgreedAt: user.drataTermsAgreedAt,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
+            signature: user.signature,
+            language: user.language,
+        };
 
-        return user;
+        this.dataStore.set('user', filteredUser);
+
+        return filteredUser;
     }
 
     async sync(results: QueryResult): Promise<AgentV2ResponseDto> {

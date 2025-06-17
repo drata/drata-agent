@@ -4,20 +4,20 @@ The Drata Agent is a lightweight application that lives in your computer's toolb
 
 ## See also
 
--   [Drata Help](https://help.drata.com/)
--   [Automatic Upgrades Channel Repository](https://github.com/drata/agent-releases)
--   [Electron](https://www.electronjs.org/)
--   [Electron Builder](https://www.electron.build/)
--   [osquery](https://www.osquery.io/)
+- [Drata Help](https://help.drata.com/)
+- [Automatic Upgrades Channel Repository](https://github.com/drata/agent-releases)
+- [Electron](https://www.electronjs.org/)
+- [Electron Builder](https://www.electron.build/)
+- [osquery](https://www.osquery.io/)
 
 # Run or Build Drata Agent on Mac
 
 ## Caveats
 
--   The Drata Agent requires an active production account to register successfully.
--   Support is not provided for building, running, or installing unofficial packages.
--   The build process outlined does not include secure code signing.
--   IMPORTANT: Component Library Package is NOT provided. At this time, certain front end components will need replaced to build.
+- The Drata Agent requires an active production account to register successfully.
+- Support is not provided for building, running, or installing unofficial packages.
+- The build process outlined does not include secure code signing.
+- IMPORTANT: Component Library Package is NOT provided. At this time, certain front end components will need replaced to build.
 
 ## Prerequisites
 
@@ -55,6 +55,6 @@ node_modules/.bin/electron-builder --mac -c.mac.identity=null
 
 ## Drata Support
 
-Drata currently tests on and supports Ubuntu 20 & 22, Windows 10 & 11, and MacOS 12 & 13. 
+Drata supports the latest and previous major LTS versions of Ubuntu, Windows, and macOS.
 
 Please see Drata help for the most up-to-date support information.

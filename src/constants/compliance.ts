@@ -1,7 +1,7 @@
 import { ComplianceCheckType } from '../enums/compliance-check-type.enum';
 import { _t } from '../renderer/helpers/intl.helpers';
 
-const COMPLIANCE_CHECK_LIST_ITEMS = [
+const getComplianceCheckListItems = () => [
     {
         type: ComplianceCheckType[ComplianceCheckType.PASSWORD_MANAGER],
         title: _t({ id: "Install the Company's Approved Password Manager" }),
@@ -68,4 +68,4 @@ const COMPLIANCE_CHECK_LIST_ITEMS = [
     },
 ];
 
-export { COMPLIANCE_CHECK_LIST_ITEMS };
+export { getComplianceCheckListItems };

@@ -17,3 +17,13 @@ export const getPlatform = (): Platform => {
             return Platform.UNKNOWN;
     }
 };
+
+export const getDesktopEnvironment = (): string | null => {
+    const env = process.env;
+
+    if (env.XDG_CURRENT_DESKTOP) return env.XDG_CURRENT_DESKTOP;
+    if (env.DESKTOP_SESSION) return env.DESKTOP_SESSION;
+    if (env.GDMSESSION) return env.GDMSESSION;
+
+    return null;
+};

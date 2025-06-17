@@ -1,4 +1,5 @@
-import electronLog from 'electron-log';
+import { app } from 'electron';
+import electronLog from 'electron-log/main';
 import safeStringify from 'fast-safe-stringify';
 import { get, isArray, isEmpty, isNil } from 'lodash';
 import { EOL } from 'os';
@@ -6,26 +7,21 @@ import { MainBridge } from '../../bridge/main-bridge';
 import { BUILD } from '../../constants/environment';
 import { HTTPLogContext } from '../../types/http-log-context';
 import { LogContext } from '../../types/log-context.type';
-import { DataStoreHelper } from './data-store.helper';
-
-// set console output format to be the same as file output
-electronLog.transports.console.format =
-    '[{y}-{m}-{d} {h}:{i}:{s}.{ms}] [{level}] {text}';
 
 export class Logger {
-    private context: string;
-    private dataStore = DataStoreHelper.instance;
-
-    constructor(context: string) {
-        this.context = context;
-
-        if (!BUILD.PACKED) {
-            // for dev env disable writing to log file
-            electronLog.transports.file.level = false;
-        } else {
-            // for prod env disable logging to console
+    constructor(private readonly context: string) {
+        if (BUILD.PACKED) {
             electronLog.transports.console.level = false;
+        } else {
+            // console to match file format
+            electronLog.transports.console.format =
+                '[{y}-{m}-{d} {h}:{i}:{s}.{ms}] [{level}] {text}';
+            electronLog.transports.file.level = false;
         }
+    }
+
+    getFilePath(): string {
+        return electronLog.transports.file.getFile().path;
     }
 
     info(...args: any) {
@@ -34,21 +30,6 @@ export class Logger {
 
     warn(...args: any) {
         this.infoOrWarn(electronLog.warn, args);
-    }
-
-    private infoOrWarn(
-        targetMethod: (...args: any[]) => void,
-        args: any[],
-    ): void {
-        const message: string = args
-            .map(param =>
-                typeof param === 'object'
-                    ? safeStringify(param, undefined, 2)
-                    : param,
-            )
-            .join(' ');
-
-        targetMethod(this.prependContext(message));
     }
 
     error(error: any, context?: LogContext) {
@@ -91,6 +72,21 @@ export class Logger {
         this.reportError(_error, context, httpContext);
     }
 
+    private infoOrWarn(
+        targetMethod: (...args: any[]) => void,
+        args: any[],
+    ): void {
+        const message: string = args
+            .map(param =>
+                typeof param === 'object'
+                    ? safeStringify(param, undefined, 2)
+                    : param,
+            )
+            .join(' ');
+
+        targetMethod(this.prependContext(message));
+    }
+
     private prependContext(message?: string) {
         return `<${!isEmpty(this.context) ? this.context : 'DrataAgent'}>: ${
             isNil(message) ? '' : message
@@ -108,15 +104,16 @@ export class Logger {
 
         const contextToAdd: Record<string, LogContext | undefined> = {};
         contextToAdd.error = safeStringify(context);
-        contextToAdd.debug = this.dataStore.get('debugInfo');
         contextToAdd.HTTP = httpContext;
 
         // Send error through DD RUM SDK in renderer process
-        MainBridge.instance?.sendMessage('addError', {
-            // retain stack and context
-            message: error.message,
-            stack: error.stack,
-            context: isEmpty(contextToAdd) ? undefined : contextToAdd,
-        });
+        if (app.isReady()) {
+            MainBridge.instance?.sendMessage('addError', {
+                // retain stack and context
+                message: error.message,
+                stack: error.stack,
+                context: isEmpty(contextToAdd) ? undefined : contextToAdd,
+            });
+        }
     }
 }

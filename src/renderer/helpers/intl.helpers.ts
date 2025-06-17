@@ -1,7 +1,6 @@
 import { FormatXMLElementFn, PrimitiveType } from 'intl-messageformat';
 import { isNil } from 'lodash';
-import { MessageDescriptor } from 'react-intl';
-import { intl } from '../utility/IntlProvider';
+import { MessageDescriptor, useIntl } from 'react-intl';
 
 /**
  * Translate messages
@@ -22,14 +21,8 @@ function _t(
         );
     }
 
-    return intl.formatMessage(
-        {
-            id,
-            defaultMessage,
-            description,
-        },
-        values,
-    );
+    const intl = useIntl();
+    return intl.formatMessage({ id, defaultMessage, description }, values);
 }
 
 export { _t };

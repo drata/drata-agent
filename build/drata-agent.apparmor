@@ -1,0 +1,9 @@
+# This profile allows everything and only exists to give the
+# application a name instead of having the label "unconfined"
+
+abi <abi/4.0>,
+include <tunables/global>
+
+profile drata-agent "/opt/Drata Agent/drata-agent" flags=(unconfined) {
+  userns,
+}

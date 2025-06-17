@@ -1,18 +1,18 @@
-import React from 'react';
 import { find, isNil } from 'lodash';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 
-import { Button, buttonReset } from '@drata/component-library';
+import { Button, buttonReset, Theme } from '@drata/component-library';
 import { ChevronRight } from 'react-feather';
 import { ComplianceListItemIcon } from './ComplianceListItemIcon';
 
-import { reverse } from '../../../renderer/helpers/route.helpers';
+import { getComplianceCheckListItems } from '../../../constants/compliance';
 import { ComplianceCheckResponseDto } from '../../../main/services/api/dtos/compliance-check-response.dto';
-import { COMPLIANCE_CHECK_LIST_ITEMS } from '../../../constants/compliance';
+import { reverse } from '../../../renderer/helpers/route.helpers';
 import { AppRoute } from '../app-route.enum';
 
-const StledButton = styled(Button)`
+const StledButton = styled(Button)<{ theme: Theme }>`
     ${buttonReset}
     padding: 1rem 0.65rem 1rem 0;
     border-top: 1px solid ${({ theme }) => theme.baseColors.alto};
@@ -52,9 +52,9 @@ interface Props {
 }
 
 function ComplianceListItem({ complianceCheck }: Props) {
-    const history = useHistory();
+    const navigate = useNavigate();
 
-    const info = find(COMPLIANCE_CHECK_LIST_ITEMS, {
+    const info = find(getComplianceCheckListItems(), {
         type: complianceCheck.type,
     });
 
@@ -67,7 +67,7 @@ function ComplianceListItem({ complianceCheck }: Props) {
             color="default"
             onClick={(evt: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
                 evt.stopPropagation();
-                history.push(
+                navigate(
                     reverse(AppRoute.HELP, {
                         complianceType: complianceCheck.type,
                     }),

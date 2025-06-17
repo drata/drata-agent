@@ -25,15 +25,11 @@ export type QueryResult = {
         browserExtensions: any;
         macAddress: any;
         autoUpdateEnabled: any;
-        adminUsers: any;
-        processor: any;
-        memory: any;
-        hddSize: any;
+        autoUpdateSettings: any;
         hddEncryptionStatus?: any;
         fileVaultEnabled?: any;
         gateKeeperEnabled?: any;
         screenLockStatus?: any;
-        graphics?: any;
         locationServices?: any;
         screenLockSettings?: ScreenLockSetting;
     };

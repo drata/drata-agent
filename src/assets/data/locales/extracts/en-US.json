@@ -1,0 +1,254 @@
+{
+  "Agent Version {version}": {
+    "defaultMessage": "Agent Version {version}"
+  },
+  "Automatic Updates Enabled": {
+    "defaultMessage": "Automatic Updates Enabled"
+  },
+  "Cancel": {
+    "defaultMessage": "Cancel"
+  },
+  "Change Language": {
+    "defaultMessage": "Change Language"
+  },
+  "Check your Email": {
+    "defaultMessage": "Check your Email"
+  },
+  "Completed": {
+    "defaultMessage": "Completed"
+  },
+  "Configure your computer": {
+    "defaultMessage": "Configure your computer"
+  },
+  "Device compliance complete.": {
+    "defaultMessage": "Device compliance complete."
+  },
+  "Disconnect Device": {
+    "defaultMessage": "Disconnect Device"
+  },
+  "Download Logs": {
+    "defaultMessage": "Download Logs"
+  },
+  "Download and install a password manager on your computer. This is the application you will use to generate, store, and share all passwords, MFA codes, as well as secure notes.": {
+    "defaultMessage": "Download and install a password manager on your computer. This is the application you will use to generate, store, and share all passwords, MFA codes, as well as secure notes."
+  },
+  "Drata Agent": {
+    "defaultMessage": "Drata Agent"
+  },
+  "Drata Agent successfully registered": {
+    "defaultMessage": "Drata Agent successfully registered"
+  },
+  "Drata Shield Logo": {
+    "defaultMessage": "Drata Shield Logo"
+  },
+  "Enter your registration key": {
+    "defaultMessage": "Enter your registration key"
+  },
+  "Go to My Drata": {
+    "defaultMessage": "Go to My Drata"
+  },
+  "Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button.": {
+    "defaultMessage": "Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button."
+  },
+  "Hard-Disk Encrypted": {
+    "defaultMessage": "Hard-Disk Encrypted"
+  },
+  "Help": {
+    "defaultMessage": "Help"
+  },
+  "Help article:": {
+    "defaultMessage": "Help article:"
+  },
+  "How to download and install a password manager": {
+    "defaultMessage": "How to download and install a password manager"
+  },
+  "How to download and install anti-virus software": {
+    "defaultMessage": "How to download and install anti-virus software"
+  },
+  "How to enable screen saver lock timing": {
+    "defaultMessage": "How to enable screen saver lock timing"
+  },
+  "How to encrypt your hard drive": {
+    "defaultMessage": "How to encrypt your hard drive"
+  },
+  "How to turn on auto-updates": {
+    "defaultMessage": "How to turn on auto-updates"
+  },
+  "If you've already received an email, please follow the instructions to register the agent.": {
+    "defaultMessage": "If you've already received an email, please follow the instructions to register the agent."
+  },
+  "Incomplete": {
+    "defaultMessage": "Incomplete"
+  },
+  "Install Anti-Virus/Malware Software": {
+    "defaultMessage": "Install Anti-Virus/Malware Software"
+  },
+  "Install the Company's Approved Password Manager": {
+    "defaultMessage": "Install the Company's Approved Password Manager"
+  },
+  "Language Settings": {
+    "defaultMessage": "Language Settings"
+  },
+  "Last synced: {syncedAt}": {
+    "defaultMessage": "Last synced: {syncedAt}"
+  },
+  "Missing region while handling authentication.": {
+    "defaultMessage": "Missing region while handling authentication."
+  },
+  "Missing token while handling authentication.": {
+    "defaultMessage": "Missing token while handling authentication."
+  },
+  "My Drata": {
+    "defaultMessage": "My Drata"
+  },
+  "Navigate back": {
+    "defaultMessage": "Navigate back"
+  },
+  "No action needed at this time": {
+    "defaultMessage": "No action needed at this time"
+  },
+  "Okay": {
+    "defaultMessage": "Okay"
+  },
+  "Once your computer goes to sleep or the screen saver begins, your computer will lock within 60 seconds.": {
+    "defaultMessage": "Once your computer goes to sleep or the screen saver begins, your computer will lock within 60 seconds."
+  },
+  "Otherwise, go to the \"Install the Drata Agent\" section of your My Drata page, and click on the \"Register Drata Agent\" button.": {
+    "defaultMessage": "Otherwise, go to the \"Install the Drata Agent\" section of your My Drata page, and click on the \"Register Drata Agent\" button."
+  },
+  "Override Icon Color": {
+    "defaultMessage": "Override Icon Color"
+  },
+  "Please click the \"Sync now\" button below": {
+    "defaultMessage": "Please click the \"Sync now\" button below"
+  },
+  "Please try again in a few minutes.": {
+    "defaultMessage": "Please try again in a few minutes."
+  },
+  "Please wait": {
+    "defaultMessage": "Please wait"
+  },
+  "Preparing Logs...": {
+    "defaultMessage": "Preparing Logs..."
+  },
+  "Quit": {
+    "defaultMessage": "Quit"
+  },
+  "Quit Agent": {
+    "defaultMessage": "Quit Agent"
+  },
+  "Region": {
+    "defaultMessage": "Region"
+  },
+  "Register": {
+    "defaultMessage": "Register"
+  },
+  "Register Device": {
+    "defaultMessage": "Register Device"
+  },
+  "Register Your Account": {
+    "defaultMessage": "Register Your Account"
+  },
+  "Register your Workstation": {
+    "defaultMessage": "Register your Workstation"
+  },
+  "Registration Key": {
+    "defaultMessage": "Registration Key"
+  },
+  "Revert Icon to System Theme": {
+    "defaultMessage": "Revert Icon to System Theme"
+  },
+  "Save": {
+    "defaultMessage": "Save"
+  },
+  "Screen Saver Lock": {
+    "defaultMessage": "Screen Saver Lock"
+  },
+  "Show Drata Agent": {
+    "defaultMessage": "Show Drata Agent"
+  },
+  "Sync Successful": {
+    "defaultMessage": "Sync Successful"
+  },
+  "Sync now": {
+    "defaultMessage": "Sync now"
+  },
+  "Syncing your data!": {
+    "defaultMessage": "Syncing your data!"
+  },
+  "Take me to My Drata": {
+    "defaultMessage": "Take me to My Drata"
+  },
+  "Tasks completed": {
+    "defaultMessage": "Tasks completed"
+  },
+  "The Drata Agent is not authorized.": {
+    "defaultMessage": "The Drata Agent is not authorized."
+  },
+  "The authorization has expired.": {
+    "defaultMessage": "The authorization has expired."
+  },
+  "The following tasks are completed and compliant": {
+    "defaultMessage": "The following tasks are completed and compliant"
+  },
+  "The following tasks are not compliant and need attention": {
+    "defaultMessage": "The following tasks are not compliant and need attention"
+  },
+  "Unable to login at this time. Please contact your system administrator.": {
+    "defaultMessage": "Unable to login at this time. Please contact your system administrator."
+  },
+  "Unable to update your system information at this moment. Please contact your system administrator.": {
+    "defaultMessage": "Unable to update your system information at this moment. Please contact your system administrator."
+  },
+  "Use this form to update your personal language settings for the Drata Agent.": {
+    "defaultMessage": "Use this form to update your personal language settings for the Drata Agent."
+  },
+  "Waiting for the first Sync": {
+    "defaultMessage": "Waiting for the first Sync"
+  },
+  "Way to go! The Drata Agent has been installed.": {
+    "defaultMessage": "Way to go! The Drata Agent has been installed."
+  },
+  "We are completing your account configuration.": {
+    "defaultMessage": "We are completing your account configuration."
+  },
+  "We are making Drata even better than before.": {
+    "defaultMessage": "We are making Drata even better than before."
+  },
+  "You are using an approved password manager": {
+    "defaultMessage": "You are using an approved password manager"
+  },
+  "You are using anti-virus software.": {
+    "defaultMessage": "You are using anti-virus software."
+  },
+  "You need to register the Drata Agent.": {
+    "defaultMessage": "You need to register the Drata Agent."
+  },
+  "You'll need to configure your security settings to require your login password within a specific timeframe after your computer goes to sleep or the screen saver begins. Review the help article and check with your IT and compliance teams for specific guidelines.": {
+    "defaultMessage": "You'll need to configure your security settings to require your login password within a specific timeframe after your computer goes to sleep or the screen saver begins. Review the help article and check with your IT and compliance teams for specific guidelines."
+  },
+  "You'll need to download and install anti-virus software.": {
+    "defaultMessage": "You'll need to download and install anti-virus software."
+  },
+  "You'll need to encrypt your computers hard drive.": {
+    "defaultMessage": "You'll need to encrypt your computers hard drive."
+  },
+  "You'll need to turn on auto-updates.": {
+    "defaultMessage": "You'll need to turn on auto-updates."
+  },
+  "You've already registered the Drata Agent.": {
+    "defaultMessage": "You've already registered the Drata Agent."
+  },
+  "You've already registered the Drata Agent. Disconnect the device first.": {
+    "defaultMessage": "You've already registered the Drata Agent. Disconnect the device first."
+  },
+  "Your computer will automatically update.": {
+    "defaultMessage": "Your computer will automatically update."
+  },
+  "Your computer's hard drive is encrypted.": {
+    "defaultMessage": "Your computer's hard drive is encrypted."
+  },
+  "{passed} out of {total} tasks completed.": {
+    "defaultMessage": "{passed} out of {total} tasks completed."
+  }
+}

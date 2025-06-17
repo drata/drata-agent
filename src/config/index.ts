@@ -7,8 +7,8 @@ const DEFAULT = {
     ui: {
         appWidth: 400,
         appHeight: {
-            registered: 528,
-            unregistered: 393,
+            registered: 525,
+            unregistered: 450,
         },
     },
     hoursSyncCheck: 2, // auto only

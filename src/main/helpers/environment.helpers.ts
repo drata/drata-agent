@@ -7,18 +7,22 @@ const ApiHostUrl: Record<TargetEnv, Record<Region, string>> = {
     [TargetEnv.LOCAL]: {
         [Region.NA]: 'http://localhost:3000',
         [Region.EU]: 'http://localhost:3001',
+        [Region.APAC]: 'http://localhost:3002',
     },
     [TargetEnv.PROD]: {
         [Region.NA]: 'https://agent.drata.com',
         [Region.EU]: 'https://agent.eu.drata.com',
+        [Region.APAC]: 'https://agent.apac.drata.com',
     },
     [TargetEnv.DEV]: {
         [Region.NA]: 'https://agent.dev.drata.com',
         [Region.EU]: 'https://agent.dev.drata.com',
+        [Region.APAC]: 'https://agent.dev.drata.com',
     },
     [TargetEnv.QA]: {
         [Region.NA]: 'https://agent.qa.drata.com',
         [Region.EU]: 'https://agent.qa.drata.com',
+        [Region.APAC]: 'https://agent.qa.drata.com',
     },
 };
 

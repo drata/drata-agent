@@ -2,4 +2,4 @@ This will install the Drata Agent.
 
 The Drata Agent is a light-weight tray-application that runs in the background, reporting important read-only data to Drata about your machine's state for compliance tracking.
 
-© 2023 Drata Inc. <drata@drata.com> (https://drata.com)
+© 2025 Drata Inc. <drata@drata.com> (https://drata.com)

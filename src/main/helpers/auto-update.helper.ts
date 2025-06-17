@@ -1,20 +1,19 @@
 import { app, BrowserWindow } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import { isNil } from 'lodash';
-import { Menubar } from 'menubar';
 import { MainBridge } from '../../bridge/main-bridge';
 import { BUILD, PLATFORM } from '../../constants/environment';
 import { MessageType } from '../../entities/message-listener-type.enum';
+import { MainWindow } from '../app/main-window/main-window';
 import { Logger } from './logger.helpers';
 
 export class AutoUpdateHelper {
     private readonly logger = new Logger(this.constructor.name);
+    private readonly mainWindow: MainWindow;
+    private readonly bridge: MainBridge;
 
-    private menubar: Menubar;
-    private bridge: MainBridge;
-
-    constructor(menubar: Menubar, bridge: MainBridge) {
-        this.menubar = menubar;
+    constructor(mainWindow: MainWindow, bridge: MainBridge) {
+        this.mainWindow = mainWindow;
         this.bridge = bridge;
 
         autoUpdater.on('checking-for-update', () => {
@@ -83,11 +82,11 @@ export class AutoUpdateHelper {
     private closeAllWindows(): void {
         // remove all events that could prevent the a window from closing
         app.removeAllListeners('window-all-closed');
-        // hide the window from the menubar
-        this.menubar.hideWindow();
+        // hide the window
+        this.mainWindow.hideWindow();
         // find all windows and close them
         BrowserWindow.getAllWindows().forEach(_win => _win.close());
         // destroy main window to make sure everything is closed
-        this.menubar.window?.destroy();
+        this.mainWindow.getWindow()?.destroy();
     }
 }

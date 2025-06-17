@@ -1,20 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 import { cardBase } from '../../../renderer/helpers/style.helpers';
 
+import { SyncState } from '../../../enums/sync-state.enum';
 import { _t } from '../../../renderer/helpers/intl.helpers';
 import { selectSyncState } from '../../../renderer/redux/selectors/data-store.selectors';
-import { SyncState } from '../../../enums/sync-state.enum';
 
-import drataSlicedLogoPath from '../../../assets/images/drata-sliced-logo-transparent.png';
+import { Theme } from '@drata/component-library';
 import drataShieldLogoPath from '../../../assets/svg/drata-shield-logo.svg';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ theme: Theme }>`
     ${cardBase}
     width: 100%;
-    background-image: url(${drataSlicedLogoPath});
     background-position: bottom right;
     background-repeat: no-repeat;
     display: flex;
@@ -33,7 +32,7 @@ const Wrapper = styled.div`
     }
 `;
 
-const StyledH2 = styled.h2`
+const StyledH2 = styled.h2<{ theme: Theme }>`
     font-size: 1rem;
     color: ${({ theme }) => theme.baseColors.spaceCadet};
     margin-top: 2rem;

@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { Header } from './Header/Header';
 import { ComplianceInfo } from './ComplianceInfo/ComplianceInfo';
-import { LandingPage } from './LandingPage/LandingPage';
-import { HelpPage } from './HelpPage/HelpPage';
 import { Footer } from './Footer/Footer';
+import { Header } from './Header/Header';
+import { HelpPage } from './HelpPage/HelpPage';
+import { LandingPage } from './LandingPage/LandingPage';
 import { MessageModal } from './MessageModal/MessageModal';
 
-import { useBridge } from '../hooks/use-bridge.hook';
 import { setDataStoreAction } from '../../renderer/redux/actions/data-store.actions';
 import {
     selectAppVersion,
     selectHasAccessToken,
     selectUser,
 } from '../../renderer/redux/selectors/data-store.selectors';
+import { useBridge } from '../hooks/use-bridge.hook';
 import { AppRoute } from './app-route.enum';
 
 import { RumInitConfiguration, datadogRum } from '@datadog/browser-rum';
-import { config } from '../../config';
 import { isEmpty } from 'lodash';
+import { config } from '../../config';
 
 const AppWrapper = styled.div<{ isAuthenticated: boolean }>`
     height: 100%;
@@ -131,13 +131,20 @@ const App = () => {
             <Router>
                 <Header />
 
-                <Route
-                    path={AppRoute.HOME}
-                    component={hasAccessToken ? ComplianceInfo : LandingPage}
-                    exact
-                />
+                <Routes>
+                    <Route
+                        path={AppRoute.HOME}
+                        element={
+                            hasAccessToken ? (
+                                <ComplianceInfo />
+                            ) : (
+                                <LandingPage />
+                            )
+                        }
+                    />
 
-                <Route path={AppRoute.HELP} component={HelpPage} exact />
+                    <Route path={AppRoute.HELP} Component={HelpPage} />
+                </Routes>
 
                 {hasAccessToken && <Footer />}
             </Router>

@@ -1,0 +1,526 @@
+{
+  "Agent Version {version}": [
+    {
+      "type": 0,
+      "value": "Agentenversion "
+    },
+    {
+      "type": 1,
+      "value": "version"
+    }
+  ],
+  "Automatic Updates Enabled": [
+    {
+      "type": 0,
+      "value": "Automatische Updates aktiviert"
+    }
+  ],
+  "Cancel": [
+    {
+      "type": 0,
+      "value": "Abbrechen"
+    }
+  ],
+  "Change Language": [
+    {
+      "type": 0,
+      "value": "Sprache ändern"
+    }
+  ],
+  "Check your Email": [
+    {
+      "type": 0,
+      "value": "Überprüfen Sie Ihre E-Mails"
+    }
+  ],
+  "Completed": [
+    {
+      "type": 0,
+      "value": "Abgeschlossen"
+    }
+  ],
+  "Configure your computer": [
+    {
+      "type": 0,
+      "value": "Konfigurieren Sie Ihren Computer"
+    }
+  ],
+  "Device compliance complete.": [
+    {
+      "type": 0,
+      "value": "Geräte-Compliance abgeschlossen."
+    }
+  ],
+  "Disconnect Device": [
+    {
+      "type": 0,
+      "value": "Gerät trennen"
+    }
+  ],
+  "Download Logs": [
+    {
+      "type": 0,
+      "value": "Protokolle herunterladen"
+    }
+  ],
+  "Download and install a password manager on your computer. This is the application you will use to generate, store, and share all passwords, MFA codes, as well as secure notes.": [
+    {
+      "type": 0,
+      "value": "Laden Sie einen Passwort-Manager herunter und installieren Sie ihn auf Ihrem Computer. Dies ist die Anwendung, mit der Sie alle Passwörter, MFA-Codes sowie sichere Notizen generieren, speichern und freigeben werden."
+    }
+  ],
+  "Drata Agent": [
+    {
+      "type": 0,
+      "value": "Drata-Agent"
+    }
+  ],
+  "Drata Agent successfully registered": [
+    {
+      "type": 0,
+      "value": "Drata Agent erfolgreich registriert"
+    }
+  ],
+  "Drata Shield Logo": [
+    {
+      "type": 0,
+      "value": "Logo „Drata Shield“"
+    }
+  ],
+  "Enter your registration key": [
+    {
+      "type": 0,
+      "value": "Geben Sie Ihren Registrierungsschlüssel ein"
+    }
+  ],
+  "Go to My Drata": [
+    {
+      "type": 0,
+      "value": "Gehen Sie zu 'Mein Drata'"
+    }
+  ],
+  "Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button.": [
+    {
+      "type": 0,
+      "value": "Gehen Sie zu 'Mein Drata', öffnen Sie den Abschnitt 'Drata Agent installieren' und klicken Sie auf die Schaltfläche 'Drata Agent registrieren'."
+    }
+  ],
+  "Hard-Disk Encrypted": [
+    {
+      "type": 0,
+      "value": "Festplatten-Verschlüsselung"
+    }
+  ],
+  "Help": [
+    {
+      "type": 0,
+      "value": "Hilfe"
+    }
+  ],
+  "Help article:": [
+    {
+      "type": 0,
+      "value": "Hilfeartikel:"
+    }
+  ],
+  "How to download and install a password manager": [
+    {
+      "type": 0,
+      "value": "So laden Sie einen Passwort-Manager herunter und installieren ihn"
+    }
+  ],
+  "How to download and install anti-virus software": [
+    {
+      "type": 0,
+      "value": "So laden Sie Antivirensoftware herunter und installieren sie"
+    }
+  ],
+  "How to enable screen saver lock timing": [
+    {
+      "type": 0,
+      "value": "So aktivieren Sie die Zeitsteuerung für den Bildschirmschoner"
+    }
+  ],
+  "How to encrypt your hard drive": [
+    {
+      "type": 0,
+      "value": "So verschlüsseln Sie Ihre Festplatte"
+    }
+  ],
+  "How to turn on auto-updates": [
+    {
+      "type": 0,
+      "value": "Auto-Updates einschalten"
+    }
+  ],
+  "If you've already received an email, please follow the instructions to register the agent.": [
+    {
+      "type": 0,
+      "value": "Wenn Sie bereits eine E-Mail erhalten haben, folgen Sie bitte den Anweisungen, um den Agent zu registrieren."
+    }
+  ],
+  "Incomplete": [
+    {
+      "type": 0,
+      "value": "Unvollständig"
+    }
+  ],
+  "Install Anti-Virus/Malware Software": [
+    {
+      "type": 0,
+      "value": "Anti-Virus/Malware-Software installieren"
+    }
+  ],
+  "Install the Company's Approved Password Manager": [
+    {
+      "type": 0,
+      "value": "Installieren Sie den genehmigten Passwort-Manager des Unternehmens."
+    }
+  ],
+  "Language Settings": [
+    {
+      "type": 0,
+      "value": "Spracheinstellungen"
+    }
+  ],
+  "Last synced: {syncedAt}": [
+    {
+      "type": 0,
+      "value": "Zuletzt synchronisiert: "
+    },
+    {
+      "type": 1,
+      "value": "syncedAt"
+    }
+  ],
+  "Missing region while handling authentication.": [
+    {
+      "type": 0,
+      "value": "Fehlende Region bei der Authentifizierung."
+    }
+  ],
+  "Missing token while handling authentication.": [
+    {
+      "type": 0,
+      "value": "Fehlendes Token bei der Handhabung der Authentifizierung."
+    }
+  ],
+  "My Drata": [
+    {
+      "type": 0,
+      "value": "Mein Drata"
+    }
+  ],
+  "Navigate back": [
+    {
+      "type": 0,
+      "value": "Zurücknavigieren"
+    }
+  ],
+  "No action needed at this time": [
+    {
+      "type": 0,
+      "value": "Derzeit ist keine Handlung erforderlich"
+    }
+  ],
+  "Okay": [
+    {
+      "type": 0,
+      "value": "Okay"
+    }
+  ],
+  "Once your computer goes to sleep or the screen saver begins, your computer will lock within 60 seconds.": [
+    {
+      "type": 0,
+      "value": "Sobald Ihr Computer im Ruhezustand ist oder der Bildschirmschoner beginnt, wird Ihr Computer innerhalb von 60 Sekunden gesperrt."
+    }
+  ],
+  "Otherwise, go to the \"Install the Drata Agent\" section of your My Drata page, and click on the \"Register Drata Agent\" button.": [
+    {
+      "type": 0,
+      "value": "Andernfalls gehen Sie zum Abschnitt 'Drata Agent installieren' auf Ihrer Seite 'Mein Drata' und klicken Sie auf die Schaltfläche 'Drata Agent registrieren'."
+    }
+  ],
+  "Override Icon Color": [
+    {
+      "type": 0,
+      "value": "Symbolfarbe überschreiben"
+    }
+  ],
+  "Please click the \"Sync now\" button below": [
+    {
+      "type": 0,
+      "value": "Bitte klicken Sie unten auf die Schaltfläche 'Jetzt synchronisieren'"
+    }
+  ],
+  "Please try again in a few minutes.": [
+    {
+      "type": 0,
+      "value": "Bitte versuchen Sie es in ein paar Minuten erneut."
+    }
+  ],
+  "Please wait": [
+    {
+      "type": 0,
+      "value": "Bitte warten"
+    }
+  ],
+  "Preparing Logs...": [
+    {
+      "type": 0,
+      "value": "Vorbereiten von Protokollen..."
+    }
+  ],
+  "Quit": [
+    {
+      "type": 0,
+      "value": "Beenden"
+    }
+  ],
+  "Quit Agent": [
+    {
+      "type": 0,
+      "value": "Agent beenden"
+    }
+  ],
+  "Region": [
+    {
+      "type": 0,
+      "value": "Region"
+    }
+  ],
+  "Register": [
+    {
+      "type": 0,
+      "value": "Registrieren"
+    }
+  ],
+  "Register Device": [
+    {
+      "type": 0,
+      "value": "Gerät registrieren"
+    }
+  ],
+  "Register Your Account": [
+    {
+      "type": 0,
+      "value": "Registrieren Sie Ihr Konto"
+    }
+  ],
+  "Register your Workstation": [
+    {
+      "type": 0,
+      "value": "Registrieren Sie Ihre Workstation"
+    }
+  ],
+  "Registration Key": [
+    {
+      "type": 0,
+      "value": "Registrierungsschlüssel"
+    }
+  ],
+  "Revert Icon to System Theme": [
+    {
+      "type": 0,
+      "value": "Symbol auf das Systemdesign zurücksetzen"
+    }
+  ],
+  "Save": [
+    {
+      "type": 0,
+      "value": "Speichern"
+    }
+  ],
+  "Screen Saver Lock": [
+    {
+      "type": 0,
+      "value": "Bildschirmschoner-Sperre"
+    }
+  ],
+  "Show Drata Agent": [
+    {
+      "type": 0,
+      "value": "Drata-Agent anzeigen"
+    }
+  ],
+  "Sync Successful": [
+    {
+      "type": 0,
+      "value": "Synchronisierung erfolgreich"
+    }
+  ],
+  "Sync now": [
+    {
+      "type": 0,
+      "value": "Synchronisieren Sie jetzt"
+    }
+  ],
+  "Syncing your data!": [
+    {
+      "type": 0,
+      "value": "Ihre Daten werden synchronisiert!"
+    }
+  ],
+  "Take me to My Drata": [
+    {
+      "type": 0,
+      "value": "Bringen Sie mich zu meinem Drata"
+    }
+  ],
+  "Tasks completed": [
+    {
+      "type": 0,
+      "value": "Aufgaben abgeschlossen"
+    }
+  ],
+  "The Drata Agent is not authorized.": [
+    {
+      "type": 0,
+      "value": "Der Drata Agent ist nicht autorisiert."
+    }
+  ],
+  "The authorization has expired.": [
+    {
+      "type": 0,
+      "value": "Die Berechtigung ist abgelaufen."
+    }
+  ],
+  "The following tasks are completed and compliant": [
+    {
+      "type": 0,
+      "value": "Die folgenden Aufgaben sind abgeschlossen und konform"
+    }
+  ],
+  "The following tasks are not compliant and need attention": [
+    {
+      "type": 0,
+      "value": "Die folgenden Aufgaben sind nicht konform und benötigen Aufmerksamkeit"
+    }
+  ],
+  "Unable to login at this time. Please contact your system administrator.": [
+    {
+      "type": 0,
+      "value": "Sie können sich zur Zeit nicht anmelden. Bitte kontaktieren Sie Ihren Systemadministrator."
+    }
+  ],
+  "Unable to update your system information at this moment. Please contact your system administrator.": [
+    {
+      "type": 0,
+      "value": "Ihre Systeminformationen können momentan nicht aktualisiert werden. Bitte kontaktieren Sie Ihren Systemadministrator."
+    }
+  ],
+  "Use this form to update your personal language settings for the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "Verwenden Sie dieses Formular, um Ihre persönlichen Spracheinstellungen für den Drata Agent zu aktualisieren."
+    }
+  ],
+  "Waiting for the first Sync": [
+    {
+      "type": 0,
+      "value": "Warten auf die erste Synchronisierung"
+    }
+  ],
+  "Way to go! The Drata Agent has been installed.": [
+    {
+      "type": 0,
+      "value": "Gut gemacht! Der Drata Agent wurde installiert."
+    }
+  ],
+  "We are completing your account configuration.": [
+    {
+      "type": 0,
+      "value": "Wir schließen die Konfiguration Ihres Kontos ab."
+    }
+  ],
+  "We are making Drata even better than before.": [
+    {
+      "type": 0,
+      "value": "Wir machen Drata noch besser als je zuvor."
+    }
+  ],
+  "You are using an approved password manager": [
+    {
+      "type": 0,
+      "value": "Sie verwenden einen zugelassenen Passwort-Manager"
+    }
+  ],
+  "You are using anti-virus software.": [
+    {
+      "type": 0,
+      "value": "Sie verwenden eine Antivirensoftware."
+    }
+  ],
+  "You need to register the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "Sie müssen den Drata Agent registrieren."
+    }
+  ],
+  "You'll need to configure your security settings to require your login password within a specific timeframe after your computer goes to sleep or the screen saver begins. Review the help article and check with your IT and compliance teams for specific guidelines.": [
+    {
+      "type": 0,
+      "value": "Sie müssen Ihre Sicherheitseinstellungen konfigurieren, um Ihr Anmeldepasswort innerhalb eines bestimmten Zeitrahmens anzufordern, nachdem Ihr Computer im Ruhezustand ist oder der Bildschirmschoner beginnt. Überprüfen Sie den Hilfeartikel und wenden Sie sich an Ihre IT- und Compliance-Teams für spezifische Richtlinien."
+    }
+  ],
+  "You'll need to download and install anti-virus software.": [
+    {
+      "type": 0,
+      "value": "Sie müssen Antivirensoftware herunterladen und installieren."
+    }
+  ],
+  "You'll need to encrypt your computers hard drive.": [
+    {
+      "type": 0,
+      "value": "Sie müssen die Festplatte Ihres Computers verschlüsseln."
+    }
+  ],
+  "You'll need to turn on auto-updates.": [
+    {
+      "type": 0,
+      "value": "Sie müssen automatische Updates aktivieren."
+    }
+  ],
+  "You've already registered the Drata Agent.": [
+    {
+      "type": 0,
+      "value": "Sie haben den Drata Agent bereits registriert."
+    }
+  ],
+  "You've already registered the Drata Agent. Disconnect the device first.": [
+    {
+      "type": 0,
+      "value": "Sie haben den Drata Agent bereits registriert. Trennen Sie zuerst das Gerät."
+    }
+  ],
+  "Your computer will automatically update.": [
+    {
+      "type": 0,
+      "value": "Ihr Computer wird automatisch aktualisiert."
+    }
+  ],
+  "Your computer's hard drive is encrypted.": [
+    {
+      "type": 0,
+      "value": "Die Festplatte Ihres Computers ist verschlüsselt."
+    }
+  ],
+  "{passed} out of {total} tasks completed.": [
+    {
+      "type": 1,
+      "value": "passed"
+    },
+    {
+      "type": 0,
+      "value": " von "
+    },
+    {
+      "type": 1,
+      "value": "total"
+    },
+    {
+      "type": 0,
+      "value": " Aufgaben abgeschlossen."
+    }
+  ]
+}

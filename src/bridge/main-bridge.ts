@@ -10,52 +10,71 @@ import os from 'os';
 import { BridgeChannel } from '../entities/bridge-channel.interface';
 import { Region } from '../enums/region.enum';
 import { DataStoreHelper } from '../main/helpers/data-store.helper';
+import { IntlHelper } from '../main/helpers/intl.helper';
 import { Logger } from '../main/helpers/logger.helpers';
 import { SchedulerService } from '../main/services/scheduler/scheduler.service';
+import { QueryResult } from '../main/services/system-query/entities/query-result.type';
 
 export class MainBridge {
-    static instance: MainBridge;
+    private static _instance: MainBridge;
+    private readonly logger = new Logger(MainBridge.name);
+    private readonly dataStore = DataStoreHelper.instance;
     private sender: BrowserWindow;
-    private readonly logger = new Logger(this.constructor.name);
-    private dataStore = DataStoreHelper.instance;
+
+    static get instance(): MainBridge {
+        return MainBridge._instance;
+    }
 
     static getInstance(
-        win: BrowserWindow,
+        win: BrowserWindow | null,
         handleSync: (manualRun: boolean) => void,
         localRegister: (token: string, region: Region) => void,
+        systemQuery: () => Promise<QueryResult>,
     ) {
-        if (isNil(MainBridge.instance)) {
-            MainBridge.instance = new MainBridge(
+        if (isNil(MainBridge._instance)) {
+            MainBridge._instance = new MainBridge(
                 win,
                 handleSync,
                 localRegister,
+                systemQuery,
             );
+        } else if (win) {
+            // Update the window reference if provided
+            MainBridge._instance.sender = win;
         }
-        return MainBridge.instance;
+        return MainBridge._instance;
+    }
+
+    sendMessage<BCh extends keyof BridgeChannel>(
+        channel: BCh,
+        data: BridgeChannel[BCh],
+    ) {
+        this.sender.webContents.send(channel.toString(), data);
     }
 
     private constructor(
-        win: BrowserWindow,
+        win: BrowserWindow | null,
         private readonly handleSync: (manualRun: boolean) => void,
         private readonly localRegister: (token: string, region: Region) => void,
+        private readonly systemQuery: () => Promise<QueryResult>,
     ) {
-        this.sender = win;
-
+        this.sender = win as BrowserWindow;
         this.initHanders();
     }
 
     private initHanders() {
         ipcMain.handle('getDataStore', this.handleGetDataStore.bind(this));
         ipcMain.handle('openLink', this.handleOpenLink.bind(this));
-        ipcMain.handle('hideApp', this.handleHideApp.bind(this));
-        ipcMain.handle('allowResize', this.handleAllowResize.bind(this));
-        ipcMain.handle(
-            'dumpDiagnostics',
-            this.handleDumpDiagnostics.bind(this),
-        );
+        ipcMain.handle('changeLanguage', this.handleChangeLanguage.bind(this));
         ipcMain.handle('quitApp', this.handleQuitApp.bind(this));
         ipcMain.handle('runSync', this.handleRunSync.bind(this));
         ipcMain.handle('localRegister', this.handleLocalRegister.bind(this));
+        ipcMain.handle('downloadLog', this.handleDownloadLog.bind(this));
+        ipcMain.handle('getSystemInfo', this.handleGetSystemInfo.bind(this));
+        ipcMain.handle(
+            'clearRegistration',
+            this.handleClearRegistration.bind(this),
+        );
     }
 
     private async handleGetDataStore(): Promise<BridgeChannel['getDataStore']> {
@@ -76,40 +95,100 @@ export class MainBridge {
         shell.openExternal(url);
     }
 
-    private handleHideApp(): BridgeChannel['hideApp'] {
-        this.sender.hide();
-        app.dock.hide();
+    private handleChangeLanguage(
+        event: IpcMainInvokeEvent,
+        locale: string,
+    ): BridgeChannel['changeLanguage'] {
+        this.dataStore.set('locale', locale);
+        IntlHelper.setLocale(locale);
     }
 
-    private handleAllowResize(): BridgeChannel['allowResize'] {
-        this.sender.resizable = true;
+    private handleQuitApp(): BridgeChannel['quitApp'] {
+        app.quit();
     }
 
-    private handleDumpDiagnostics(): BridgeChannel['dumpDiagnostics'] {
+    private handleRunSync(): BridgeChannel['runSync'] {
+        this.handleSync(true);
+    }
+
+    private handleClearRegistration(): BridgeChannel['clearRegistration'] {
+        this.dataStore.clearData();
+    }
+
+    private async handleDownloadLog(): Promise<BridgeChannel['downloadLog']> {
         try {
-            this.logger.info('Dumping diagnostic information...');
+            await this.dumpDiagnostics();
+            const logPath = this.logger.getFilePath();
+            shell.showItemInFolder(logPath);
+        } catch (err) {
+            this.logger.error(err, 'Error processing log file.');
+        }
+    }
+
+    private async handleGetSystemInfo(): Promise<
+        BridgeChannel['getSystemInfo']
+    > {
+        try {
+            return await this.systemQuery();
+        } catch (error) {
+            this.logger.error(
+                error,
+                'Error getting system info for diagnostics.',
+            );
+            throw error;
+        }
+    }
+
+    private async dumpDiagnostics() {
+        try {
+            const systemInfo = await this.systemQuery();
+            this.logger.info(systemInfo);
+
             this.logger.info({
-                execPath: process.execPath,
-                features: process.features,
-                nodeVer: process.version,
-                winSize: this.sender?.getSize(),
-                contentSize: this.sender?.getContentSize(),
-                ...this.prepareDataForDiagnostics(
-                    this.dataStore.dataForRenderer,
-                ),
-                platform: os.platform(),
-                platformVersion: os.version(),
-                processPriority: os.getPriority(),
-                uptime: os.uptime(),
-                jobs: SchedulerService.instance.getScheduledJobsInfo(),
-                nodeConfig: {
-                    execArgv: process.execArgv,
-                    argv: process.argv,
-                    config: process.config,
+                process_info: {
+                    execPath: process.execPath,
+                    agentUptime: process.uptime(),
+                    memoryUsage: process.memoryUsage(),
+                    process: process.cpuUsage(),
+                    processPriority: os.getPriority(),
+                    processId: process.pid,
+                    processTitle: process.title,
+                    processArgv: process.argv,
+                    processEnv: {
+                        NODE_ENV: process.env.NODE_ENV,
+                        TARGET_ENV: process.env.TARGET_ENV,
+                        ELECTRON_IS_DEV: process.env.ELECTRON_IS_DEV,
+                    },
+                },
+
+                app_info: {
+                    winSize: this.sender?.getSize(),
+                    contentSize: this.sender?.getContentSize(),
+                    winBounds: this.sender?.getBounds(),
+                    isVisible: this.sender?.isVisible(),
+                    ...this.prepareDataForDiagnostics(
+                        this.dataStore.dataForRenderer,
+                    ),
+                    jobs: SchedulerService.instance.getScheduledJobsInfo(),
+                },
+
+                system_info: {
+                    platform: os.platform(),
+                    platformVersion: os.version(),
+                    arch: os.arch(),
+                    cpus: os.cpus().length,
+                    totalMemory: os.totalmem(),
+                    freeMemory: os.freemem(),
+                    loadAverage: os.loadavg(),
+                    networkInterfaces: Object.keys(os.networkInterfaces()),
+                    uptime: os.uptime(),
                 },
             });
-        } catch (err) {
-            this.logger.error(err, 'Error dumping diagnostics');
+        } catch (error) {
+            this.logger.error(
+                error,
+                'Error getting system info for diagnostics dump.',
+            );
         }
     }
 
@@ -131,20 +210,5 @@ export class MainBridge {
             region,
             complianceData: complianceData?.data,
         };
-    }
-
-    private handleQuitApp(): BridgeChannel['quitApp'] {
-        app.quit();
-    }
-
-    private handleRunSync(): BridgeChannel['runSync'] {
-        this.handleSync(true);
-    }
-
-    sendMessage<BCh extends keyof BridgeChannel>(
-        channel: BCh,
-        data: BridgeChannel[BCh],
-    ) {
-        this.sender.webContents.send(channel.toString(), data);
     }
 }

@@ -55,11 +55,13 @@ export class SchedulerService extends ServiceBase {
                     `Scheduled ${id} to run every ${hours} hour(s).`,
                 );
             }
-        } catch (error) {
+        } catch (error: unknown) {
             this.logger.error(
                 `Error scheduling job ${id}. Stopping all scheduled tasks...`,
+                error instanceof Error ? error.message : String(error),
             );
             this.stopAllJobs();
+            throw error;
         }
     }
 

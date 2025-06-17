@@ -146,28 +146,6 @@ export class MacOsSystemQueryService
                     this.screenLockStatusTransform,
                 ),
 
-                adminUsers: await this.runQuery({
-                    description: 'List of users with administrative privileges',
-                    query: 'SELECT users.uid, users.username FROM user_groups INNER JOIN users ON user_groups.uid = users.uid WHERE user_groups.gid = 80',
-                }),
-
-                processor: await this.runQuery({
-                    description: 'Processor Information',
-                    query: 'SELECT cpu_type, cpu_brand FROM system_info',
-                    transform: res => res[0],
-                }),
-
-                memory: await this.runQuery({
-                    description: 'Physical Memory (RAM)',
-                    query: 'SELECT physical_memory FROM system_info',
-                    transform: res => res[0],
-                }),
-
-                hddSize: await this.runQuery({
-                    description: 'Hard Disk Storage Capacity in GB',
-                    query: "SELECT round((blocks * blocks_size * 10e-10), 2) AS hddSize FROM mounts WHERE path='/'",
-                    transform: res => res[0],
-                }),
                 screenLockSettings: {
                     screenSaverIdleWait: await this.runQuery({
                         description: 'Start Screen Saver when inactive (max)',

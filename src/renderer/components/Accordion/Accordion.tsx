@@ -1,15 +1,16 @@
-import React, { cloneElement, ReactElement, useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { isEmpty } from 'lodash';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { cloneElement, ReactElement, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 
 import { AccordionItem } from './AccordionItem';
 
-import { cardBase } from '../../../renderer/helpers/style.helpers';
+import { Theme } from '@drata/component-library';
 import { reverse } from '../../../renderer/helpers/route.helpers';
+import { cardBase } from '../../../renderer/helpers/style.helpers';
 import { AppRoute } from '../app-route.enum';
 
-const Li = styled.li`
+const Li = styled.li<{ theme: Theme }>`
     ${cardBase}
     width: 100%;
 
@@ -25,7 +26,7 @@ interface Props {
 function Accordion({ children }: Props) {
     const [activeIndex, setActiveIndex] = useState(-1);
     const { openItem } = useParams<{ openItem?: string }>();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const itemIds = children
         .map(item => item?.props.id)
@@ -37,9 +38,9 @@ function Accordion({ children }: Props) {
 
     const handleOnClick = (index: number) => () => {
         if (index === activeIndex) {
-            history.replace(reverse(AppRoute.HOME, { openItem: '' }));
+            navigate(reverse(AppRoute.HOME, { openItem: '' }));
         } else {
-            history.replace(
+            navigate(
                 // ! is safe to use because itemIds[index] is guaranteed to exist
                 reverse(AppRoute.HOME, { openItem: itemIds[index]! }),
             );

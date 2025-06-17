@@ -1,5 +1,5 @@
 import { isString } from 'lodash';
-import React, { ReactNode } from 'react';
+import React, { JSX, ReactNode } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`

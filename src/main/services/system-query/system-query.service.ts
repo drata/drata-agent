@@ -1,4 +1,4 @@
-import { isFunction, isNil } from 'lodash';
+import { isEmpty, isFunction, isNil } from 'lodash';
 import { ProcessHelper } from '../../helpers/process.helpers';
 import { AgentDeviceIdentifiers } from '../api/types/agent-device-identifiers.type';
 import { ServiceBase } from '../service-base.service';
@@ -26,7 +26,24 @@ export abstract class SystemQueryService extends ServiceBase {
                 query: 'SELECT version, build, platform FROM os_version',
                 transform: (res: unknown[]) => res[0],
             }),
+            system_info: await this.getAgentDeviceIdentifiers(),
+            email: this.dataStore?.get('user')?.email,
+            region: this.dataStore?.get('region'),
         };
+    }
+
+    protected async raceSequentialQueries<T>(
+        queries: Array<Query>,
+        transform: (res: any) => T = (res: T) => res,
+    ): Promise<T | undefined> {
+        for (const query of queries) {
+            const result = await this.runQuery(query);
+            if (!isEmpty(result)) {
+                return transform(result);
+            }
+        }
+
+        return transform([]);
     }
 
     protected async runQueries<T>(

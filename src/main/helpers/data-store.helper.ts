@@ -3,34 +3,30 @@ import fs from 'fs';
 import { isNil } from 'lodash';
 import path from 'path';
 import { RendererDataStore } from 'types/renderer-data-store';
-import { TARGET_ENV } from '../../constants/environment';
 import { DataStore } from '../../entities/data-store.interface';
 import { getDataFileName } from '../helpers/environment.helpers';
 import { Logger } from './logger.helpers';
-import { PathHelper } from './path.helpers';
+
 export class DataStoreHelper {
-    static instance: DataStoreHelper = new DataStoreHelper();
+    private static _instance: DataStoreHelper;
     private readonly logger = new Logger(this.constructor.name);
-
-    private path: string;
+    private readonly _path: string;
     private data: DataStore;
+    private readonly listeners: Array<(data: RendererDataStore) => void> = [];
 
-    private listeners: Array<(data: RendererDataStore) => void> = [];
+    static get instance(): DataStoreHelper {
+        if (!this._instance) {
+            this._instance = new DataStoreHelper();
+        }
+        return this._instance;
+    }
 
     private constructor() {
         const userDataPath = electron.app.getPath('userData');
         const fileName = `${getDataFileName()}.json`;
-
-        this.path = path.join(userDataPath, fileName);
+        this._path = path.join(userDataPath, fileName);
 
         this.initializeDataFile();
-
-        if (!TARGET_ENV.PROD) {
-            this.logger.info(
-                `Storage path: ${PathHelper.safeSpaces(this.path)}`,
-            );
-        }
-
         this.data = this.loadData();
     }
 
@@ -91,6 +87,9 @@ export class DataStoreHelper {
     clearData() {
         this.data = {};
         this.writeData();
+
+        this.logger.info('Data file cleared.');
+
         this.emitChange();
     }
 
@@ -112,17 +111,15 @@ export class DataStoreHelper {
     }
 
     private initializeDataFile() {
-        try {
-            fs.statSync(this.path);
-        } catch (expectedError) {
-            // if we get here it means the file doesn't exist.
+        if (!fs.existsSync(this._path)) {
             try {
                 this.data = {};
                 this.writeData();
-                this.logger.info('Data file initialized.');
-            } catch (error) {
+                this.logger.info('Data file initialized successfully.');
+            } catch (error: unknown) {
+                // needs safe failure for static imports
                 this.logger.error(
-                    error,
+                    String(error),
                     'Failure attempting to initialize the data store file.',
                 );
             }
@@ -131,25 +128,26 @@ export class DataStoreHelper {
 
     private loadData(): DataStore {
         try {
-            const data = fs.readFileSync(this.path, { encoding: 'utf8' });
+            const data = fs.readFileSync(this._path, { encoding: 'utf8' });
             return JSON.parse(data) as DataStore;
-        } catch (error) {
+        } catch (error: unknown) {
             this.logger.error(
-                error,
+                String(error),
                 'Failure attempting to read the data store file.',
             );
-            return {} as DataStore;
+            return {}; // need safe failure for static imports
         }
     }
 
     private writeData(): void {
         try {
-            fs.writeFileSync(this.path, JSON.stringify(this.data, null, 4));
+            fs.writeFileSync(this._path, JSON.stringify(this.data, null, 4));
         } catch (error) {
             this.logger.error(
                 error,
                 'Failure attempting to write to the data store file.',
             );
+            throw error;
         }
     }
 }
