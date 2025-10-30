@@ -4,4 +4,5 @@ export const LANGUAGE_ENUM = {
     GERMAN_DE: 'de-DE',
     FRENCH_FR: 'fr-FR',
     DUTCH_NL: 'nl',
+    ITALIAN_IT: 'it-IT',
 };

@@ -1,0 +1,254 @@
+{
+  "Agent Version {version}" : {
+    "defaultMessage" : "Versione agente {version}"
+  },
+  "Automatic Updates Enabled" : {
+    "defaultMessage" : "Aggiornamenti automatici abilitati"
+  },
+  "Cancel" : {
+    "defaultMessage" : "Annulla"
+  },
+  "Change Language" : {
+    "defaultMessage" : "Cambia lingua"
+  },
+  "Check your Email" : {
+    "defaultMessage" : "Controlla la tua e-mail"
+  },
+  "Completed" : {
+    "defaultMessage" : "Completato"
+  },
+  "Configure your computer" : {
+    "defaultMessage" : "Configura il computer"
+  },
+  "Device compliance complete." : {
+    "defaultMessage" : "Conformità del dispositivo completata."
+  },
+  "Disconnect Device" : {
+    "defaultMessage" : "Scollega il dispositivo"
+  },
+  "Download Logs" : {
+    "defaultMessage" : "Scarica i registri"
+  },
+  "Download and install a password manager on your computer. This is the application you will use to generate, store, and share all passwords, MFA codes, as well as secure notes." : {
+    "defaultMessage" : "Scarica e installa un gestore di password sul computer. Questa è l'applicazione utilizzata per generare, archiviare e condividere tutte le password, i codici MFA e le note sicure."
+  },
+  "Drata Agent" : {
+    "defaultMessage" : "Agente Drata"
+  },
+  "Drata Agent successfully registered" : {
+    "defaultMessage" : "L'agente Drata è stato registrato con successo"
+  },
+  "Drata Shield Logo" : {
+    "defaultMessage" : "Logo di Drata Shield"
+  },
+  "Enter your registration key" : {
+    "defaultMessage" : "Inserisca la chiave di registrazione"
+  },
+  "Go to My Drata" : {
+    "defaultMessage" : "Vai a Il mio Drata"
+  },
+  "Go to My Drata, open the \"Install the Drata Agent\" section and click the \"Register Drata Agent\" button." : {
+    "defaultMessage" : "Vai a Il mio Drata, apri la sezione \"Installa l'agente Drata\" e fai clic sul pulsante \"Registra l'agente Drata\"."
+  },
+  "Hard-Disk Encrypted" : {
+    "defaultMessage" : "Disco rigido crittografato"
+  },
+  "Help" : {
+    "defaultMessage" : "Aiuto"
+  },
+  "Help article:" : {
+    "defaultMessage" : "Articolo di aiuto:"
+  },
+  "How to download and install a password manager" : {
+    "defaultMessage" : "Come scaricare e installare un gestore di password"
+  },
+  "How to download and install anti-virus software" : {
+    "defaultMessage" : "Come scaricare e installare un software antivirus"
+  },
+  "How to enable screen saver lock timing" : {
+    "defaultMessage" : "Come abilitare il tempo di blocco dello screen saver"
+  },
+  "How to encrypt your hard drive" : {
+    "defaultMessage" : "Come crittografare il disco rigido"
+  },
+  "How to turn on auto-updates" : {
+    "defaultMessage" : "Come attivare gli aggiornamenti automatici"
+  },
+  "If you've already received an email, please follow the instructions to register the agent." : {
+    "defaultMessage" : "Se ha già ricevuto un'e-mail, segui le istruzioni per registrare l'agente."
+  },
+  "Incomplete" : {
+    "defaultMessage" : "Incompleto"
+  },
+  "Install Anti-Virus/Malware Software" : {
+    "defaultMessage" : "Installa il software antivirus/anti-malware"
+  },
+  "Install the Company's Approved Password Manager" : {
+    "defaultMessage" : "Installa il gestore di password approvato dall'azienda"
+  },
+  "Language Settings" : {
+    "defaultMessage" : "Impostazioni della lingua"
+  },
+  "Last synced: {syncedAt}" : {
+    "defaultMessage" : "Ultima sincronizzazione: {syncedAt}"
+  },
+  "Missing region while handling authentication." : {
+    "defaultMessage" : "Regione mancante durante la gestione dell'autenticazione."
+  },
+  "Missing token while handling authentication." : {
+    "defaultMessage" : "Manca il token durante la gestione dell'autenticazione."
+  },
+  "My Drata" : {
+    "defaultMessage" : "Il mio Drata"
+  },
+  "Navigate back" : {
+    "defaultMessage" : "Torna indietro"
+  },
+  "No action needed at this time" : {
+    "defaultMessage" : "Nessuna azione necessaria al momento"
+  },
+  "Okay" : {
+    "defaultMessage" : "Ok"
+  },
+  "Once your computer goes to sleep or the screen saver begins, your computer will lock within 60 seconds." : {
+    "defaultMessage" : "Dopo l'ingresso del computer in modalità di sospensione o l'avvio dello screen saver, il computer si bloccherà entro 60 secondi."
+  },
+  "Otherwise, go to the \"Install the Drata Agent\" section of your My Drata page, and click on the \"Register Drata Agent\" button." : {
+    "defaultMessage" : "Altrimenti, vai alla sezione \"Installa l'agente Drata\" della tua pagina Il mio Drata e fai clic sul pulsante \"Registra l'agente Drata\"."
+  },
+  "Override Icon Color" : {
+    "defaultMessage" : "Sovrascrivere il colore dell'icona"
+  },
+  "Please click the \"Sync now\" button below" : {
+    "defaultMessage" : "Fai clic sul pulsante \"Sincronizza ora\" qui sotto"
+  },
+  "Please try again in a few minutes." : {
+    "defaultMessage" : "Riprova tra qualche minuto."
+  },
+  "Please wait" : {
+    "defaultMessage" : "Attendi prego"
+  },
+  "Preparing Logs..." : {
+    "defaultMessage" : "Preparazione dei registri..."
+  },
+  "Quit" : {
+    "defaultMessage" : "Chiudi"
+  },
+  "Quit Agent" : {
+    "defaultMessage" : "Chiudi agente"
+  },
+  "Region" : {
+    "defaultMessage" : "Regione"
+  },
+  "Register" : {
+    "defaultMessage" : "Registro"
+  },
+  "Register Device" : {
+    "defaultMessage" : "Registra dispositivo"
+  },
+  "Register Your Account" : {
+    "defaultMessage" : "Registra il tuo account"
+  },
+  "Register your Workstation" : {
+    "defaultMessage" : "Registra la workstation"
+  },
+  "Registration Key" : {
+    "defaultMessage" : "Chiave di registrazione"
+  },
+  "Revert Icon to System Theme" : {
+    "defaultMessage" : "Ripristina l'icona al tema di sistema"
+  },
+  "Save" : {
+    "defaultMessage" : "Salva"
+  },
+  "Screen Saver Lock" : {
+    "defaultMessage" : "Blocco dello screen saver"
+  },
+  "Show Drata Agent" : {
+    "defaultMessage" : "Mostra l'agente Drata"
+  },
+  "Sync Successful" : {
+    "defaultMessage" : "Sincronizzazione riuscita"
+  },
+  "Sync now" : {
+    "defaultMessage" : "Sincronizza ora"
+  },
+  "Syncing your data!" : {
+    "defaultMessage" : "Sincronizzazione dei dati in corso."
+  },
+  "Take me to My Drata" : {
+    "defaultMessage" : "Portami a Il mio Drata"
+  },
+  "Tasks completed" : {
+    "defaultMessage" : "Attività completate"
+  },
+  "The Drata Agent is not authorized." : {
+    "defaultMessage" : "L'agente Drata non è autorizzato."
+  },
+  "The authorization has expired." : {
+    "defaultMessage" : "L'autorizzazione è scaduta."
+  },
+  "The following tasks are completed and compliant" : {
+    "defaultMessage" : "Le seguenti attività sono completate e conformi"
+  },
+  "The following tasks are not compliant and need attention" : {
+    "defaultMessage" : "Le seguenti attività non sono conformi e richiedono attenzione"
+  },
+  "Unable to login at this time. Please contact your system administrator." : {
+    "defaultMessage" : "Impossibile accedere in questo momento. Contatta l'amministratore di sistema."
+  },
+  "Unable to update your system information at this moment. Please contact your system administrator." : {
+    "defaultMessage" : "Impossibile aggiornare le informazioni di sistema in questo momento. Contatta l'amministratore di sistema."
+  },
+  "Use this form to update your personal language settings for the Drata Agent." : {
+    "defaultMessage" : "Usa questo modulo per aggiornare le impostazioni linguistiche personali per l'agente Drata."
+  },
+  "Waiting for the first Sync" : {
+    "defaultMessage" : "In attesa della prima sincronizzazione"
+  },
+  "Way to go! The Drata Agent has been installed." : {
+    "defaultMessage" : "Operazione conclusa. Agente Drata installato."
+  },
+  "We are completing your account configuration." : {
+    "defaultMessage" : "Stiamo completando la configurazione del tuo account."
+  },
+  "We are making Drata even better than before." : {
+    "defaultMessage" : "Stiamo migliorando Drata ancora di più rispetto a prima."
+  },
+  "You are using an approved password manager" : {
+    "defaultMessage" : "Sta utilizzando un gestore di password approvato"
+  },
+  "You are using anti-virus software." : {
+    "defaultMessage" : "Sta utilizzando un software antivirus."
+  },
+  "You need to register the Drata Agent." : {
+    "defaultMessage" : "È necessario registrare l'agente Drata."
+  },
+  "You'll need to configure your security settings to require your login password within a specific timeframe after your computer goes to sleep or the screen saver begins. Review the help article and check with your IT and compliance teams for specific guidelines." : {
+    "defaultMessage" : "Per richiedere la password di accesso sarà necessario configurare le impostazioni di sicurezza entro un determinato periodo di tempo dopo che il computer entra in modalità di sospensione o si avvia lo screensaver. Per linee guida specifiche, consulta l'articolo della guida e rivolgiti ai team IT e di conformità."
+  },
+  "You'll need to download and install anti-virus software." : {
+    "defaultMessage" : "Dovrai scaricare e installare un software antivirus."
+  },
+  "You'll need to encrypt your computers hard drive." : {
+    "defaultMessage" : "Dovrai crittografare il disco rigido del tuo computer."
+  },
+  "You'll need to turn on auto-updates." : {
+    "defaultMessage" : "È necessario attivare gli aggiornamenti automatici."
+  },
+  "You've already registered the Drata Agent." : {
+    "defaultMessage" : "Hai già registrato l'agente Drata."
+  },
+  "You've already registered the Drata Agent. Disconnect the device first." : {
+    "defaultMessage" : "Hai già registrato l'agente Drata. Per prima cosa scollega il dispositivo."
+  },
+  "Your computer will automatically update." : {
+    "defaultMessage" : "Il tuo computer si aggiornerà automaticamente."
+  },
+  "Your computer's hard drive is encrypted." : {
+    "defaultMessage" : "Il disco rigido del tuo computer è crittografato."
+  },
+  "{passed} out of {total} tasks completed." : {
+    "defaultMessage" : "{passed} su {total} attività completate."
+  }
+}

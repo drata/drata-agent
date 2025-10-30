@@ -18,6 +18,7 @@ The Drata Agent is a lightweight application that lives in your computer's toolb
 - Support is not provided for building, running, or installing unofficial packages.
 - The build process outlined does not include secure code signing.
 - IMPORTANT: Component Library Package is NOT provided. At this time, certain front end components will need replaced to build.
+- IMPORTANT: osquery binaries are not tracked, they may be downloaded from release assets or directly from osquery.
 
 ## Prerequisites
 

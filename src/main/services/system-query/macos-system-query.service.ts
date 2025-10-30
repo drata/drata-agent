@@ -123,7 +123,10 @@ export class MacOsSystemQueryService
 
                 autoUpdateEnabled: await this.runQuery({
                     description: 'Is auto-update enabled on this machine?',
-                    query: "SELECT * FROM plist WHERE path = '/Library/Preferences/com.apple.SoftwareUpdate.plist' AND key = 'CriticalUpdateInstall' UNION SELECT * FROM plist WHERE path = '/Library/Preferences/com.apple.commerce.plist' AND key = 'AutoUpdate' UNION SELECT * FROM plist WHERE path = '/Library/Managed Preferences/com.apple.SoftwareUpdate.plist' AND key = 'CriticalUpdateInstall' UNION SELECT * FROM plist WHERE path = '/Library/Managed Preferences/com.apple.commerce.plist' AND key = 'AutoUpdate'",
+                    command: 'softwareupdate --schedule',
+                    transform: res => ({
+                        value: res.includes('turned on') ? '1' : '0',
+                    }),
                 }),
 
                 gateKeeperEnabled: await this.runQuery({
@@ -131,6 +134,36 @@ export class MacOsSystemQueryService
                     query: 'SELECT assessments_enabled FROM gatekeeper',
                     transform: res => res[0],
                 }),
+
+                protectionSettings: {
+                    gatekeeper: await this.runQuery({
+                        description: 'What are the gatekeeper settings?',
+                        query: 'SELECT assessments_enabled, dev_id_enabled FROM gatekeeper',
+                    }),
+                    xprotect: await this.runQuery({
+                        description: 'What are the xprotect settings?',
+                        command: 'xprotect version && xprotect status',
+                    }),
+                    autoUpdateHistory: await this.runQuery({
+                        description:
+                            'What is the minimal security update history?',
+                        query: `SELECT json_extract(results.value, '$._name') AS package_name,\
+                                json_extract(results.value, '$.install_version') AS install_version,\
+                                json_extract(results.value, '$.install_date') AS install_date,\
+                                json_extract(results.value, '$.package_source') AS package_source\
+                            FROM system_profiler\
+                            JOIN json_each(system_profiler.value) results\
+                            WHERE data_type = 'SPInstallHistoryDataType'\
+                            AND (package_name LIKE '%macOS%'\
+                            OR package_name LIKE '%Security%'\
+                            OR package_name LIKE '%XProtect%'\
+                            OR package_name LIKE '%Gatekeeper%'\
+                            OR package_name LIKE '%MRT%')\
+                            ORDER BY install_date DESC\
+                            LIMIT 10;
+                            `,
+                    }),
+                },
 
                 screenLockStatus: await this.runQueries(
                     [

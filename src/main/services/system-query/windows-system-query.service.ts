@@ -252,7 +252,7 @@ export class WindowsSystemQueryService
 
                     machineInactivityLimit: await this.runQuery({
                         description: 'Machine inactivity limit policy',
-                        query: "SELECT data FROM registry WHERE path = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\InactivityTimeoutSecs'",
+                        query: "SELECT data FROM registry WHERE path = 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\InactivityTimeoutSecs' COLLATE NOCASE",
                         transform: res => parseIntOrUndefined(res[0]?.data),
                     }),
                 }, // screenLockSettings
@@ -325,7 +325,7 @@ export class WindowsSystemQueryService
     private async getPowerScheme(): Promise<WindowsPowerScheme | undefined> {
         const activeScheme = await this.runQuery({
             description: 'User active power scheme',
-            query: `SELECT data FROM registry WHERE key = '${REGISTRY_POWER_ROOT}\\User\\PowerSchemes\\' AND name = 'ActivePowerScheme' LIMIT 1`,
+            query: `SELECT data FROM registry WHERE key = '${REGISTRY_POWER_ROOT}\\User\\PowerSchemes\\' AND name = 'ActivePowerScheme' COLLATE NOCASE LIMIT 1`,
             transform: res => res[0]?.data,
         });
         if (isEmpty(activeScheme)) return;
@@ -412,9 +412,9 @@ export class WindowsSystemQueryService
             SELECT data, name FROM registry WHERE key = '${policyKey}')\
             ,user_setting(udata, uname) AS (SELECT data, name FROM registry WHERE key = '${userKey}')\
             ,default_setting(ddata, dname) AS (\
-            SELECT data, name FROM registry WHERE key = '${defaultKeyAC}' AND LOWER(name) = 'acsettingindex'\
-            UNION SELECT data, name FROM registry WHERE key = '${defaultKeyDC}' AND LOWER(name) = 'dcsettingindex')\
+            SELECT data, name FROM registry WHERE key = '${defaultKeyAC}' AND name = 'acsettingindex' COLLATE NOCASE\
+            UNION SELECT data, name FROM registry WHERE key = '${defaultKeyDC}' AND name = 'dcsettingindex' COLLATE NOCASE)\
             SELECT COALESCE(pdata, udata, ddata) AS data, LOWER(dname) as name\
-            FROM default_setting LEFT JOIN user_setting ON LOWER(uname) = LOWER(dname) LEFT JOIN policy_setting ON LOWER(pname) = LOWER(dname)`;
+            FROM default_setting LEFT JOIN user_setting ON uname = dname COLLATE NOCASE LEFT JOIN policy_setting ON pname = dname COLLATE NOCASE`;
     }
 }

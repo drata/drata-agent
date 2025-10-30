@@ -32,5 +32,6 @@ export type QueryResult = {
         screenLockStatus?: any;
         locationServices?: any;
         screenLockSettings?: ScreenLockSetting;
+        protectionSettings?: any;
     };
 };

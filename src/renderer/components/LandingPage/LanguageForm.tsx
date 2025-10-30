@@ -9,6 +9,7 @@ import { useBridge } from '../../hooks/use-bridge.hook';
 import { IntlContext } from '../../utility/IntlProvider';
 
 // Import SVG files
+import flagIt from '../../../assets/svg/flag-it.svg';
 import flagDe from '../../../assets/svg/flag-de.svg';
 import flagFr from '../../../assets/svg/flag-fr.svg';
 import flagMx from '../../../assets/svg/flag-mx.svg';
@@ -173,6 +174,11 @@ const LANGUAGE_OPTIONS = [
         value: 'fr-FR',
         label: 'Français',
         icon: flagFr,
+    },
+    {
+        value: 'it-IT',
+        label: 'Italiano',
+        icon: flagIt,
     },
 ];
 
