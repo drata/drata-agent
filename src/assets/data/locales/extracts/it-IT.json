@@ -230,7 +230,7 @@
   "You'll need to download and install anti-virus software." : {
     "defaultMessage" : "Dovrai scaricare e installare un software antivirus."
   },
-  "You'll need to encrypt your computers hard drive." : {
+  "You'll need to encrypt your computer's hard drive." : {
     "defaultMessage" : "Dovrai crittografare il disco rigido del tuo computer."
   },
   "You'll need to turn on auto-updates." : {

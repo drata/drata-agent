@@ -18,7 +18,7 @@ const getComplianceCheckListItems = () => [
         type: ComplianceCheckType[ComplianceCheckType.HDD_ENCRYPTION],
         title: _t({ id: 'Hard-Disk Encrypted' }),
         instructions: _t({
-            id: "You'll need to encrypt your computers hard drive.",
+            id: "You'll need to encrypt your computer's hard drive.",
         }),
         compliantText: _t({ id: "Your computer's hard drive is encrypted." }),
         helpLink: {
