@@ -230,7 +230,7 @@
   "You'll need to download and install anti-virus software." : {
     "defaultMessage" : "U moet anti-virussoftware downloaden en installeren."
   },
-  "You'll need to encrypt your computers hard drive." : {
+  "You'll need to encrypt your computer's hard drive." : {
     "defaultMessage" : "U moet de harde schijf van uw computer versleutelen."
   },
   "You'll need to turn on auto-updates." : {
